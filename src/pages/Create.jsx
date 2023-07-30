@@ -31,6 +31,7 @@ function Create() {
         formData.append("cantidad", data.cantidad);
         formData.append("empresa_id", empresa);
         formData.append("file", data.file[0]);
+        console.log(localStorage.getItem('token'));
 
         ProductServices.createProduct(formData)
         .then(data => {
