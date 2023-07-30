@@ -1,5 +1,5 @@
 async function login(email, password) {
-    return fetch(`http://localhost:2022/api/usuarios/login`, {
+    return fetch(`https://back-public.vercel.app/api/usuarios/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ async function login(email, password) {
 }
 
 async function createUser(name, surname, empresa, email, password) {
-    return fetch(`http://localhost:2022/api/usuarios`, {
+    return fetch(`https://back-public.vercel.app/api/usuarios`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ async function createUser(name, surname, empresa, email, password) {
 }
 
 async function logout(){
-    return fetch(`http://localhost:2022/api/usuarios/logout`, {
+    return fetch(`https://back-public.vercel.app/api/usuarios/logout`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ async function logout(){
 }
 
 async function findById(id){
-    return fetch(`http://localhost:2022/api/usuarios/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/usuarios/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ async function findById(id){
 }
 
 async function editar(id, name, surname, email){
-    return fetch(`http://localhost:2022/api/usuarios/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/usuarios/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 async function find() {
-    return fetch(`http://localhost:2022/api/empresas`, {
+    return fetch(`https://back-public.vercel.app/api/empresas`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ async function find() {
 }
 
 async function crearEmpresa(empresa){
-    return fetch(`http://localhost:2022/api/empresas`, {
+    return fetch(`https://back-public.vercel.app/api/empresas`, {
         method: 'POST',
         body: empresa
     })
@@ -32,7 +32,7 @@ async function crearEmpresa(empresa){
 }
 
 async function findTipos() {
-    return fetch(`http://localhost:2022/api/empresas/tipos`, {
+    return fetch(`https://back-public.vercel.app/api/empresas/tipos`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ async function findTipos() {
 
 
 async function findById(id){
-    return fetch(`http://localhost:2022/api/empresas/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/empresas/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ async function findById(id){
 }
 
 async function findByRubro(id){
-    return fetch(`http://localhost:2022/api/empresas/rubro/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/empresas/rubro/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ async function findByRubro(id){
 }
 
 async function findBySubrubro(id){
-    return fetch(`http://localhost:2022/api/empresas/subrubro/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/empresas/subrubro/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ async function findBySubrubro(id){
 }
 
 async function asociadasRubros(id) {
-    return fetch(`http://localhost:2022/api/empresas/entidad/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/empresas/entidad/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ async function asociadasRubros(id) {
 }
 
 async function asociadasSubrubros(id) {
-    return fetch(`http://localhost:2022/api/empresas/categoria/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/empresas/categoria/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
