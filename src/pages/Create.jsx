@@ -31,8 +31,6 @@ function Create() {
         formData.append("cantidad", data.cantidad);
         formData.append("empresa_id", empresa);
         formData.append("file", data.file[0]);
-        console.log(localStorage.getItem('token'));
-
         ProductServices.createProduct(formData)
         .then(data => {
           if (data) {
@@ -43,6 +41,7 @@ function Create() {
           }
         })
         .catch((error) => {
+          console.log(localStorage.getItem('token'));
           alert('El producto no se pudo crear');
         });
   
