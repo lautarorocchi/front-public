@@ -1,5 +1,18 @@
 {
     "rewrites":  [
       {"source": "/(.*)", "destination": "/"}
-    ]
+    ],
+    "functions": {
+      "api/myFunction": {
+        "handler": "myFunction.js",
+        "events": [
+          {
+            "http": {
+              "method": "GET",
+              "path": "/api/myFunction"
+            }
+          }
+        ]
+      }
+    }
 }
