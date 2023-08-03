@@ -35,8 +35,7 @@ function Create() {
         ProductServices.createProduct(formData)
         .then(data => {
           if (data) {
-            console.log(data)
-            /*navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })*/
+            navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
           }
           else {
             navigate('/404')
