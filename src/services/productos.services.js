@@ -1,9 +1,9 @@
-async function find(id) {
+async function find(id, token) {
     return fetch(`https://back-public.vercel.app/api/products/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token')
+            'auth-token': token
         }
     })
     .then(response => {
