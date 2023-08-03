@@ -12,8 +12,6 @@ import Pagination from '../components/Pagination';
 
 function Admin() {
 
-  const empresa = localStorage.getItem('empresa');
-
   const [query, setQuery] = useState("");
 
   const [products, setProducts] = useState([]);
@@ -39,6 +37,7 @@ function Admin() {
   }, [products]);
 
   useEffect(() => {
+    const empresa = localStorage.getItem('empresa');
     ProductsServices.find(empresa)
       .then(data => {
         if (location.state == null) {
