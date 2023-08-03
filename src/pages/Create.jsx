@@ -57,7 +57,7 @@ function Create() {
               <h1>Creá un Nuevo Producto</h1>
               <h2>Registra un nuevo producto en el panel de administración, <br></br>¿No querias crear un nuevo producto? Vuelve al <Link to="/admin"><u>Panel de control</u></Link>.</h2>
             </hgroup>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} enctype="multipart/form-data">
               <label htmlFor='name' className='left'>Producto</label>
               <input type="text" placeholder="Agregar Nombre del producto" name="name" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}/>
               {
