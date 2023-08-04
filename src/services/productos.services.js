@@ -19,9 +19,8 @@ async function find(id, token) {
 async function createProduct(producto){
     return fetch(`https://back-public.vercel.app/api/productos`, {
         method: 'POST',
-        body: JSON.stringify(producto),
+        body: producto,
         headers: {
-            'Content-Type': 'application/json',
             'auth-token': localStorage.getItem('token')
         },
     })
