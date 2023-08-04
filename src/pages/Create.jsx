@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
+import { Formidable } from "formidable";
 
 const schema = yup.object({
   name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
@@ -24,7 +25,7 @@ function Create() {
   });
 
   const onSubmit = async (data) => {
-        const formData = new FormData();
+        const formData = new Formidable();
         formData.append("name", data.name);
         formData.append("description", data.description);
         formData.append("img", data.file[0].name);
