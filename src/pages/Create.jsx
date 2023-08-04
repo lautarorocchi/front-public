@@ -25,7 +25,7 @@ function Create() {
 
   const onSubmit = async (data) => {
         const formData = new FormData();
-        formData.append("name", data.["name"]);
+        formData.append("name", data.name);
         formData.append("description", data.description);
         formData.append("img", data.file[0].name);
         formData.append("cantidad", data.cantidad);
@@ -33,8 +33,8 @@ function Create() {
         formData.append("file", data.file[0]);
 
         ProductServices.createProduct(formData)
-        .then(data => {
-          if (data) {
+        .then(producto => {
+          if (producto) {
             navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
           }
           else {
