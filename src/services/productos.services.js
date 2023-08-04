@@ -17,7 +17,7 @@ async function find(id, token) {
 }
 
 async function createProduct(producto){
-    return fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/productos`, {
+    return fetch(`https://back-public.vercel.app/api/productos`, {
         method: 'POST',
         body: producto,
         headers: {
