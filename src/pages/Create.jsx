@@ -25,17 +25,22 @@ function Create() {
 
   const onSubmit = async (data) => {
         const formData = new FormData();
-        formData.append("name", data.name);
-        formData.append("description", data.description);
-        formData.append("img", data.file[0].name);
-        formData.append("cantidad", data.cantidad);
+        const nombre = data.name;
+        const descripcion = data.description;
+        const img = data.file[0].name;
+        const cantidad = data.cantidad;
+        const fila = data.file[0];
+        formData.append("name", nombre);
+        formData.append("description", descripcion);
+        formData.append("img", img);
+        formData.append("cantidad", cantidad);
         formData.append("empresa_id", empresa);
-        formData.append("file", data.file[0]);
+        formData.append("file", fila);
 
         ProductServices.createProduct(formData)
         .then(data => {
           if (data) {
-            console.log(data.name)
+            console.log()
             /*navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })*/
           }
           else {
