@@ -12,6 +12,7 @@ const schema = yup.object({
   name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
   description: yup.string().min(10, "La descripción debe tener al menos 10 letras.").required("Se necesita ingresar una descripción para crear una cuenta."),
   cantidad: yup.number().required("Se necesita ingresar la cantidad del producto para crearlo.").typeError("Solo se pueden ingresar numeros en este campo."),
+  file: yup.mixed().required("Se necesita ingresar la imagen del producto para crearlo."),
 })
 
 function Create() {
@@ -26,8 +27,10 @@ function Create() {
         const formData = new FormData();
         formData.append("name", data.name);
         formData.append("description", data.description);
+        formData.append("img", data.file[0].name);
         formData.append("cantidad", data.cantidad);
         formData.append("empresa_id", empresa);
+        formData.append("file", data.file[0]);
 
         ProductServices.createProduct(formData)
         .then(data => {
@@ -69,6 +72,12 @@ function Create() {
               <input type="number" id="cantidad" placeholder="Agregar Cantidad" name="cantidad" className={errors.cantidad?.message ? 'redBorder' : ''} {...register("cantidad")}/>
               {
                 errors.cantidad?.message ?  <p className='errorYup'>{errors.cantidad?.message}</p> : ''
+              }
+              <label htmlFor="file">Imagen
+              <input type="file" accept='image/jpeg' {...register("file")} required></input>
+              </label>
+              {
+                errors.file?.message ?   <p className='errorYup'>{errors.file?.message}</p> : ''
               }
               <button type='submit' className='marginado'>Creá Un Nuevo Producto</button>
             </form>
