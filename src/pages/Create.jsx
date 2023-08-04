@@ -91,8 +91,3 @@ function Create() {
 
 export default Create
 
-export const config = {
-  api: {
-    bodyParser: false
-  }
-}
