@@ -25,23 +25,17 @@ function Create() {
 
   const onSubmit = async (data) => {
         const formData = new FormData();
-        const nombre = data.name;
-        const descripcion = data.description;
-        const img = data.file[0].name;
-        const cantidad = data.cantidad;
-        const fila = data.file[0];
-        formData.append("name", nombre);
-        formData.append("description", descripcion);
-        formData.append("img", img);
-        formData.append("cantidad", cantidad);
+        formData.append("name", data.name);
+        formData.append("description", data.description);
+        formData.append("img", data.file[0].name);
+        formData.append("cantidad", data.cantidad);
         formData.append("empresa_id", empresa);
-        formData.append("file", fila);
+        formData.append("file", data.file[0]);
 
         ProductServices.createProduct(formData)
         .then(data => {
           if (data) {
-            console.log(formData)
-            /*navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })*/
+            navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
           }
           else {
             navigate('/404')
@@ -78,12 +72,6 @@ function Create() {
               <input type="number" id="cantidad" placeholder="Agregar Cantidad" name="cantidad" className={errors.cantidad?.message ? 'redBorder' : ''} {...register("cantidad")}/>
               {
                 errors.cantidad?.message ?  <p className='errorYup'>{errors.cantidad?.message}</p> : ''
-              }
-              <label htmlFor="file">Imagen
-              <input type="file" accept='image/jpeg' {...register("file")} required></input>
-              </label>
-              {
-                errors.file?.message ?   <p className='errorYup'>{errors.file?.message}</p> : ''
               }
               <button type='submit' className='marginado'>Creá Un Nuevo Producto</button>
             </form>
