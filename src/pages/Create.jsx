@@ -3,6 +3,7 @@ import {
   Link
 } from "react-router-dom";
 import * as ProductServices from '../services/productos.services.js'
+import busboy from '../services/busboy.js';
 import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -35,7 +36,8 @@ function Create() {
         ProductServices.createProduct(formData)
         .then(data => {
           if (data) {
-            navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
+            busboy(formData)
+            /*navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })*/
           }
           else {
             navigate('/404')
