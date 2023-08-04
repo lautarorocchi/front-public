@@ -23,7 +23,7 @@ function Create() {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
         const formData = new FormData();
         formData.append("name", data.name);
         formData.append("description", data.description);
