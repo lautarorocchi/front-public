@@ -25,7 +25,7 @@ function Create() {
 
   const onSubmit = async (data) => {
         const formData = new FormData();
-        formData.append("name", data.name);
+        formData.append("name", data.["name"]);
         formData.append("description", data.description);
         formData.append("img", data.file[0].name);
         formData.append("cantidad", data.cantidad);
