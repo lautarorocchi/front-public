@@ -21,6 +21,7 @@ async function createProduct(producto){
         method: 'POST',
         body: producto,
         headers: {
+            'Content-Type': 'multipart/form-data',
             'auth-token': localStorage.getItem('token')
         },
     })
