@@ -16,11 +16,12 @@ async function find(id, token) {
     })
 }
 
-async function createProduct(producto){
+async function createProduct(name, description, img, cantidad, empresa_id){
     return fetch(`https://back-public.vercel.app/api/productos`, {
         method: 'POST',
-        body: producto,
+        body: JSON.stringify({name, description, img, cantidad, empresa_id}),
         headers: {
+            'Content-Type': 'application/json',
             'auth-token': localStorage.getItem('token')
         },
     })
