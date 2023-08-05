@@ -16,10 +16,10 @@ async function find() {
     })
 }
 
-async function crearEmpresa(nombre, description, email, img, localidad, rubro, subrubro){
+async function crearEmpresa(name, descripcion, email, img, localidad, rubro, subrubro){
     return fetch(`https://back-public.vercel.app/api/empresas`, {
         method: 'POST',
-        body: JSON.stringify({nombre, description, email, img, localidad, rubro, subrubro}),
+        body: JSON.stringify({name, descripcion, email, img, localidad, rubro, subrubro}),
         headers: {
             'Content-Type': 'application/json',
         },
