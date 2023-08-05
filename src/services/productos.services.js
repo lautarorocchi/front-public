@@ -73,11 +73,12 @@ async function deleteById(id){
     })
 }
 
-async function editProduct(id, producto){
+async function editProduct(id, name, description, img, cantidad, empresa_id){
     return fetch(`https://back-public.vercel.app/api/productos/${id}`, {
         method: 'PUT',
-        body: producto,
+        body: JSON.stringify({name, description, img, cantidad, empresa_id}),
         headers: {
+            'Content-Type': 'application/json',
             'auth-token': localStorage.getItem('token')
         },
     })

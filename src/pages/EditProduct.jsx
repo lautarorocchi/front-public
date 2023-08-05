@@ -28,15 +28,15 @@ function EditProduct() {
     });
 
     const onSubmit = async (data) => {
-        const formData = new FormData();
+        /*const formData = new FormData();
         formData.append("name", data.name);
         formData.append("description", data.description);
         formData.append("img", data.file[0].name);
         formData.append("cantidad", data.cantidad);
         formData.append("empresa_id", empresa);
-        formData.append("file", data.file[0]);
+        formData.append("file", data.file[0]);*/
 
-        ProductsServices.editProduct(id, formData)
+        ProductsServices.editProduct(id, data.name, data.description, data.file[0].name, data.cantidad, empresa)
             .then(data => {
                 if (data) {
                     navigate('/admin',{ state: {edited: "¡El producto ha sido editado! Puedes observarlo en el panel de control." } })
