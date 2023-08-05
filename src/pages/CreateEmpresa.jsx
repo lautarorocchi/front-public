@@ -28,7 +28,7 @@ function CreateEmpresa() {
   });
 
   const onSubmit = async (data) => {
-    const formData = new FormData();
+    /*const formData = new FormData();
     formData.append("name", data.name);
     formData.append("descripcion", data.descripcion);
     formData.append("email", data.email);
@@ -36,9 +36,9 @@ function CreateEmpresa() {
     formData.append("localidad", data.localidad);
     formData.append("rubro", data.rubro);
     formData.append("subrubro", data.subrubro);
-    formData.append("file", data.file[0]);
+    formData.append("file", data.file[0]);*/
 
-    EmpresaServices.crearEmpresa(formData)
+    EmpresaServices.crearEmpresa(data.name, data.descripcion, data.email, data.file[0].name, data.localidad, data.rubro, data.subrubro)
       .then(data => {
         if (data) {
           navigate('/registro')
