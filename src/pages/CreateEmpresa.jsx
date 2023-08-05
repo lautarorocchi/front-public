@@ -41,8 +41,7 @@ function CreateEmpresa() {
     EmpresaServices.crearEmpresa(data.name, data.descripcion, data.email, data.file[0].name, data.localidad, data.rubro, data.subrubro)
       .then(data => {
         if (data) {
-          console.log(data.name)
-          /*navigate('/registro')*/
+          navigate('/registro')
         }
         else {
           navigate('/404')
