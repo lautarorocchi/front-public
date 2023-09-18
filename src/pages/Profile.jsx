@@ -79,7 +79,7 @@ function Profile() {
             </div>
             <hgroup>
               <h2>Mi Perfil</h2>
-              <h3><div>Esta es la información de tu perfil,</div>¿Quieres modificar algún dato? Puedes hacerlo en <Link to="/perfil/editar"><u>Edíta tu perfil</u></Link>.</h3>
+              <h3><div>Esta es la información de tu perfil,</div>¿Quieres modificar algún dato? Podes hacerlo en <Link to="/perfil/editar"><u>Edíta tu perfil</u></Link>.</h3>
             </hgroup>
             {(usuario) ?
               <div className='grid'>
