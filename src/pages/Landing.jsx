@@ -30,17 +30,17 @@ function Landing() {
                     <aside>
                         <a href="#" aria-label="Sistema Efectivo"><img src={imgEfectivo} alt="Sistema Efectivo"></img></a>
                         <p>
-                            <a>Sistema Rápido y Efectivo</a><br></br>
+                            <div><a>Sistema Rápido y Efectivo</a></div>
                             <small>Se ha realizado un sistema rápido con las ultimas tecnologias que brindan un sitio rapido, seguro y efectivo. Esto hace Stack Ux sea una de las mejores opciones del mercado.</small>
                         </p>
                         <a href="#" aria-label="Experiencia del usuario"><img src={imgUser} alt="Experiencia del usuario"></img></a>
                         <p>
-                            <a>Experiencia Del <br></br> Usuario Personalizada</a><br></br>
+                            <div><a>Experiencia Del <br></br> Usuario Personalizada</a></div>
                             <small>Ofrecemos la posibilidad de crear tu usuario de administrador anexando tu empresa, esto te permitirá administrar y recibir pedidos de clientes.</small>
                         </p>
                         <a href="#" aria-label="Configuración Segura"><img src={imgSecure} alt="Configuración Segura"></img></a>
                         <p>
-                            <a>Configuración<br></br> Simple y Segura</a><br></br>
+                            <div><a>Configuración<br></br> Simple y Segura</a></div>
                             <small>La Configuración del sistema es simple y esta resguardada por un sistema de seguridad cifrado. De esta manera podrás manejar tu información de manera segura y guardarla de manera digital.</small>
                         </p>
                     </aside>
