@@ -70,8 +70,8 @@ function ProductDetail() {
         <article className='grid login pb-2'>
           <div>
             <hgroup>
-              <h1>Detalles del producto</h1>
-              <h2>Aqui tienes el detalle del producto <br></br> ¿Quieres ver todos tus productos? <Link to='/admin'><u>Volver al Panel.</u></Link></h2>
+              <h2>Detalles del producto</h2>
+              <h3><div>Aqui tienes el detalle del producto</div>¿Quieres ver todos tus productos? <Link to='/admin'><u>Volver al Panel.</u></Link></h3>
             </hgroup>
             {(product) ?
               <div>

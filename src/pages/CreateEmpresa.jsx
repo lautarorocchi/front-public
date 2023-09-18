@@ -76,8 +76,8 @@ function CreateEmpresa() {
         <article className="grid login">
           <div>
             <hgroup>
-              <h1>Regístra una empresa</h1>
-              <h2>Registra una nueva empresa para anexarla a tu usuario, <br></br> ¿Tu empresa ya esta registrada? <Link to="/registro"><u>Registrate</u></Link>.<br></br> ¿Ya tienes usuario? <Link to="/login"><u>Inicia Sesión</u></Link>.</h2>
+              <h2>Regístra una empresa</h2>
+              <h3><div>Registra una nueva empresa para anexarla a tu usuario, </div>¿Tu empresa ya esta registrada? <Link to="/registro"><u>Registrate</u></Link>.<br></br> ¿Ya tienes usuario? <Link to="/login"><u>Inicia Sesión</u></Link>.</h3>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label htmlFor='nombre' className='left'>Nombre de la empresa</label>

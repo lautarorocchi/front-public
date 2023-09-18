@@ -11,8 +11,8 @@ function Page404() {
         <article className='grid login pb-2'>
           <div>
             <hgroup>
-            <h1>Error 404</h1>
-            <h2>Ups! Ocurrio un Error 404, la Url solicitada es erronéa o ha ocurrido un error al refrescar la pagina.</h2>
+            <h2>Error 404</h2>
+            <h3>Ups! Ocurrio un Error 404, la Url solicitada es erronéa o ha ocurrido un error al refrescar la pagina.</h3>
             </hgroup>
 
               <div>

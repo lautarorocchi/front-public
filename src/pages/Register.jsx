@@ -92,8 +92,8 @@ function Register() {
               </div> : ''
             }
             <hgroup>
-              <h1>Regístrate</h1>
-              <h2>Registra un nuevo usuario para ingresar al panel de control, <br></br> ¿Estás Registrado? <Link to="/login"><u>Inicia Sesión</u></Link>.<br></br> ¿No encuentras tu empresa en la lista? <Link to="/empresa/crear"><u>Regístra Una Empresa</u></Link>.</h2>
+              <h2>Regístrate</h2>
+              <h3><div>Registra un nuevo usuario para ingresar al panel de control,</div> ¿Estás Registrado? <Link to="/login"><u>Inicia Sesión</u></Link>.<br></br> ¿No encuentras tu empresa en la lista? <Link to="/empresa/crear"><u>Regístra Una Empresa</u></Link>.</h3>
             </hgroup>
             <form onSubmit={handleSubmit(submitUsuario)}>
               <label htmlFor='nombre' className='left'>Nombre</label>

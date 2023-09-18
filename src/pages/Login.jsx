@@ -57,8 +57,8 @@ function Login({ onLogin }) {
               </div> : ''
             }
             <hgroup>
-              <h1>Inicia Sesión</h1>
-              <h2>Ingresa tu usuario para ingresar al panel de control.</h2>
+              <h2>Inicia Sesión</h2>
+              <h3>Ingresa tu usuario para ingresar al panel de control.</h3>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label htmlFor='email' className='left'>Email</label>
