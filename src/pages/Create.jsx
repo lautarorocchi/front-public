@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 import {storage} from '../services/firebase.js'
-import {ref} from 'firebase/storage'
+import {ref, uploadBytes} from 'firebase/storage'
 import {v4} from 'uuid'
 
 const schema = yup.object({
@@ -26,6 +26,9 @@ function Create() {
   const uploadFile = () => {
     if(imageUpload == null) return;
     const imageRef = ref(storage, `imagenes/productos/${imageUpload.name + v4()}`)
+    uploadBytes(imageRef, imageUpload).then(() => {
+      alert("imageUploaded")
+    })
   };
 
   const { register, handleSubmit, watch, formState: { errors }} = useForm({
