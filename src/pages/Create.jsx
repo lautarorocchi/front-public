@@ -35,10 +35,11 @@ function Create() {
 
   const onSubmit = async (data) => {
 
+    uploadFile();
+
         ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
         .then(data => {
           if (data) {
-            uploadFile();
             navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
           }
           else {
