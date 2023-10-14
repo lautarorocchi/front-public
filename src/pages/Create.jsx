@@ -44,6 +44,8 @@ function Create() {
         formData.append("empresa_id", empresa);
         formData.append("file", data.file[0]);*/
 
+        uploadFile();
+
         ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
         .then(data => {
           if (data) {
