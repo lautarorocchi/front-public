@@ -34,7 +34,7 @@ function Create() {
   });
 
   const onSubmit = async (data) => {
-    ProductServices.createProduct(data.name, data.description, imageUpload.name + v4() , data.cantidad, empresa)
+    ProductServices.createProduct(data.name, data.description, imageUpload.name , data.cantidad, empresa)
         .then(data => {
           if (data) {
             uploadFile()
