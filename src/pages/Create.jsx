@@ -38,7 +38,6 @@ function Create() {
     ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
         .then(data => {
           if (data) {
-            uploadFile();
             navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
           }
           else {
@@ -83,7 +82,7 @@ function Create() {
               {
                 errors.file?.message ?   <p className='errorYup'>{errors.file?.message}</p> : ''
               }
-              <button type='submit' className='marginado' onClick={uploadFile}>Creá Un Nuevo Producto</button>
+              <button type='submit' className='marginado' onClick={uploadFile()}>Creá Un Nuevo Producto</button>
             </form>
           </div>
         </article>
