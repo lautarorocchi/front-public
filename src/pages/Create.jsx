@@ -14,8 +14,7 @@ import {v4} from 'uuid'
 const schema = yup.object({
   name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
   description: yup.string().min(10, "La descripción debe tener al menos 10 letras.").required("Se necesita ingresar una descripción para crear una cuenta."),
-  cantidad: yup.number().required("Se necesita ingresar la cantidad del producto para crearlo.").typeError("Solo se pueden ingresar numeros en este campo."),
-  file: yup.mixed().required("Se necesita ingresar la imagen del producto para crearlo."),
+  cantidad: yup.number().required("Se necesita ingresar la cantidad del producto para crearlo.").typeError("Solo se pueden ingresar numeros en este campo.")
 })
 
 function Create() {
