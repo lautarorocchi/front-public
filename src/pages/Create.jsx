@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
+import {storage} from '../services/firebase.js'
+import {ref} from 'firebase/storage'
+import {v4} from 'uuid'
 
 const schema = yup.object({
   name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
@@ -18,6 +21,12 @@ const schema = yup.object({
 function Create() {
   const navigate = useNavigate()
   const empresa = localStorage.getItem('empresa');
+  const [imageUpload, setImageUpload] = useState(null)
+
+  const uploadFile = () => {
+    if(imageUpload == null) return;
+    const imageRef = ref(storage, `imagenes/productos/${imageUpload.name + v4()}`)
+  };
 
   const { register, handleSubmit, watch, formState: { errors }} = useForm({
     resolver: yupResolver(schema)
@@ -74,7 +83,7 @@ function Create() {
                 errors.cantidad?.message ?  <p className='errorYup'>{errors.cantidad?.message}</p> : ''
               }
               <label htmlFor="file">Imagen
-              <input type="file" accept='image/jpeg' {...register("file")} required></input>
+              <input type="file" accept='image/jpeg' onChange={(event) => setImageUpload(event.target.files[0])} required></input>
               </label>
               {
                 errors.file?.message ?   <p className='errorYup'>{errors.file?.message}</p> : ''
