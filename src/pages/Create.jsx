@@ -35,8 +35,6 @@ function Create() {
 
   const onSubmit = async (data) => {
 
-    uploadFile(); 
-    
     ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
         .then(data => {
           if (data) {
@@ -85,7 +83,7 @@ function Create() {
               {
                 errors.file?.message ?   <p className='errorYup'>{errors.file?.message}</p> : ''
               }
-              <button type='submit' className='marginado'>Creá Un Nuevo Producto</button>
+              <button type='submit' className='marginado' onClick={uploadFile}>Creá Un Nuevo Producto</button>
             </form>
           </div>
         </article>
