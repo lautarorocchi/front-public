@@ -26,7 +26,6 @@ function Create() {
     if(imageUpload == null) return;
     const imageRef = ref(storage, `imagenes/productos/${imageUpload.name + v4()}`)
     uploadBytes(imageRef, imageUpload).then(() => {
-      alert("imageUploaded")
     })
   };
 
@@ -35,8 +34,10 @@ function Create() {
   });
 
   const onSubmit = async (data) => {
+
+    uploadFile(); 
     
-        ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
+    ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
         .then(data => {
           if (data) {
             uploadFile();
