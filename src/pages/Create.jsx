@@ -22,9 +22,9 @@ function Create() {
   const empresa = localStorage.getItem('empresa');
   const [imageUpload, setImageUpload] = useState(null)
 
-  const uploadFile = () => {
+  const uploadFile = (imagen) => {
     if(imageUpload == null) return;
-    const imageRef = ref(storage, `imagenes/productos/${imageUpload.name + v4()}`)
+    const imageRef = ref(storage, `imagenes/productos/${imagen}`)
     uploadBytes(imageRef, imageUpload).then(() => {
     })
   };
@@ -34,10 +34,11 @@ function Create() {
   });
 
   const onSubmit = async (data) => {
-    ProductServices.createProduct(data.name, data.description, imageUpload.name , data.cantidad, empresa)
+    const imageLinker = imageUpload.name + v4();
+    ProductServices.createProduct(data.name, data.description, imageLinker , data.cantidad, empresa)
         .then(data => {
           if (data) {
-            uploadFile()
+            uploadFile(imageLinker)
             navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
           }
           else {
