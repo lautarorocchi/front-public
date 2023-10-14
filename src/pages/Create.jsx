@@ -34,13 +34,6 @@ function Create() {
   });
 
   const onSubmit = async (data) => {
-        /*const formData = new FormData();
-        formData.append("name", data.name);
-        formData.append("description", data.description);
-        formData.append("img", data.file[0].name);
-        formData.append("cantidad", data.cantidad);
-        formData.append("empresa_id", empresa);
-        formData.append("file", data.file[0]);*/
 
         ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
         .then(data => {
