@@ -14,11 +14,13 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@hookform/resolvers": "^2.9.11",
     "@picocss/pico": "^1.5.7",
+    "firebase": "^10.5.0",
     "multiparty": "^4.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.5",
     "react-router-dom": "^6.8.2",
+    "uui": "^1.0.7",
     "yup": "^1.0.2"
   },
   "devDependencies": {
