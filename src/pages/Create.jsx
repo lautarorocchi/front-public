@@ -26,7 +26,6 @@ function Create() {
     if(imageUpload == null) return;
     const imageRef = ref(storage, `imagenes/productos/${imageUpload.name + v4()}`)
     uploadBytes(imageRef, imageUpload).then(() => {
-      alert("imageUploaded")
     })
   };
 
@@ -43,11 +42,10 @@ function Create() {
         formData.append("empresa_id", empresa);
         formData.append("file", data.file[0]);*/
 
-        uploadFile();
-
         ProductServices.createProduct(data.name, data.description, data.file[0].name, data.cantidad, empresa)
         .then(data => {
           if (data) {
+            uploadFile();
             navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
           }
           else {
