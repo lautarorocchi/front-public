@@ -42,7 +42,7 @@ function EditProduct() {
         ProductsServices.editProduct(id, data.name, data.description, imageLinker, data.cantidad, empresa)
             .then(data => {
                 if (data) {
-                    uploadFile();
+                    uploadFile(imageLinker);
                     navigate('/admin',{ state: {edited: "¡El producto ha sido editado! Puedes observarlo en el panel de control." } })
                 }
                 else {
