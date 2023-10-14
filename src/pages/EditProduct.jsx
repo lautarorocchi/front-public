@@ -8,12 +8,14 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
+import {storage} from '../services/firebase.js'
+import {ref, uploadBytes} from 'firebase/storage'
+import {v4} from 'uuid'
 
 const schema = yup.object({
     name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
     description: yup.string().min(10, "La descripción debe tener al menos 10 letras.").required("Se necesita ingresar una descripción para crear una cuenta."),
-    cantidad: yup.number().required("Se necesita ingresar la cantidad del producto para crearlo.").typeError("Solo se pueden ingresar numeros en este campo."),
-    file: yup.mixed().required("Se necesita ingresar la imagen del producto para crearlo."),
+    cantidad: yup.number().required("Se necesita ingresar la cantidad del producto para crearlo.").typeError("Solo se pueden ingresar numeros en este campo.")
 })
 
 
@@ -22,23 +24,25 @@ function EditProduct() {
     const { id } = useParams();
     let defaultValues = {};
     const empresa = localStorage.getItem('empresa');
+    const [imageUpload, setImageUpload] = useState(null)
+
+    const uploadFile = (imagen) => {
+      if(imageUpload == null) return;
+      const imageRef = ref(storage, `imagenes/productos/${imagen}`)
+      uploadBytes(imageRef, imageUpload).then(() => {
+    })
+    };
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
     const onSubmit = async (data) => {
-        /*const formData = new FormData();
-        formData.append("name", data.name);
-        formData.append("description", data.description);
-        formData.append("img", data.file[0].name);
-        formData.append("cantidad", data.cantidad);
-        formData.append("empresa_id", empresa);
-        formData.append("file", data.file[0]);*/
-
-        ProductsServices.editProduct(id, data.name, data.description, data.file[0].name, data.cantidad, empresa)
+        const imageLinker = imageUpload.name + v4();
+        ProductsServices.editProduct(id, data.name, data.description, imageLinker, data.cantidad, empresa)
             .then(data => {
                 if (data) {
+                    uploadFile();
                     navigate('/admin',{ state: {edited: "¡El producto ha sido editado! Puedes observarlo en el panel de control." } })
                 }
                 else {
@@ -103,7 +107,7 @@ function EditProduct() {
                             errors.cantidad?.message ? <p className='errorYup'>{errors.cantidad?.message}</p> : ''
                         }
                         <label for="file">Imagen
-                            <input type="file" {...register("file")} required></input>
+                            <input type="file" onChange={(event) => setImageUpload(event.target.files[0])} required></input>
                         </label>
                         <button type='submit' className='marginado'>Editá Un Nuevo Producto</button>
                     </form>
