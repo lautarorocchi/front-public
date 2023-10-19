@@ -40,13 +40,13 @@ function ProductDetail() {
   }
 
   useEffect(() => {
+    list(imagenRef).then((response) => {
+      console.log(response)
+    }) 
     ProductsServices.findById(id)
       .then(data => {
         if (data) {
           setProduct(data);
-          list(imagenRef).then((response) => {
-            console.log(response)
-          }) 
         }
         else {
           navigate('/404')
