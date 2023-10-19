@@ -43,7 +43,12 @@ function ProductDetail() {
 
   useEffect(() => {
     listAll(imagenRef).then((response) => {
-      console.log(response)
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    });
     }
     )
     ProductsServices.findById(id)
