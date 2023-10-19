@@ -22,7 +22,7 @@ function ProductDetail() {
     ProductsServices.deleteById(id)
       .then(data => {
         if (data) {
-          navigate('/admin',{ state: {deleted: "¡El producto ha sido eliminado con éxito! Puedes observarlo en el panel de control." } })
+          navigate('/admin', { state: { deleted: "¡El producto ha sido eliminado con éxito! Puedes observarlo en el panel de control." } })
         }
         else {
           navigate('/404')
@@ -33,11 +33,11 @@ function ProductDetail() {
       })
   }
 
-  function activaModal(){
+  function activaModal() {
     setEstadoModal(true)
   }
 
-  function desactivaModal(){
+  function desactivaModal() {
     setEstadoModal(false)
   }
 
@@ -49,24 +49,24 @@ function ProductDetail() {
         });
       });
     });
-    }
-    )
-    ProductsServices.findById(id)
-      .then(data => {
-        if (data) {
-          setProduct(data);
-        }
-        else {
-          navigate('/404')
-        }
-      })
-      .catch(err => {
+  }
+  )
+  ProductsServices.findById(id)
+    .then(data => {
+      if (data) {
+        setProduct(data);
+      }
+      else {
         navigate('/404')
-      })
-  }, [id])
-  return (
-    <div className='main'>
-    {estadoModal ? 
+      }
+    })
+    .catch(err => {
+      navigate('/404')
+    })
+}, [id])
+return (
+  <div className='main'>
+    {estadoModal ?
       <dialog open>
         <article>
           <h3>¿Seguro que quieres eliminar este producto?</h3>
@@ -79,32 +79,35 @@ function ProductDetail() {
           </footer>
         </article>
       </dialog> : ''}
-      <div className='container'>
-        <article className='grid login pb-2'>
-          <div>
-            <hgroup>
-              <h2>Detalles del producto</h2>
-              <h3><div>Aqui tienes el detalle del producto</div>¿Quieres ver todos tus productos? <Link to='/admin'><u>Volver al Panel.</u></Link></h3>
-            </hgroup>
-            {(product) ?
+    <div className='container'>
+      <article className='grid login pb-2'>
+        <div>
+          <hgroup>
+            <h2>Detalles del producto</h2>
+            <h3><div>Aqui tienes el detalle del producto</div>¿Quieres ver todos tus productos? <Link to='/admin'><u>Volver al Panel.</u></Link></h3>
+          </hgroup>
+          {(product) ?
+            <div>
+              <ul>
+                <li><strong>Nombre:</strong> {product.name}.</li>
+                <li><strong>Descripción:</strong> {product.description}.</li>
+                <li><strong>Imagen:</strong> {product.img}.</li>
+                {listaImagenes.map((url) => {
+                  return <img src={url} />;
+                })}
+                <li><strong>Cantidad:</strong> {product.cantidad}.</li>
+              </ul>
               <div>
-                <ul>
-                  <li><strong>Nombre:</strong> {product.name}.</li>
-                  <li><strong>Descripción:</strong> {product.description}.</li>
-                  <li><strong>Imagen:</strong> {product.img}.</li>
-                  <li><strong>Cantidad:</strong> {product.cantidad}.</li>
-                </ul>
-                <div>
-                  <Link to={`/productos/${product._id}`} role="button" className='mr-3'>Editar Producto</Link>
-                  <span onClick={activaModal} role="button" className='rojo'>Eliminar Producto</span>
-                </div>
+                <Link to={`/productos/${product._id}`} role="button" className='mr-3'>Editar Producto</Link>
+                <span onClick={activaModal} role="button" className='rojo'>Eliminar Producto</span>
               </div>
-              : <Loading />}
-          </div>
-        </article>
-      </div>
+            </div>
+            : <Loading />}
+        </div>
+      </article>
     </div>
-  )
+  </div>
+)
 }
 
 export default ProductDetail
