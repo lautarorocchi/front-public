@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import { listAll, ref } from 'firebase/storage'
+import { storage } from '../services/firebase'
 
 function ProductDetail() {
   const navigate = useNavigate()
@@ -15,7 +16,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
   const [listaImagenes, setListaImagenes] = useState([])
-  const imagenRef = ref('imagenes/productos/')
+  const imagenRef = ref(storage, 'imagenes/productos/')
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
