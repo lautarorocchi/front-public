@@ -7,14 +7,15 @@ import Loading from '../components/Loading'
 import {
   Link
 } from "react-router-dom";
-import { list, ref } from 'firebase/storage'
+import { listAll, ref } from 'firebase/storage'
 
 function ProductDetail() {
   const navigate = useNavigate()
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
-  const imagenRef = ref('imagenes/productos/buen-disenio.pngd9310efa-925c-4bd0-bf55-d2bab0620c0d')
+  const [listaImagenes, setListaImagenes] = useState([])
+  const imagenRef = ref('imagenes/productos/')
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
@@ -40,9 +41,9 @@ function ProductDetail() {
   }
 
   useEffect(() => {
-    list(imagenRef).then((response) => {
+    listAll(imagenRef).then((response) =>
       console.log(response)
-    }) 
+    )
     ProductsServices.findById(id)
       .then(data => {
         if (data) {
