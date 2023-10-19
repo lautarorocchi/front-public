@@ -45,7 +45,7 @@ function ProductDetail() {
     listAll(imagenRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
-          setImageUrls((prev) => [...prev, url]);
+          setListaImagenes((prev) => [...prev, url]);
         });
       });
     });
