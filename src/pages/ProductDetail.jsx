@@ -42,8 +42,9 @@ function ProductDetail() {
   }
 
   useEffect(() => {
-    listAll(imagenRef).then((response) =>
+    listAll(imagenRef).then((response) => {
       console.log(response)
+    }
     )
     ProductsServices.findById(id)
       .then(data => {
