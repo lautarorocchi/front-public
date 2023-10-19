@@ -128,7 +128,6 @@ function Admin() {
                     <tr>
                       <th scope="col">Producto</th>
                       <th scope="col">Descripción</th>
-                      <th scope="col">Imagen</th>
                       <th scope="col">Cantidad</th>
                       <th scope="col">Stock</th>
                       <th scope="col">Acciones</th>
@@ -139,7 +138,6 @@ function Admin() {
                       <tr key={index}>
                         <td>{product.name}</td>
                         <td>{product.description}</td>
-                        <td>{product.img}</td>
                         <td>{product.cantidad}</td>
                         <td>Si</td>
                         <td>
