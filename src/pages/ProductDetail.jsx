@@ -7,7 +7,8 @@ import Loading from '../components/Loading'
 import {
   Link
 } from "react-router-dom";
-import {storage, listAll, ref } from 'firebase/storage'
+import { listAll, ref } from 'firebase/storage'
+import { storage } from '../services/firebase'
 
 function ProductDetail() {
   const navigate = useNavigate()
