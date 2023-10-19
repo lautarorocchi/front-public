@@ -15,8 +15,8 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
-  const [listaImagenes, setListaImagenes] = useState([])
-  const imagenRef = ref(storage, 'imagenes/productos/')
+  const [listaImagenes, setListaImagenes] = useState([]);
+  const imagenRef = ref(storage, 'imagenes/productos/');
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
