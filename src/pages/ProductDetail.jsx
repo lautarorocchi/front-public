@@ -86,7 +86,7 @@ function ProductDetail() {
                   <li><strong>Nombre:</strong> {product.name}.</li>
                   <li><strong>Descripción:</strong> {product.description}.</li>
                   <li><strong>Imagen:</strong></li>
-                  <img src={`${imagen}`}></img>
+                  <img src={`${imagen}`} alt={`${product.name}`}></img>
                   <li><strong>Cantidad:</strong> {product.cantidad}.</li>
                 </ul>
                 <div>
