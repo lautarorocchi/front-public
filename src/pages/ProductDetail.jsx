@@ -82,7 +82,7 @@ function ProductDetail() {
             </hgroup>
             {(product && imagen) ?
               <div>
-                <ul>
+                <ul className='listanone'>
                   <li><strong>Nombre:</strong> {product.name}.</li>
                   <li><strong>Descripción:</strong> {product.description}.</li>
                   <li><strong>Imagen:</strong></li>

@@ -86,10 +86,10 @@ function Profile() {
                 <div>
                 <h5>Mis datos de Perfil:</h5>
                 <ul className='listanone'>
-                  <li>Nombre: {usuario.name} </li>
-                  <li>Apellido: {usuario.surname} </li>
-                  <li>Empresa Asociada: {empresaNombre}</li>
-                  <li>Email: {usuario.email}</li>
+                  <li><strong>Nombre:</strong> {usuario.name} </li>
+                  <li><strong>Apellido:</strong> {usuario.surname} </li>
+                  <li><strong>Empresa Asociada:</strong> {empresaNombre}</li>
+                  <li><strong>Email:</strong> {usuario.email}</li>
                 </ul>
                 </div>
                 <div>
