@@ -85,7 +85,8 @@ function ProductDetail() {
                 <ul>
                   <li><strong>Nombre:</strong> {product.name}.</li>
                   <li><strong>Descripción:</strong> {product.description}.</li>
-                  <li><strong>Imagen:</strong> <img src={`${imagen}`}></img></li>
+                  <li><strong>Imagen:</strong></li>
+                  <img src={`${imagen}`}></img>
                   <li><strong>Cantidad:</strong> {product.cantidad}.</li>
                 </ul>
                 <div>
