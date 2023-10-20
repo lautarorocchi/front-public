@@ -317,3 +317,7 @@ textarea {
 .listanone li{
   list-style: none;
 }
+
+.imgPersonalizado{
+  width: 300px;
+}
