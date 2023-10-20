@@ -43,8 +43,10 @@ function ProductDetail() {
     ProductsServices.findById(id)
       .then(data => {
         if (data) {
-          const imagen = getDownloadURL(ref(storage, 'imagenes/productos/' + data.img))
-          console.log(imagen)
+        getDownloadURL(ref(storage, 'imagenes/productos/' + data.img))
+          .then((url) => {
+            console.log(url)
+          })
           setProduct(data);
         }
         else {
