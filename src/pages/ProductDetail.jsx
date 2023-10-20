@@ -15,6 +15,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
   const storage = getStorage();
+  const [imagen, setImagen] = useState(null)
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
@@ -45,7 +46,7 @@ function ProductDetail() {
         if (data) {
         getDownloadURL(ref(storage, 'imagenes/productos/' + data.img))
           .then((url) => {
-            console.log(url)
+            setImagen(url)
           })
           setProduct(data);
         }
@@ -84,7 +85,7 @@ function ProductDetail() {
                 <ul>
                   <li><strong>Nombre:</strong> {product.name}.</li>
                   <li><strong>Descripción:</strong> {product.description}.</li>
-                  <li><strong>Imagen:</strong> {product.img}.</li>
+                  <li><strong>Imagen:</strong> <img src={`${imagen}`}></img></li>
                   <li><strong>Cantidad:</strong> {product.cantidad}.</li>
                 </ul>
                 <div>
