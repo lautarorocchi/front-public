@@ -80,7 +80,7 @@ function ProductDetail() {
               <h2>Detalles del producto</h2>
               <h3><div>Aqui tienes el detalle del producto</div>¿Quieres ver todos tus productos? <Link to='/admin'><u>Volver al Panel.</u></Link></h3>
             </hgroup>
-            {(product) ?
+            {(product && imagen) ?
               <div>
                 <ul>
                   <li><strong>Nombre:</strong> {product.name}.</li>
