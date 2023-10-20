@@ -84,8 +84,8 @@ function ProductDetail() {
               <div>
                 <ul className='listanone'>
                   <li><strong>Nombre:</strong> {product.name}.</li>
-                  <li><strong>Cantidad:</strong> {product.cantidad} Unidades.</li>
                   <li><strong>Descripción:</strong> {product.description}.</li>
+                  <li><strong>Cantidad:</strong> {product.cantidad} Unidades.</li>
                   <li><strong>Imagen:</strong></li>
                   <img className="imgPersonalizado" src={`${imagen}`} alt={`${product.name}`}></img>
                 </ul>
