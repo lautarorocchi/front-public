@@ -15,7 +15,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
   const storage = getStorage();
-  const imageLinker = ref(storage, 'imagenes/productos/')
+  const imageLinker = ref(storage, 'imagenes/productos')
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
