@@ -15,7 +15,6 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
   const storage = getStorage();
-  const imageLinker = ref(storage, 'imagenes/productos/')
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
@@ -44,7 +43,7 @@ function ProductDetail() {
     ProductsServices.findById(id)
       .then(data => {
         if (data) {
-          const imagen = getDownloadURL(imageLinker + data.img)
+          const imagen = getDownloadURL(ref(storage, 'imagenes/productos/' + data.img))
           console.log(imagen)
           setProduct(data);
         }
