@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import * as ProductsServices from '../services/productos.services'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../components/Loading'
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 import {
   Link
@@ -13,6 +14,8 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
+  const storage = getStorage();
+  const imageLinker = ref(storage, 'imagenes/productos/')
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
@@ -41,6 +44,8 @@ function ProductDetail() {
     ProductsServices.findById(id)
       .then(data => {
         if (data) {
+          const imagen = getDownloadURL(ref(storage, imageLinker + data.img))
+          console.log(imagen)
           setProduct(data);
         }
         else {
