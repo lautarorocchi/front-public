@@ -46,7 +46,7 @@ function App() {
     if (token) {
       setAutenticado(true);
     }
-  }, [])
+  }, [token])
 
   useEffect(() => {
     if (token) {
