@@ -2,7 +2,8 @@ async function login(email, password) {
     return fetch(`https://back-public.vercel.app/api/usuarios/login`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
         },
         body: JSON.stringify({ email, password })
     })
