@@ -69,9 +69,6 @@ function Admin() {
           }
         }
       })
-      .catch(err => {
-        navigate('/404')
-      })
   }, [token]);
 
   function onChangeQuery(event) {
