@@ -23,7 +23,7 @@ function RutaPrivada({ esAutenticado, element, ...props }) {
 }
 
 function RutaAutenticada({ esAutenticado, element, ...props }) {
-  return esAutenticado ? <Navigate to={'/admin'}/> : element;
+  return esAutenticado ? <Navigate to={'/descubre'}/> : element;
 }
 
 import {
@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     if (esAutenticado) {
-      navigate('/admin');
+      navigate('/descubre');
     }
     else {
       navigate('/login');
