@@ -3,7 +3,7 @@ import * as ProductsServices from '../services/productos.services'
 import { faCircleInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  Link, useLocation
+  Link, useLocation, useNavigate
 } from "react-router-dom";
 
 import Loading from '../components/Loading';
@@ -11,6 +11,8 @@ import Pagination from '../components/Pagination';
 
 
 function Admin() {
+  
+  const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
 
@@ -68,6 +70,9 @@ function Admin() {
             setVisibility(true);
           }
         }
+      })
+      .catch(err => {
+        navigate('/404')
       })
   }, [token]);
 
