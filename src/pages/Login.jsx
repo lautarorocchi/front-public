@@ -27,7 +27,7 @@ function Login({ onLogin }) {
     UserServices.login(data.email, data.password)
       .then(({ user, token }) => {
         onLogin(user, token);
-        navigate('/admin', { state: {login: "¡Inicio de sesión aprobado! Bienvenido a Stack Ux." } });
+        navigate('/descubre', { state: {login: "¡Inicio de sesión aprobado! Bienvenido a Stack Ux." } });
       })
       .catch((error) => {
         setError(error.message);
