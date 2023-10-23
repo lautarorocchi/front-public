@@ -43,7 +43,7 @@ function Admin() {
   useEffect(() => {
     ProductsServices.find(empresa, token)
       .then(data => {
-        if (location.state != null) {
+        if (location.state == null) {
           setProducts(data);
         } else {
           const { login } = location.state;
