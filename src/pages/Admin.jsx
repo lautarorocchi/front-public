@@ -72,7 +72,7 @@ function Admin() {
       .catch(err => {
         navigate('/404')
       })
-  }, [location]);
+  }, [token]);
 
   function onChangeQuery(event) {
     setQuery(event.target.value);
