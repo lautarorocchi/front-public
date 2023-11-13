@@ -149,7 +149,6 @@ function Discover() {
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
-                    <li>{empresasAsociadasRubro.img}</li>
                   </ul>
                   <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar Mail</a></button>
                 </article>
@@ -168,7 +167,6 @@ function Discover() {
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
-                    <li>{empresasAsociadasRubro.img}</li>
                   </ul>
                   <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar Mail</a></button>
                 </article>
@@ -187,7 +185,6 @@ function Discover() {
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
-                    <li>{empresasAsociadasRubro.img}</li>
                   </ul>
                   <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar Mail</a></button>
                 </article>
