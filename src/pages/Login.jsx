@@ -56,7 +56,7 @@ function Login({ onLogin }) {
                  </ul>
               </div> : ''
             }
-              <h2>Inicia Sesión</h2>
+            <h2>Inicia Sesión</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left'>Email</label>
               <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
