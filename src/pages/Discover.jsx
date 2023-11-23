@@ -121,9 +121,9 @@ function Discover() {
         </div>
         <article>
           <nav>
-            {(estadoRubros) ? <h4>Empresas Con Tu Mismo Rubro</h4> : ''}
-            {(estadoSubrubros) ? <h4>Empresas Con Mismo Subrubro</h4> : ''}
-            {(estadoAmbos) ? <h4>Empresas Con Tu Misma Categoria</h4> : ''}
+            {(estadoRubros) ? <h4>Empresas con tu mismo tipo de empresa</h4> : ''}
+            {(estadoSubrubros) ? <h4>Empresas con mismo rubro</h4> : ''}
+            {(estadoAmbos) ? <h4>Empresas con tu Misma categoria</h4> : ''}
             <ul>
               <li>
                 <details role="list" dir="rtl">
