@@ -44,7 +44,7 @@ function Header() {
       <nav className="container-fluid">
         <ul className='ulCenter'>
         <Link to="/" className="contrast ml-2"><strong className='stronger'>Stack Ux</strong></Link>
-        <Link to="/" className='logo'><img src={Logo} alt="Logo de Stack Ux"/><h1 className='logo-main'>Stack Ux</h1></Link>
+        <Link to="/" className='logo'><img src={Logo} alt="Logo de Stack Ux"/><h1 className='logo-main'>STACK UX</h1></Link>
         </ul>
         <ul>
           <li className='inicio'>
