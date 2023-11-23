@@ -14,9 +14,9 @@ function Landing() {
                     <section>
                         <hgroup>
                             <h2>Sobre nosotros</h2>
-                            <h3><div><strong>¡Bienvenido a Stack Ux!</strong> </div> La Aplicación que lo ayudará a administrar sus emprendimientos.</h3>
+                            <h3><div><strong>¡Bienvenido a STACK UX!</strong> </div> La Aplicación que lo ayudará a administrar sus emprendimientos.</h3>
                         </hgroup>
-                        <p><strong>Stack Ux es una empresa que se diseñó para ayudar a las pymes a tener un respaldo digital</strong>  que les permita tener la tranquilidad de sentirse resguardados teniendo un control del Stock que disponemos.</p>
+                        <p><strong>STACK UX es una empresa que se diseñó para ayudar a las pymes a tener un respaldo digital</strong>  que les permita tener la tranquilidad de sentirse resguardados teniendo un control del Stock que disponemos.</p>
                         <figure>
                             <img src={imgEmpresa} alt="Administra tu empresa"></img>
                             <figcaption>Maneja tu empresa con Stack Ux.</figcaption>
