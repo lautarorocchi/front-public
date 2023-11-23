@@ -120,8 +120,8 @@ function Admin() {
               }
             </div>
             <div className='grid'>
-              <h3>Panel de Control</h3>
-              <input type="search" placeholder="Buscar Productos" onChange={onChangeQuery}></input>
+              <h3>Panel de control</h3>
+              <input type="search" placeholder="Buscar productos" onChange={onChangeQuery}></input>
             </div>
             <figure>
               {loading ? <Loading /> :
@@ -158,7 +158,7 @@ function Admin() {
           : <article className='mt-1 mb-1'>
             <div className='grid'>
               <hgroup>
-                <h2>Panel de Control</h2>
+                <h2>Panel de control</h2>
                 <h3>No hay productos agregados en el Panel de Control</h3>
               </hgroup>
             </div>
