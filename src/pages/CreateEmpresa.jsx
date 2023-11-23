@@ -100,9 +100,9 @@ function CreateEmpresa() {
               {
                 errors.localidad?.message ? <p className='errorYup'>{errors.localidad?.message}</p> : ''
               }
-              <label htmlFor='rubro' className='left'>Rubro</label>
+              <label htmlFor='rubro' className='left'>Tipo de empresa</label>
               <select {...register("rubro")}>
-                <option value="" disabled selected>Elige un rubro</option>
+                <option value="" disabled selected>Elige un tipo</option>
                 {
                   rubros.map(rubro =>
                     <option key={rubro.id} value={rubro.id}>{rubro.empresa}</option>
@@ -112,9 +112,9 @@ function CreateEmpresa() {
               {
                 errors.rubro?.message ? <p className='errorYup'>{errors.rubro?.message}</p> : ''
               }
-              <label htmlFor='subrubro' className='left'>Subrubro</label>
+              <label htmlFor='subrubro' className='left'>Rubro</label>
               <select {...register("subrubro")}>
-                <option value="" disabled selected>Elige un Subrubro</option>
+                <option value="" disabled selected>Elige un rubro</option>
                 {
                   subrubros.map(subrubro =>
                     <option key={subrubro.id} value={subrubro.id}>{subrubro.empresa}</option>
