@@ -86,7 +86,7 @@ function EditProduct() {
             <article className="grid login">
                 <div>
                     <hgroup>
-                        <h2>Edíta tu Producto</h2>
+                        <h2>Edíta tu producto</h2>
                         <h3><div>Edíta un producto en el panel de administración, </div>¿No querias editar el producto? Vuelve al <Link to="/admin"><u>Panel de control</u></Link>.</h3>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>

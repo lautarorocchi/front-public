@@ -101,12 +101,12 @@ function Discover() {
     <div className='container'>
       <article className='login pb-2'>
         <hgroup>
-          <h2>Descubre Más Empresas</h2>
+          <h2>Descubre más empresas</h2>
           <h3><div>En esta sección podrás observar empresas parecidas a la tuya, puedes averiguar sobre ellas y contactarlas.</div> ¿Quieres administrar tus productos? <Link to='/admin'><u>Volver al Panel.</u></Link></h3>
         </hgroup>
         <div>
           <article>
-            <h2>Mi Empresa</h2>
+            <h2>Mi empresa</h2>
             {(miEmpresa) ?
               <ul key={miEmpresa.id} className='listNone'>
                 <li><strong>Nombre de la empresa:</strong> {miEmpresa.name}.</li>

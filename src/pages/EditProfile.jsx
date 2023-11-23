@@ -84,7 +84,7 @@ function EditProfile() {
       <article className="grid login">
         <div>
           <hgroup>
-            <h2>Edita tu Perfil</h2>
+            <h2>Edita tu perfil</h2>
             <h3><div>Acá podes editar tu perfil,</div> ¿Quieres ver los datos de tu perfil? <Link to="/perfil"><u>Mi perfil</u></Link>.</h3>
           </hgroup>
           <form onSubmit={handleSubmit(submitUsuario)}>
