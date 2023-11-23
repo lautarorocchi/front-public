@@ -93,7 +93,7 @@ function Register() {
             }
             <hgroup>
               <h2>Regístrate</h2>
-              <h3>¿Estás Registrado? <Link to="/login"><u>Inicia Sesión</u></Link>.<br></br> ¿No encontras tu empresa en la lista? <Link to="/empresa/crear"><u>Regístra Una Empresa</u></Link>.</h3>
+              <h3>¿Estás registrado? <Link to="/login"><u>Inicia Sesión</u></Link>.<br></br> ¿No encontras tu empresa en la lista? <Link to="/empresa/crear"><u>Regístra Una Empresa</u></Link>.</h3>
             </hgroup>
             <form onSubmit={handleSubmit(submitUsuario)}>
               <label htmlFor='nombre' className='left'>Nombre</label>
