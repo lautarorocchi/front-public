@@ -113,8 +113,8 @@ function Discover() {
                 <li><strong>Descripción:</strong> {miEmpresa.descripcion}.</li>
                 <li><strong>Email:</strong> {miEmpresa.email}.</li>
                 <li><strong>Localidad:</strong> {miEmpresa.localidad}.</li>
-                <li><strong>Rubro:</strong> {miRubro}.</li>
-                <li><strong>Subrubro:</strong> {miSubrubro}.</li>
+                <li><strong>Tipo de empresa:</strong> {miRubro}.</li>
+                <li><strong>Rubro:</strong> {miSubrubro}.</li>
               </ul>
               : <Loading />}
           </article>
@@ -129,9 +129,9 @@ function Discover() {
                 <details role="list" dir="rtl">
                   <summary aria-haspopup="listbox" role="link">Filtro</summary>
                   <ul role="listbox">
-                    <li><span onClick={filterRubro}><a>Mismo Rubro</a></span></li>
-                    <li><span onClick={filterSubrubro}><a>Mismo Subrubro</a></span></li>
-                    <li><span onClick={filterAmbos}><a>Mismo Rubro y Subrubro</a></span></li>
+                    <li><span onClick={filterRubro}><a>Mismo tipo</a></span></li>
+                    <li><span onClick={filterSubrubro}><a>Mismo rubro</a></span></li>
+                    <li><span onClick={filterAmbos}><a>Mismo tipo y rubro</a></span></li>
                   </ul>
                 </details>
               </li>
@@ -143,7 +143,7 @@ function Discover() {
                 <article key={empresasAsociadasRubro.id}>
                   <hgroup>
                     <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta Empresa Comparte Tu Rubro.</h5>
+                    <h5>Esta empresa comparte tu mismo tipo de empresa.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
@@ -161,7 +161,7 @@ function Discover() {
                 <article key={empresasAsociadasRubro.id}>
                   <hgroup>
                     <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta Empresa Comparte Tu Subrubro.</h5>
+                    <h5>Esta empresa comparte Tu rubro.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
