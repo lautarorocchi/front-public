@@ -155,8 +155,8 @@ function Discover() {
           <nav>
             {(estadoEmpresa) ? <h4>Todas las empresas</h4> : ''}
             {(estadoRubros) ? <h4>Empresas con tu mismo tipo de empresa</h4> : ''}
-            {(estadoSubrubros) ? <h4>Empresas Con rubro</h4> : ''}
-            {(estadoAmbos) ? <h4>Empresas Con tu misma categoría</h4> : ''}
+            {(estadoSubrubros) ? <h4>Empresas con rubro</h4> : ''}
+            {(estadoAmbos) ? <h4>Empresas con tu misma categoría</h4> : ''}
             <ul>
               <li>
                 <details role="list" dir="rtl">
@@ -197,7 +197,7 @@ function Discover() {
                 <article key={empresasAsociadasRubro.id}>
                   <hgroup>
                     <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta Empresa comparte tu tipo de empresa.</h5>
+                    <h5>Esta empresa comparte tu tipo de empresa.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
@@ -215,7 +215,7 @@ function Discover() {
                 <article key={subrubrinAsociado.id}>
                   <hgroup>
                     <h4>{subrubrinAsociado.name}</h4>
-                    <h5>Esta Empresa comparte tu rubro.</h5>
+                    <h5>Esta empresa comparte tu rubro.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {subrubrinAsociado.descripcion}</li>
@@ -233,7 +233,7 @@ function Discover() {
                 <article key={empresasAsociadasRubro.id}>
                   <hgroup>
                     <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta Empresa comparte tu tipo de institución y rubro.</h5>
+                    <h5>Esta empresa comparte tu tipo de institución y rubro.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
