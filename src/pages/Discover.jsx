@@ -7,14 +7,17 @@ import * as EmpresaServices from '../services/empresas.services.js'
 
 function Discover() {
   const navigate = useNavigate()
+  const [query, setQuery] = useState("");
 
+  const [empresas, setEmpresas] = useState([]);
   const [miEmpresa, setMiEmpresa] = useState(null)
   const [miRubro, setMiRubro] = useState(null)
   const [miSubrubro, setMiSubrubro] = useState(null)
   const [rubrosAsociados, setRubrosAsociados] = useState([])
   const [subrubrosAsociados, setSubrubrosAsociados] = useState([])
 
-  const [estadoRubros, setEstadosRubros] = useState(true)
+  const [estadoEmpresa, setEstadoEmpresa] = useState(true)
+  const [estadoRubros, setEstadosRubros] = useState(false)
   const [estadoSubrubros, setEstadosSubrubros] = useState(false)
   const [estadoAmbos, setEstadosAmbos] = useState(false)
 
@@ -25,6 +28,7 @@ function Discover() {
       .then(data => {
         if (data) {
           setMiEmpresa(data);
+          agregarEmpresas();
           if (data.rubro) {
             EmpresaServices.findByRubro(data.rubro)
               .then(data => {
@@ -79,34 +83,60 @@ function Discover() {
       })
   }, [empresa])
 
+  function agregarEmpresas(){
+    EmpresaServices.find()
+    .then(empresas => {
+      if(empresas){
+        setEmpresas(empresas)
+      }else{
+        navigate('/404')
+      }
+    })
+  }
+
+  function filterTodas(){
+    setEstadoEmpresa(true);
+    setEstadosRubros(false);
+    setEstadosSubrubros(false);
+    setEstadosAmbos(false);
+  }
+
   function filterRubro() {
+    setEstadoEmpresa(false);
     setEstadosRubros(true);
     setEstadosSubrubros(false);
     setEstadosAmbos(false);
   }
 
   function filterSubrubro() {
+    setEstadoEmpresa(false);
     setEstadosRubros(false);
     setEstadosSubrubros(true);
     setEstadosAmbos(false);
   }
 
   function filterAmbos(){
+    setEstadoEmpresa(false);
     setEstadosRubros(false);
     setEstadosSubrubros(false)
     setEstadosAmbos(true);
   }
 
+  function onChangeQuery(event) {
+    setQuery(event.target.value);
+  }
+
+
   return (
     <div className='container'>
       <article className='login pb-2'>
         <hgroup>
-          <h2>Descubre más empresas</h2>
+          <h1>Descubre más empresas</h1>
           <h3><div>En esta sección podés observar empresas parecidas a la tuya, averiguar sobre ellas y contactarlas.</div> ¿Querés ver tus productos? <Link to='/admin'><u>Ir al panel de control.</u></Link></h3>
         </hgroup>
         <div>
           <article>
-            <h2>Mi empresa</h2>
+            <h2>Mi Empresa</h2>
             {(miEmpresa) ?
               <ul key={miEmpresa.id} className='listNone'>
                 <li><strong>Nombre de la empresa:</strong> {miEmpresa.name}.</li>
@@ -120,73 +150,100 @@ function Discover() {
           </article>
         </div>
         <article>
+        <div>
+        </div>
           <nav>
+            {(estadoEmpresa) ? <h4>Todas las empresas</h4> : ''}
             {(estadoRubros) ? <h4>Empresas con tu mismo tipo de empresa</h4> : ''}
-            {(estadoSubrubros) ? <h4>Empresas con mismo rubro</h4> : ''}
-            {(estadoAmbos) ? <h4>Empresas con tu Misma categoria</h4> : ''}
+            {(estadoSubrubros) ? <h4>Empresas Con rubro</h4> : ''}
+            {(estadoAmbos) ? <h4>Empresas Con tu misma categoría</h4> : ''}
             <ul>
               <li>
                 <details role="list" dir="rtl">
                   <summary aria-haspopup="listbox" role="link">Filtro</summary>
                   <ul role="listbox">
+                    <li><span onClick={filterTodas}><a>Todas</a></span></li>
                     <li><span onClick={filterRubro}><a>Mismo tipo</a></span></li>
                     <li><span onClick={filterSubrubro}><a>Mismo rubro</a></span></li>
                     <li><span onClick={filterAmbos}><a>Mismo tipo y rubro</a></span></li>
                   </ul>
                 </details>
               </li>
+              <input type="search" placeholder="Buscar empresas" onChange={onChangeQuery}></input>
             </ul>
           </nav>
+
+          {(estadoEmpresa) ?
+            (empresas.filter(empresita => empresita.name.toLowerCase().includes(query.toLowerCase())).map((empresita, index)=>
+                (empresita._id === empresa) ? "" :
+                <article key={index}>
+                  <hgroup>
+                    <h4>{empresita.name}</h4>
+                    <h5>Esta empresa se encuentra registrada en la categoria "Todas", para mas información, utilizá el filtro de búsqueda.</h5>
+                  </hgroup>
+                  <ul>
+                    <li>Descripción: {empresita.descripcion}</li>
+                    <li>Email: {empresita.email}</li>
+                    <li>Localidad: {empresita.localidad}</li>
+                  </ul>
+                  <button><a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a></button>
+                </article>
+            )) : ""
+          }
+          
           {(estadoRubros) ?
-            (rubrosAsociados.map(empresasAsociadasRubro =>
+            (rubrosAsociados.filter(empresasAsociadasRubro => empresasAsociadasRubro.name.toLowerCase().includes(query.toLowerCase())).map((empresasAsociadasRubro,index) =>
               (empresasAsociadasRubro._id === empresa) ? "" :
                 <article key={empresasAsociadasRubro.id}>
                   <hgroup>
                     <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta empresa comparte tu mismo tipo de empresa.</h5>
+                    <h5>Esta Empresa comparte tu tipo de empresa.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
+                    <li>{empresasAsociadasRubro.img}</li>
                   </ul>
-                  <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar Mail</a></button>
+                  <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
 
           {(estadoSubrubros) ?
-            (subrubrosAsociados.map(empresasAsociadasRubro =>
-              (empresasAsociadasRubro._id === empresa) ? "" :
-                <article key={empresasAsociadasRubro.id}>
+            (subrubrosAsociados.filter(subrubrinAsociado => subrubrinAsociado.name.toLowerCase().includes(query.toLowerCase())).map((subrubrinAsociado, index) => 
+              (subrubrinAsociado._id === empresa) ? "" :
+                <article key={subrubrinAsociado.id}>
                   <hgroup>
-                    <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta empresa comparte Tu rubro.</h5>
+                    <h4>{subrubrinAsociado.name}</h4>
+                    <h5>Esta Empresa comparte tu rubro.</h5>
                   </hgroup>
                   <ul>
-                    <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
-                    <li>Email: {empresasAsociadasRubro.email}</li>
-                    <li>Localidad: {empresasAsociadasRubro.localidad}</li>
+                    <li>Descripción: {subrubrinAsociado.descripcion}</li>
+                    <li>Email: {subrubrinAsociado.email}</li>
+                    <li>Localidad: {subrubrinAsociado.localidad}</li>
+                    <li>{subrubrinAsociado.img}</li>
                   </ul>
-                  <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar Mail</a></button>
+                  <button><a href={"mailto:" + subrubrinAsociado.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
 
           {(estadoAmbos) ?
-            (subrubrosAsociados.map(empresasAsociadasRubro =>
+            (subrubrosAsociados.filter(empresasAsociadasRubro => empresasAsociadasRubro.name.toLowerCase().includes(query.toLowerCase())).map((empresasAsociadasRubro, index) =>
               (empresasAsociadasRubro._id === empresa || empresasAsociadasRubro.subrubro === miSubrubro) ? "" :
                 <article key={empresasAsociadasRubro.id}>
                   <hgroup>
                     <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta Empresa Comparte Tu Rubro y Subrubro.</h5>
+                    <h5>Esta Empresa comparte tu tipo de institución y rubro.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
+                    <li>{empresasAsociadasRubro.img}</li>
                   </ul>
-                  <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar Mail</a></button>
+                  <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
