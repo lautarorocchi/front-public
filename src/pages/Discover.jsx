@@ -197,7 +197,7 @@ function Discover() {
                 <article key={empresasAsociadasRubro.id}>
                   <hgroup>
                     <h4>{empresasAsociadasRubro.name}</h4>
-                    <h5>Esta empresa comparte tu tipo de empresa.</h5>
+                    <h5>Esta empresa comparte tu tipo de categoría juridica.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
