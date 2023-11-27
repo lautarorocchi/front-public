@@ -153,7 +153,7 @@ function Admin() {
               <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate}></Pagination>
               <a role="button" href='#' disabled={currentPage === totalPages ? true : false} onClick={getNext} className="finest">Siguiente</a>
             </figure>
-            <Link to="/producto/crear"><button className='botonCrear'>Crear producto</button>
+            <Link to="/producto/crear"><button className='botonCrear color-especial'>Crear producto</button>
             </Link>
           </article>
           : <article className='mt-1 mb-1'>
