@@ -119,9 +119,9 @@ function Archive() {
     {estadoModal ? 
       <dialog open>
         <article>
-          <h3>¿Seguro que quieres eliminar este producto?</h3>
+          <h3>¿Seguro que quieres activar este producto?</h3>
           <p>
-            Al presionar eliminar, eliminarás permanente los datos de este producto, si deseas hacerlo presiona Confirmar.
+            Al presionar confirmar, activarás los datos de este producto.
           </p>
           <footer>
             <span onClick={desactivaModal} role="button" className="secondary">Cancelar</span>
