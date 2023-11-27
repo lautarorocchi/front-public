@@ -136,6 +136,7 @@ function Admin() {
                   </thead>
                   <tbody>
                     {currentPosts.filter(product => product.name.toLowerCase().includes(query.toLowerCase())).map((product, index) => (
+                      (product.estado === false) ? "" :
                       <tr key={index}>
                         <td>{product.name}</td>
                         <td>{product.description}</td>

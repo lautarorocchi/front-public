@@ -16,6 +16,7 @@ import Profile from './pages/Profile'
 import CreateEmpresa from './pages/CreateEmpresa'
 import EditProfile from './pages/EditProfile'
 import Page404 from './pages/Page404'
+import Archive from './pages/Archive'
 
 
 function RutaPrivada({ esAutenticado, element, ...props }) {
@@ -87,6 +88,7 @@ function App() {
           <Route path="/producto/crear" element={<RutaPrivada esAutenticado={esAutenticado} element={<Create />} />} />
           <Route path="/producto/:id" element={<RutaPrivada esAutenticado={esAutenticado} element={<ProductDetail />} />} />
           <Route path="/productos/:id" element={<RutaPrivada esAutenticado={esAutenticado} element={<EditProduct />} />} />
+          <Route path="/archivo" element={<RutaPrivada esAutenticado={esAutenticado} element={<Archive />} />}/>
           <Route path="/descubre" element={<RutaPrivada esAutenticado={esAutenticado} element={<Discover />} />}/>
           <Route path="/perfil" element={<RutaPrivada esAutenticado={esAutenticado} element={<Profile />} />}/>
           <Route path="/perfil/editar" element={<RutaPrivada esAutenticado={esAutenticado} element={<EditProfile />} />}/>
