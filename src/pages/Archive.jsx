@@ -134,7 +134,7 @@ function Archive() {
                     <tr>
                       <th scope="col">Producto</th>
                       <th scope="col">Descripción</th>
-                      <th scope="col">Imagen</th>
+                      <th scope="col">Visibilidad</th>
                       <th scope="col">Cantidad</th>
                       <th scope="col">Acciones</th>
                     </tr>
@@ -145,7 +145,7 @@ function Archive() {
                       <tr key={index}>
                         <td>{product.name}</td>
                         <td>{product.description}</td>
-                        <td>{product.img}</td>
+                        <td><Link role='button' className='color-especial2'>Activar</Link></td>
                         <td>{product.cantidad}</td>
                         <td>
                           <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
