@@ -106,7 +106,7 @@ function EditProfile() {
               {
                 errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
               }
-              <button type="submit" className="contrast">Editar Mi Perfil</button>
+              <button type="submit" className="contrast">Editar mi perfil</button>
             </form>
         </div>
       </article>

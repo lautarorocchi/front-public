@@ -76,7 +76,7 @@ function Login({ onLogin }) {
                 </label>*/}
                 <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
               </fieldset>
-              <button type="submit" className="contrast" role="button">Inicia Sesión</button>
+              <button type="submit" className="contrast" role="button">Inicia sesión</button>
             </form>
           </div>
         </article>
