@@ -35,7 +35,7 @@ function Landing() {
                         </p>
                         <a href="#" aria-label="Experiencia del usuario"><img src={imgUser} alt="Experiencia del usuario"></img></a>
                         <p>
-                            <div><a><div>Experiencia Del</div> usuario personalizada</a></div>
+                            <div><a><div>Experiencia del</div> usuario personalizada</a></div>
                             <small>Ofrecemos la posibilidad de crear tu usuario de administrador anexando tu empresa, esto te permitirá administrar y recibir pedidos de clientes.</small>
                         </p>
                         <a href="#" aria-label="Configuración Segura"><img src={imgSecure} alt="Configuración Segura"></img></a>
