@@ -163,7 +163,7 @@ function Admin() {
                 <h3>No hay productos agregados en el Panel de Control</h3>
               </hgroup>
             </div>
-            <Link to={`/producto/crear`} role="button">Crear producto</Link>
+            <Link to={`/producto/crear`} role="button" className='color-especial'>Crear producto</Link>
           </article>
         }
       </section>
