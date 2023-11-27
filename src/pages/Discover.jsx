@@ -240,7 +240,7 @@ function Discover() {
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
                   </ul>
-                  <button><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto color-especial2'>Enviar mail</a></button>
+                  <button className='color-especial2'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
