@@ -134,6 +134,7 @@ function Admin() {
                       <th scope="col">Producto</th>
                       <th scope="col">Descripción</th>
                       <th scope="col">Cantidad</th>
+                      <th scope="col">Visibilidad</th>
                       <th scope="col">Acciones</th>
                     </tr>
                   </thead>
@@ -144,6 +145,7 @@ function Admin() {
                         <td>{product.name}</td>
                         <td>{product.description}</td>
                         <td>{product.cantidad}</td>
+                        <td><Link role='button' className='color-especial2'>Ocultar</Link></td>
                         <td>
                           <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
                           <Link to={`/productos/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faEdit} /></Link>

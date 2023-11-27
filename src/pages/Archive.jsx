@@ -145,7 +145,7 @@ function Archive() {
                       <tr key={index}>
                         <td>{product.name}</td>
                         <td>{product.description}</td>
-                        <td><Link role='button' className='color-especial2'>Activar</Link></td>
+                        <td><Link role='button' className='color-especial'>Activar</Link></td>
                         <td>{product.cantidad}</td>
                         <td>
                           <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
