@@ -33,12 +33,6 @@ function Archive() {
   const [alertMensaje, setAlert] = useState([]);
 
   const [visibility, setVisibility] = useState(false);
-
-  const [estadoModal, setEstadoModal] = useState(false);
-
-  const handleClick = async () => {
- 
-  }
   
   useEffect(() => {
     setLoading(true)
@@ -106,29 +100,9 @@ function Archive() {
     setVisibility(false);
   }
 
-  function activaModal(){
-    setEstadoModal(true)
-  }
-
-  function desactivaModal(){
-    setEstadoModal(false)
-  }
 
   return (
     <div>
-    {estadoModal ? 
-      <dialog open>
-        <article>
-          <h3>¿Seguro que quieres activar este producto?</h3>
-          <p>
-            Al presionar confirmar, activarás los datos de este producto.
-          </p>
-          <footer>
-            <span onClick={desactivaModal} role="button" className="secondary">Cancelar</span>
-            <span onClick={handleClick} role="button" className='rojo'>Confirmar</span>
-          </footer>
-        </article>
-      </dialog> : ''}
       <div>
       <section className="tables">
         <h2 className='centrado mb-1'>Administra los productos archivados de tu empresa</h2>
@@ -170,7 +144,7 @@ function Archive() {
                       <tr key={index}>
                         <td>{product.name}</td>
                         <td>{product.description}</td>
-                        <td> <span onClick={activaModal} role="button" className='color-especial'>Activar producto</span></td>
+                        <td> <Link to={`/producto/${product._id}`}>Activar producto</Link></td>
                         <td>{product.cantidad}</td>
                         <td>
                           <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>

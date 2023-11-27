@@ -145,7 +145,7 @@ function Admin() {
                         <td>{product.name}</td>
                         <td>{product.description}</td>
                         <td>{product.cantidad}</td>
-                        <td><Link role='button' className='color-especial'>Ocultar</Link></td>
+                        <td><Link to={`/producto/${product._id}`}>Ocultar</Link></td>
                         <td>
                           <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
                           <Link to={`/productos/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faEdit} /></Link>
