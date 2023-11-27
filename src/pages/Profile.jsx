@@ -97,7 +97,7 @@ function Profile() {
                 </div>
                      
                 <div>
-                  <Link to={`/perfil/editar`} role="button" className='mr-3'>Editar usuario</Link>
+                  <Link to={`/perfil/editar`} role="button" className='mr-3 color-especial'>Editar usuario</Link>
                 </div>
               </div>
               : <Loading />}
