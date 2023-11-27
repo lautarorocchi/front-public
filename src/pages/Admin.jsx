@@ -106,7 +106,7 @@ function Admin() {
     <div>
       <section className="tables">
         <h2 className='centrado mb-1'>Administrá los productos de tu empresa</h2>
-        <p className='mt-1'>Acá podés visualizar los productos que se encuentran ingresados en tu empresa:</p>
+        <p className='mt-1'>Acá podés visualizar los productos que se encuentran activos en tu empresa:</p>
         {products.length > 0 ?
           <article className='mt-1 mb-1'>
             <div>
