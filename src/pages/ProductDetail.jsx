@@ -90,7 +90,7 @@ function ProductDetail() {
                   <img className="imgPersonalizado" src={`${imagen}`} alt={`${product.name}`}></img>
                 </ul>
                 <div>
-                  <Link to={`/productos/${product._id}`} role="button" className='mr-3'>Editar producto</Link>
+                  <Link to={`/productos/${product._id}`} role="button" className='mr-3 color-especial1'>Editar producto</Link>
                   <span onClick={activaModal} role="button" className='rojo'>Eliminar producto</span>
                 </div>
               </div>
