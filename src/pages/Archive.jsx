@@ -36,8 +36,6 @@ function Archive() {
 
   const [estadoModal, setEstadoModal] = useState(false);
 
-
-
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
