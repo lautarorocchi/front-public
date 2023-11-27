@@ -155,7 +155,7 @@ function Discover() {
           <nav>
             {(estadoEmpresa) ? <h4>Todas las empresas</h4> : ''}
             {(estadoRubros) ? <h4>Empresas con tu mismo tipo de empresa</h4> : ''}
-            {(estadoSubrubros) ? <h4>Empresas con rubro</h4> : ''}
+            {(estadoSubrubros) ? <h4>Empresas con tu mismo rubro</h4> : ''}
             {(estadoAmbos) ? <h4>Empresas con tu misma categoría</h4> : ''}
             <ul>
               <li>
