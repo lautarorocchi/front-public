@@ -60,8 +60,8 @@ function Header() {
               
               <summary aria-haspopup="listbox" role="link" className="contrast">Productos</summary>
               <ul role="listbox">
-                <li><Link to="/admin">Administrar Productos</Link></li>
-                <li><Link to="/producto/crear">Crear Producto</Link></li>
+                <li><Link to="/admin">Administrar productos</Link></li>
+                <li><Link to="/producto/crear">Crear producto</Link></li>
               </ul>
             </details>
           </li> : ""}
@@ -71,15 +71,15 @@ function Header() {
               
               <summary aria-haspopup="listbox" role="link" className="contrast">Mi perfil</summary>
               <ul role="listbox">
-                <li><Link to="/perfil">Ver Perfil</Link></li>
-                <li><a onClick={handleLogout}>Cerrar Sesión</a></li>
+                <li><Link to="/perfil">Ver perfil</Link></li>
+                <li><a onClick={handleLogout}>Cerrar sesión</a></li>
               </ul>
             </details> :
             <details role="list" dir="rtl">
               
-              <summary aria-haspopup="listbox" role="link" className="contrast">Inicia Sesión</summary>
+              <summary aria-haspopup="listbox" role="link" className="contrast">Inicia sesión</summary>
               <ul role="listbox">
-                <li><Link to="/registro">Crear Cuenta</Link></li>
+                <li><Link to="/registro">Crear cuenta</Link></li>
                 <li><Link to="/login">Ingresá</Link></li>
               </ul>
             </details>
