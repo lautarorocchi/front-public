@@ -36,6 +36,10 @@ function Archive() {
 
   const [estadoModal, setEstadoModal] = useState(false);
 
+  const handleClick = async () => {
+ 
+  }
+  
   useEffect(() => {
     setLoading(true)
     setTimeout(() => {
