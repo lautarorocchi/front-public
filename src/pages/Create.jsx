@@ -83,7 +83,7 @@ function Create() {
               {
                 errors.file?.message ?   <p className='errorYup'>{errors.file?.message}</p> : ''
               }
-              <button type='submit' className='marginado'>Crear producto</button>
+              <button type='submit' className='marginado color-especial'>Crear producto</button>
             </form>
           </div>
         </article>
