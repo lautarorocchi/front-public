@@ -106,8 +106,8 @@ function Archive() {
     <div>
       <div>
       <section className="tables">
-        <h2 className='centrado mb-1'>Administra los productos de tu empresa</h2>
-        <p className='mt-1'>Acá podés visualizar los productos que se encuentran ingresados en tu empresa:</p>
+        <h2 className='centrado mb-1'>Administra los productos archivados de tu empresa</h2>
+        <p className='mt-1'>Acá podés visualizar los productos que se encuentran archivados en tu empresa:</p>
         {products.length > 0 ?
           <article className='mt-1 mb-1'>
             <div>
