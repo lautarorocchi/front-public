@@ -119,9 +119,12 @@ function Admin() {
                 </div> : ''
               }
             </div>
+            <div>
+            <h3>Panel de control</h3>
             <div className='grid'>
-              <h3>Panel de control</h3>
+            <Link to="/archivo">Ver productos archivados</Link>
               <input type="search" placeholder="Buscar productos" onChange={onChangeQuery}></input>
+            </div>
             </div>
             <figure>
               {loading ? <Loading /> :
@@ -160,6 +163,7 @@ function Admin() {
             <div className='grid'>
               <hgroup>
                 <h2>Panel de control</h2>
+                <Link to="/archivo">Ver productos archivados</Link>
                 <h3>No hay productos agregados en el Panel de Control</h3>
               </hgroup>
             </div>
