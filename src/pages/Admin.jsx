@@ -152,7 +152,7 @@ function Admin() {
               <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate}></Pagination>
               <a role="button" href='#' disabled={currentPage === totalPages ? true : false} onClick={getNext} className="finest">Siguiente</a>
             </figure>
-            <Link to="/producto/crear"><button className='botonCrear'>Agregar Producto</button>
+            <Link to="/producto/crear"><button className='botonCrear'>Crear producto</button>
             </Link>
           </article>
           : <article className='mt-1 mb-1'>
@@ -162,7 +162,7 @@ function Admin() {
                 <h3>No hay productos agregados en el Panel de Control</h3>
               </hgroup>
             </div>
-            <Link to={`/producto/crear`} role="button">Crea un Nuevo Producto</Link>
+            <Link to={`/producto/crear`} role="button">Crear producto</Link>
           </article>
         }
       </section>
