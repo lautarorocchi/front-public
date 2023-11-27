@@ -344,3 +344,7 @@ textarea {
 .color-especial2{
   background-color: #FA7039;
 }
+
+.color-especial2:hover{
+  background-color: #ba542c;
+}
