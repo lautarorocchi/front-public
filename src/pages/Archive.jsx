@@ -48,7 +48,7 @@ function Archive() {
                     setProducts(data);
                 }
                 if (data.estado == true) {
-                    setProducts(null);
+                    setProducts([]);
                 } else {
                     const { login } = location.state;
                     const { created } = location.state;
