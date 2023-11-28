@@ -179,7 +179,7 @@ function Discover() {
                 <article key={index}>
                   <hgroup>
                     <h4>{empresita.name}</h4>
-                    <h5>Esta empresa se encuentra registrada en la categoria "Todas", para mas información, utilizá el filtro de búsqueda.</h5>
+                    <h5>Esta empresa se encuentra registrada en la categoria "Todas". Para mas información, utilizá el filtro de búsqueda.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresita.descripcion}</li>
