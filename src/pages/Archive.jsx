@@ -44,12 +44,9 @@ function Archive() {
     useEffect(() => {
         ProductsServices.find(empresa, token)
             .then(data => {
-                if (location.state == null || data.estado == false) {
+                if (location.state == null) {
                     setProducts(data);
-                }
-                if (data.estado == true) {
-                    setProducts([]);
-                } else {
+                }else {
                     const { login } = location.state;
                     const { created } = location.state;
                     const { edited } = location.state;
