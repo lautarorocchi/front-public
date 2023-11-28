@@ -140,15 +140,7 @@ function Archive() {
                                         </thead>
                                         <tbody>
                                             {currentPosts.filter(product => product.name.toLowerCase().includes(query.toLowerCase())).map((product, index) => (
-                                                (product.estado === true) ? <article className='mt-1 mb-1'>
-                                                    <div className='grid'>
-                                                        <hgroup>
-                                                            <h2>Panel de Control</h2>
-                                                            <h3>No hay productos agregados en el Panel de Control</h3>
-                                                        </hgroup>
-                                                    </div>
-                                                    <Link to={`/producto/crear`} role="button">Crea un Nuevo Producto</Link>
-                                                </article> :
+                                                (product.estado === true) ? "" :
                                                     <tr key={index}>
                                                         <td>{product.name}</td>
                                                         <td>{product.description}</td>
