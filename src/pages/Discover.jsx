@@ -186,7 +186,7 @@ function Discover() {
                     <li>Email: {empresita.email}</li>
                     <li>Localidad: {empresita.localidad}</li>
                   </ul>
-                  <button className='color-especial2'><a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a></button>
+                  <button className='color-especial'><a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
@@ -204,7 +204,7 @@ function Discover() {
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
                   </ul>
-                  <button className='color-especial2'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
+                  <button className='color-especial'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
@@ -222,7 +222,7 @@ function Discover() {
                     <li>Email: {subrubrinAsociado.email}</li>
                     <li>Localidad: {subrubrinAsociado.localidad}</li>
                   </ul>
-                  <button className='color-especial2'><a href={"mailto:" + subrubrinAsociado.email} className='mailto'>Enviar mail</a></button>
+                  <button className='color-especial'><a href={"mailto:" + subrubrinAsociado.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
@@ -240,7 +240,7 @@ function Discover() {
                     <li>Email: {empresasAsociadasRubro.email}</li>
                     <li>Localidad: {empresasAsociadasRubro.localidad}</li>
                   </ul>
-                  <button className='color-especial2'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
+                  <button className='color-especial'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
                 </article>
             )) : ""
           }
