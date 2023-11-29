@@ -105,10 +105,10 @@ function Admin() {
   return (
     <div className='container'>
       <article className="login">
-      <hgroup>
-              <h2 className='centrado mb-1'>Administrá los productos de tu empresa</h2>
-              <h3 className='centrado mt-1'>Acá podés visualizar los productos que se encuentran activos en tu empresa.</h3>
-      </hgroup>
+        <hgroup>
+          <h2 className='centrado mb-1'>Administrá los productos de tu empresa</h2>
+          <h3 className='centrado mt-1'>Acá podés visualizar los productos que se encuentran activos en tu empresa.</h3>
+        </hgroup>
         {products.length > 0 ?
           <article className='mt-1 mb-1'>
             <div>
