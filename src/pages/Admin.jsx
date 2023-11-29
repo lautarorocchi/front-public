@@ -11,7 +11,7 @@ import Pagination from '../components/Pagination';
 
 
 function Admin() {
-  
+
   const navigate = useNavigate();
 
   const token = localStorage.getItem('token');
@@ -60,7 +60,7 @@ function Admin() {
           if (created != null) {
             setAlert(created);
             setVisibility(true);
-          } 
+          }
           if (edited != null) {
             setAlert(edited);
             setVisibility(true);
@@ -105,10 +105,12 @@ function Admin() {
   return (
     <div>
       <section className="tables">
-        <h2 className='centrado mb-1'>Administrá los productos de tu empresa</h2>
-        <p className='mt-1'>Acá podés visualizar los productos que se encuentran activos en tu empresa.</p>
         {products.length > 0 ?
           <article className='mt-1 mb-1'>
+            <hgroup>
+              <h2 className='centrado mb-1'>Administrá los productos de tu empresa</h2>
+              <h3 className='centrado mt-1'>Acá podés visualizar los productos que se encuentran activos en tu empresa.</h3>
+            </hgroup>
             <div>
               {visibility ?
                 <div className="alertBuena">
@@ -120,11 +122,11 @@ function Admin() {
               }
             </div>
             <div>
-            <h3>Panel de control</h3>
-            <div className='grid'>
-            <Link to="/archivo">Ver productos archivados</Link>
-              <input type="search" placeholder="Buscar productos" onChange={onChangeQuery}></input>
-            </div>
+              <h3>Panel de control</h3>
+              <div className='grid'>
+                <Link to="/archivo">Ver productos archivados</Link>
+                <input type="search" placeholder="Buscar productos" onChange={onChangeQuery}></input>
+              </div>
             </div>
             <figure>
               {loading ? <Loading /> :
@@ -141,17 +143,17 @@ function Admin() {
                   <tbody>
                     {currentPosts.filter(product => product.name.toLowerCase().includes(query.toLowerCase())).map((product, index) => (
                       (product.estado === false) ? "" :
-                      <tr key={index}>
-                        <td>{product.name}</td>
-                        <td>{product.description}</td>
-                        <td>{product.cantidad}</td>
-                        <td><Link to={`/producto/${product._id}`}>Ocultar</Link></td>
-                        <td>
-                          <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
-                          <Link to={`/productos/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faEdit} /></Link>
-                          <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faTrash} /></Link>
-                        </td>
-                      </tr>))}
+                        <tr key={index}>
+                          <td>{product.name}</td>
+                          <td>{product.description}</td>
+                          <td>{product.cantidad}</td>
+                          <td><Link to={`/producto/${product._id}`}>Ocultar</Link></td>
+                          <td>
+                            <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
+                            <Link to={`/productos/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faEdit} /></Link>
+                            <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faTrash} /></Link>
+                          </td>
+                        </tr>))}
                   </tbody>
                 </table>}
               <a role="button" href='#' disabled={currentPage === 1 ? true : false} onClick={getPrevious} className="anterior finest">Anterior</a>

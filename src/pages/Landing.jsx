@@ -6,10 +6,8 @@ import imgSecure from '../assets/img/config-segura.jpg'
 
 function Landing() {
     return (
-        <div className='landing main'>
-            
             <div className="container">
-                <div className="grid">
+                <div className="login grid color3">
 
                     <section>
                         <hgroup>
@@ -47,7 +45,6 @@ function Landing() {
 
                 </div>
             </div>
-        </div>
     )
 }
 

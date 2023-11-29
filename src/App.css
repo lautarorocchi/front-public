@@ -348,3 +348,7 @@ textarea {
 .color-especial2:hover{
   background-color: #ba542c;
 }
+
+:root{
+  background-color: #35786D;
+}
