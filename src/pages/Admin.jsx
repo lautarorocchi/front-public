@@ -159,9 +159,9 @@ function Admin() {
               <a role="button" href='#' disabled={currentPage === 1 ? true : false} onClick={getPrevious} className="anterior finest">Anterior</a>
               <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate}></Pagination>
               <a role="button" href='#' disabled={currentPage === totalPages ? true : false} onClick={getNext} className="finest">Siguiente</a>
+              <Link to="/producto/crear"><button className='botonCrear color-especial'>Crear producto</button>
+              </Link>
             </figure>
-            <Link to="/producto/crear"><button className='botonCrear color-especial'>Crear producto</button>
-            </Link>
           </article>
           : <article className='mt-1 mb-1'>
             <div className='grid'>
