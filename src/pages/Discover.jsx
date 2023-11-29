@@ -131,7 +131,7 @@ function Discover() {
     <div className='container'>
       <article className='login pb-2'>
         <hgroup>
-          <h1>Descubre más empresas</h1>
+          <h2>Descubre más empresas</h2>
           <h3><div>En esta sección podés observar empresas parecidas a la tuya, averiguar sobre ellas y contactarlas.</div> ¿Querés ver tus productos? <Link to='/admin'><u>Ir al panel de control.</u></Link></h3>
         </hgroup>
         <div>
@@ -179,7 +179,7 @@ function Discover() {
                 <article key={index}>
                   <hgroup>
                     <h4>{empresita.name}</h4>
-                    <h5>Esta empresa se encuentra registrada en la categoria "Todas". Para mas información, utilizá el filtro de búsqueda.</h5>
+                    <h5>Esta empresa se encuentra registrada en la categoría "Todas". Para más información, utilizá el filtro de búsqueda.</h5>
                   </hgroup>
                   <ul>
                     <li>Descripción: {empresita.descripcion}</li>
