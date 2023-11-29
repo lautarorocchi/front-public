@@ -352,3 +352,8 @@ textarea {
 :root{
   background-color: #35786D;
 }
+
+.color3{
+  background-color: #fff;
+  padding: 2em;
+}
