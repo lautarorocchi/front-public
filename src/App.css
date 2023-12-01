@@ -357,3 +357,7 @@ textarea {
   background-color: #fff;
   padding: 2em;
 }
+
+.span{
+  display: block;
+}
