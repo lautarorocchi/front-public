@@ -17,6 +17,7 @@ import CreateEmpresa from './pages/CreateEmpresa'
 import EditProfile from './pages/EditProfile'
 import Page404 from './pages/Page404'
 import Archive from './pages/Archive'
+import Verify from './pages/Verify'
 
 
 function RutaPrivada({ esAutenticado, element, ...props }) {
