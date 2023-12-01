@@ -107,7 +107,7 @@ function Admin() {
       <article className="login">
         <hgroup>
           <h2>Administrá los productos de tu empresa</h2>
-          <h3>Acá podés visualizar los productos que se encuentran activos en tu empresa.</h3>
+          <p>Acá podés visualizar los productos que se encuentran activos en tu empresa.</p>
         </hgroup>
         {products.length > 0 ?
           <article className='mt-1 mb-1'>
