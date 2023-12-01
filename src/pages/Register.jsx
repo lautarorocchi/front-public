@@ -93,7 +93,7 @@ function Register() {
             }
             <hgroup>
               <h2>Regístrate</h2>
-              <h3>¿Estás registrado? <Link to="/login"><u>Inicia Sesión</u></Link>.<br></br> ¿No encontras tu empresa en la lista? <Link to="/empresa/crear"><u>Regístra Una Empresa</u></Link>.</h3>
+              <h3>¿Estás registrado? <Link to="/login"><u>Inicia sesión</u></Link>.<br></br> ¿No encontrás tu empresa en la lista? <Link to="/empresa/crear"><u>Regístra Una Empresa</u></Link>.</h3>
             </hgroup>
             <form onSubmit={handleSubmit(submitUsuario)}>
               <label htmlFor='nombre' className='left'>Nombre</label>
@@ -108,7 +108,7 @@ function Register() {
               }
               <label htmlFor='empresa' className='left'>Empresa Asociada</label>
               <select {...register("empresa")}>
-                <option value="" disabled selected>Elige una empresa</option>
+                <option value="" disabled selected>Elegí una empresa</option>
                 {
                   empresas.map(empresa =>
                     <option key={empresa._id} value={empresa._id}>{empresa.name}</option>
