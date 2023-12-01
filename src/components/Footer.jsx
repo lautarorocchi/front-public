@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className='footer'>
     <footer className="container">
-      <small className='smallFooter'>Sitio Desarrollado por Lautaro Rocchi - STACK UX - 2023</small>
+      <small className='smallFooter'>Sitio Desarrollado por Lautaro Rocchi - STACK UX</small>
     </footer>
     </div>
   )
