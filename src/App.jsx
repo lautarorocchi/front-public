@@ -18,6 +18,7 @@ import EditProfile from './pages/EditProfile'
 import Page404 from './pages/Page404'
 import Archive from './pages/Archive'
 import Verify from './pages/Verify'
+import Validator from './pages/Validator'
 
 
 function RutaPrivada({ esAutenticado, element, ...props }) {
