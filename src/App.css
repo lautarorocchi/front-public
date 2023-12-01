@@ -155,7 +155,7 @@ aside p {
   display: none;
 }
 
-@media only screen and (min-width : 600px) {
+@media only screen and (min-width : 800px) {
   .stronger{
     display: block;
   }
