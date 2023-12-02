@@ -96,7 +96,7 @@ function Profile() {
 
                 </div>
                      
-                <div>
+                <div className='grid'> 
                   <Link to={`/perfil/editar`} role="button" className='mr-3 color-especial'>Editar usuario</Link>
                 </div>
               </div>
