@@ -89,10 +89,30 @@ async function editar(id, name, surname, email){
     })
 }
 
+async function crearVerificar(id, id_user, name, surname, email){
+    return fetch(`https://back-public.vercel.app/api/verify/${id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
+        },
+        body: JSON.stringify({id_user, name , surname, email})
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('Error al pedir los datos')
+        }
+    })
+}
+
 export {
     login,
     createUser,
     logout,
     findById,
-    editar
+    editar,
+    crearVerificar
 }
