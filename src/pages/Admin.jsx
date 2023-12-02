@@ -114,7 +114,6 @@ function Admin() {
     .then(data =>{
       if(data.verified == true){
         setCertificarAcceso(true)
-        console.log("hola")
       }else{
         setCertificarAcceso(false)
       }
