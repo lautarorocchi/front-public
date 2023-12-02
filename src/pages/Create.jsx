@@ -59,7 +59,7 @@ function Create() {
           <div>
             <hgroup>
               <h2>Creá un nuevo producto</h2>
-              <h3><div>Registra un nuevo producto en el panel de administración,</div> ¿No querías crear un nuevo producto? Vuelve al <Link to="/admin"><u>Panel de control</u></Link>.</h3>
+              <p>Registra un nuevo producto en el panel de administración,<span className='span'> ¿No querías crear un nuevo producto? Vuelve al <Link to="/admin"><u>Panel de control</u></Link>.</span></p>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)} enctype="multipart/form-data">
               <label htmlFor='name' className='left'>Producto</label>
