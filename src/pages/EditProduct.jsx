@@ -83,7 +83,7 @@ function EditProduct() {
 
     return (
         <div className='container'>
-            <article className="grid login">
+            <article className="centered">
                 <div>
                     <hgroup>
                         <h2>Edíta tu producto</h2>

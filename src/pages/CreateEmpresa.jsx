@@ -73,7 +73,7 @@ function CreateEmpresa() {
   return (
     <div>
       <div className="container">
-        <article className="grid login">
+        <article className="centered">
           <div>
             <hgroup>
               <h2>Regístra una empresa</h2>

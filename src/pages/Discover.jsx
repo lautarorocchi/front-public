@@ -129,7 +129,7 @@ function Discover() {
 
   return (
     <div className='container'>
-      <article className='login pb-2'>
+      <article className='centered pb-2'>
         <hgroup>
           <h2>Descubrí más empresas</h2>
           <p>En esta sección podés observar empresas parecidas a la tuya, averiguar sobre ellas y contactarlas.<span className='span'> ¿Querés ver tus productos? <Link to='/admin'><u>Ir al panel de control.</u></Link></span></p>

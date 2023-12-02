@@ -46,7 +46,7 @@ function Login({ onLogin }) {
   return (
     <div>
       <div className="container">
-        <article className="grid login">
+        <article className="centered">
           <div>
             { visibility ?
               <div className="alert">

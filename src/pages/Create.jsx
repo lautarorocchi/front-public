@@ -55,7 +55,7 @@ function Create() {
   return (
     <div>
       <div className="container">
-        <article className="grid login">
+        <article className="centered">
           <div>
             <hgroup>
               <h2>Creá un nuevo producto</h2>

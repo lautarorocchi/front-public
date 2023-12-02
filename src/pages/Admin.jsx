@@ -104,7 +104,7 @@ function Admin() {
 
   return (
     <div className='container'>
-      <article className="login">
+      <article className="centered">
         <hgroup>
           <h2>Administra los productos de tu empresa</h2>
           <p>Acá podés visualizar los productos que se encuentran activos en tu empresa.</p>

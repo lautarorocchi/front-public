@@ -83,7 +83,7 @@ function Register() {
   return (
     <div>
       <div className="container">
-        <article className="grid login">
+        <article className="centered">
           <div>
             {visibility ?
               <div className="alertAmarillo">

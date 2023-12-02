@@ -74,7 +74,7 @@ function ProductDetail() {
         </article>
       </dialog> : ''}
       <div className='container'>
-        <article className='grid login pb-2'>
+        <article className='centered pb-2'>
           <div>
             <hgroup>
               <h2>Detalles del producto</h2>

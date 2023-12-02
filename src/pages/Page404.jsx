@@ -8,7 +8,7 @@ function Page404() {
   return (
     <div className='main'>
       <div className='container'>
-        <article className='grid login pb-2'>
+        <article className='centered pb-2'>
           <div>
             <hgroup>
             <h2>Error 404</h2>
