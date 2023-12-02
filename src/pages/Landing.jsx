@@ -12,7 +12,7 @@ function Landing() {
                     <section>
                         <hgroup>
                             <h2>Sobre nosotros</h2>
-                            <h3><div><strong>¡Bienvenido a STACK UX!</strong> </div> La Aplicación que lo ayudará a administrar sus emprendimientos.</h3>
+                            <p><span className='span'><strong>¡Bienvenido a STACK UX!</strong> </span> La Aplicación que lo ayudará a administrar sus emprendimientos.</p>
                         </hgroup>
                         <p><strong>STACK UX es una empresa que se diseñó para ayudar a las pymes a tener un respaldo digital</strong>  que les permita tener la tranquilidad de sentirse resguardados teniendo un control del Stock que disponemos.</p>
                         <figure>
