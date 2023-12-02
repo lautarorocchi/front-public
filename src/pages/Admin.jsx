@@ -199,7 +199,7 @@ function Admin() {
         <h2>No tenes permiso para entrar al panel de control</h2>
         <p>Necesitas solicitar acceso al adminsitrador de la empresa para poder adminsitrar los productos.</p>
       </hgroup>
-      <div className='grid'>
+      <div>
       <Link to={`/perfil/verificar`} role="button" className='colorespecial'>Solicitar acceso</Link>
       <Link to={`/perfil`} role="button" className='contrast'>Ver tus datos</Link>
       </div>
