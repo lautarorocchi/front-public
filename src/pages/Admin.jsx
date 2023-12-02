@@ -6,11 +6,16 @@ import {
   Link, useLocation, useNavigate
 } from "react-router-dom";
 
+import * as UserServices from './../services/user.services.js'
 import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
+import accesoDenegado from '../assets/img/acceso-denegado.png'
+
 
 
 function Admin() {
+
+  const id = localStorage.getItem('user');
 
   const navigate = useNavigate();
 
@@ -34,6 +39,8 @@ function Admin() {
 
   const [visibility, setVisibility] = useState(false);
 
+  const [certificarAcceso, setCertificarAcceso] = useState(false);
+
 
   useEffect(() => {
     setLoading(true)
@@ -43,6 +50,7 @@ function Admin() {
   }, [products]);
 
   useEffect(() => {
+    validarAcceso(id);
     ProductsServices.find(empresa, token)
       .then(data => {
         if (location.state == null) {
@@ -74,7 +82,7 @@ function Admin() {
       .catch(err => {
         navigate('/404')
       })
-  }, [token]);
+  }, [id, token]);
 
   function onChangeQuery(event) {
     setQuery(event.target.value);
@@ -101,9 +109,20 @@ function Admin() {
     setVisibility(false);
   }
 
+  function validarAcceso(id){
+    UserServices.findById(id)
+    .then(data =>{
+      if(data.verified == true){
+        setCertificarAcceso(true)
+      }else{
+        setCertificarAcceso(false)
+      }
+    })
+}
 
   return (
     <div className='container'>
+      {(certificarAcceso) ?
       <article className="centered">
         <hgroup>
           <h2>Administra los productos de tu empresa</h2>
@@ -174,7 +193,19 @@ function Admin() {
             <Link to={`/producto/crear`} role="button" className='color-especial'>Crear producto</Link>
           </article>
         }
+      </article> :
+      <article className='centered'>
+      <hgroup>
+        <h2>No tenes permiso para entrar al panel de control</h2>
+        <p>Necesitas solicitar acceso al adminsitrador de la empresa para poder adminsitrar los productos.</p>
+      </hgroup>
+      <div className='grid'>
+      <Link to={`/perfil/verificar`} role="button" className='colorespecial'>Solicitar acceso</Link>
+      <Link to={`/perfil`} role="button" className='contrast'>Ver tus datos</Link>
+      </div>
+      <img className="imgPersonalizado" src={accesoDenegado} alt="Acceso denegado"></img>
       </article>
+      }
     </div>
   )
 }
