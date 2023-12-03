@@ -11,6 +11,8 @@ import * as yup from 'yup'
 import {storage} from '../services/firebase.js'
 import {ref, uploadBytes} from 'firebase/storage'
 import {v4} from 'uuid'
+import Access from '../components/Access.jsx';
+import * as UserServices from './../services/user.services.js'
 
 const schema = yup.object({
     name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
@@ -20,6 +22,8 @@ const schema = yup.object({
 
 
 function EditProduct() {
+    const user = localStorage.getItem('user');
+    const [certificarAcceso, setCertificarAcceso] = useState(false);
     const navigate = useNavigate();
     const { id } = useParams();
     let defaultValues = {};
@@ -57,6 +61,7 @@ function EditProduct() {
 
 
     useEffect(() => {
+        validarAcceso(id);
         ProductsServices.findById(id)
             .then(data => {
                 if (data) {
@@ -76,13 +81,23 @@ function EditProduct() {
 
 
     /*ARREGLAR IMAGEN SETEADA*/
-
     function onChangeImg(event) {
         setImg(event.target.value);
     }
 
+    function validarAcceso(user) {
+        UserServices.findById(user)
+          .then(data => {
+            if (data.verified == true) {
+              setCertificarAcceso(true)
+            } else {
+              setCertificarAcceso(false)
+            }
+        })}
+
     return (
         <div className='container'>
+            {(certificarAcceso) ?
             <article className="centered">
                 <div>
                     <hgroup>
@@ -112,7 +127,9 @@ function EditProduct() {
                         <button type='submit' className='marginado color-especial2'>Editar producto</button>
                     </form>
                 </div>
-            </article>
+            </article>:
+            <Access></Access>
+            }
         </div>
     )
 }
