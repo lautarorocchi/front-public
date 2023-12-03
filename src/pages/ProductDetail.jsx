@@ -8,8 +8,12 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import {
   Link
 } from "react-router-dom";
+import Access from '../components/Access.jsx';
+import * as UserServices from './../services/user.services.js'
 
 function ProductDetail() {
+  const user = localStorage.getItem('user');
+  const [certificarAcceso, setCertificarAcceso] = useState(false);
   const navigate = useNavigate()
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -41,6 +45,7 @@ function ProductDetail() {
   }
 
   useEffect(() => {
+    validarAcceso(user);
     ProductsServices.findById(id)
       .then(data => {
         if (data) {
@@ -57,7 +62,18 @@ function ProductDetail() {
       .catch(err => {
         navigate('/404')
       })
-  }, [id])
+  }, [id,user])
+
+  function validarAcceso(user) {
+    UserServices.findById(user)
+      .then(data => {
+        if (data.verified == true) {
+          setCertificarAcceso(true)
+        } else {
+          setCertificarAcceso(false)
+        }
+    })}
+
   return (
     <div className='main'>
     {estadoModal ? 
@@ -74,6 +90,7 @@ function ProductDetail() {
         </article>
       </dialog> : ''}
       <div className='container'>
+        {(certificarAcceso) ?
         <article className='centered pb-2'>
           <div>
             <hgroup>
@@ -96,7 +113,9 @@ function ProductDetail() {
               </div>
               : <Loading />}
           </div>
-        </article>
+        </article>:
+        <Access></Access>        
+        }
       </div>
     </div>
   )
