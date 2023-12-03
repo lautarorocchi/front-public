@@ -6,7 +6,7 @@ const Validator = () => {
     const verificarEnlace = async () => {
       try {
         const id = window.location.pathname.split('/').pop();
-        const url = `http://localhost:5173/verificar/${id}`;
+        const url = `https://front-public.vercel.app/verificar/${id}`;
         const response = await axios.get(url);
         console.log(response.data);
       } catch (error) {
