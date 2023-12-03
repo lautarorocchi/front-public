@@ -15,13 +15,24 @@ const schema = yup.object({
 }).required();
 
 function Login({ onLogin }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
   const [passwordShown, setPasswordShown] = useState(false);
   const [errorMensaje, setError] = useState([]);
   const [visibility, setVisibility] = useState(false);
+  const [visibility2, setVisibility2] = useState(false);
+  const [alertMensaje, setAlert] = useState([]);
   const { register, handleSubmit, watch, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
+
+  useEffect(()=>{
+    if(location.state != null){
+      const{register} = location.state;
+      setAlert(register);
+      setVisibility2(true);
+    }
+  }, [])
 
   function onSubmit(data) {
     UserServices.login(data.email, data.password)
@@ -56,6 +67,14 @@ function Login({ onLogin }) {
                  </ul>
               </div> : ''
             }
+             { visibility2 ?
+                <div className="alertBuena">
+                  <span className="closebtn" onClick={handleClose}>&times;</span>
+                  <ul className='white listNone'>
+                    <li>{alertMensaje}</li>
+                  </ul>
+                </div> : ''
+              }
             <h2>Inicia sesión</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left'>Email</label>

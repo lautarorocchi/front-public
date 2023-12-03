@@ -43,7 +43,7 @@ function Register() {
     userServices.createUser(data.name, data.surname, data.empresa, data.email, data.password)
       .then(data => {
         if (data) {
-          navigate('/login')
+          navigate('/login', { state: {register: "¡Se ha registrado tu usuario con éxito! Ya podés iniciar sesión." } });
         }
         else {
           navigate('/404')
@@ -60,7 +60,7 @@ function Register() {
       .then(data => {
         if (data) {
           setEmpresas(data)
-          console.log(data)
+          /*console.log(data)*/
           /*reset({ ...defaultValues });*/
         }
         else {
