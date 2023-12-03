@@ -5,6 +5,7 @@ import {
 import Loading from '../components/Loading';
 import * as EmpresaServices from '../services/empresas.services.js'
 import * as UserServices from '../services/user.services.js'
+import accesoDenegado from '../assets/img/acceso-denegado.png'
 
 function Discover() {
   const id = localStorage.getItem('user');

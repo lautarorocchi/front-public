@@ -11,8 +11,6 @@ import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
 import accesoDenegado from '../assets/img/acceso-denegado.png'
 
-
-
 function Admin() {
 
   const id = localStorage.getItem('user');
