@@ -14,7 +14,7 @@ import * as UserServices from './../services/user.services.js'
 function Archive() {
     const id = localStorage.getItem('user');
     const [certificarAcceso, setCertificarAcceso] = useState(false);
-    
+
     const navigate = useNavigate();
 
     const token = localStorage.getItem('token');
@@ -50,7 +50,7 @@ function Archive() {
             .then(data => {
                 if (location.state == null) {
                     setProducts(data);
-                }else {
+                } else {
                     const { login } = location.state;
                     const { created } = location.state;
                     const { edited } = location.state;
@@ -77,7 +77,7 @@ function Archive() {
             .catch(err => {
                 navigate('/404')
             })
-    }, [id,token]);
+    }, [id, token]);
 
     function onChangeQuery(event) {
         setQuery(event.target.value);
@@ -104,91 +104,94 @@ function Archive() {
         setVisibility(false);
     }
 
-    
-  function validarAcceso(id) {
-    UserServices.findById(id)
-      .then(data => {
-        if (data.verified == true) {
-          setCertificarAcceso(true)
-        } else {
-          setCertificarAcceso(false)
-        }
-    })}
+
+    function validarAcceso(id) {
+        UserServices.findById(id)
+            .then(data => {
+                if (data.verified == true) {
+                    setCertificarAcceso(true)
+                } else {
+                    setCertificarAcceso(false)
+                }
+            })
+    }
 
     return (
         <div>
             <div>
-                {(certificarAcceso) ? 
-                <section className="tables">
-                    <h2 className='centrado mb-1'>Administra los productos archivados de tu empresa</h2>
-                    <p className='mt-1'>Acá podés visualizar los productos que se encuentran archivados en tu empresa:</p>
-                    {products.length > 0 ?
-                        <article className='mt-1 mb-1'>
-                            <div>
-                                {visibility ?
-                                    <div className="alertBuena">
-                                        <span className="closebtn" onClick={handleClose}>&times;</span>
-                                        <ul className='white listNone'>
-                                            <li>{alertMensaje}</li>
-                                        </ul>
-                                    </div> : ''
-                                }
-                            </div>
-                            <div>
-                                <h3>Productos archivados</h3>
-                                <div className='grid'>
-                                    <Link to="/admin">Ver panel de control</Link>
-                                    <input type="search" placeholder="Buscar Productos" onChange={onChangeQuery}></input>
+                {(certificarAcceso) ?
+                    <article className="centered">
+                        <hgroup>
+                        <h2>Administra los productos archivados de tu empresa</h2>
+                        <p>Acá podés visualizar los productos que se encuentran archivados en tu empresa:</p>
+                        </hgroup>
+                        {products.length > 0 ?
+                            <article className='mt-1 mb-1'>
+                                <div>
+                                    {visibility ?
+                                        <div className="alertBuena">
+                                            <span className="closebtn" onClick={handleClose}>&times;</span>
+                                            <ul className='white listNone'>
+                                                <li>{alertMensaje}</li>
+                                            </ul>
+                                        </div> : ''
+                                    }
                                 </div>
-                            </div>
-                            <figure>
-                                {loading ? <Loading /> :
-                                    <table role="grid">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Producto</th>
-                                                <th scope="col">Descripción</th>
-                                                <th scope="col">Visibilidad</th>
-                                                <th scope="col">Cantidad</th>
-                                                <th scope="col">Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {currentPosts.filter(product => product.name.toLowerCase().includes(query.toLowerCase())).map((product, index) => (
-                                                (product.estado === true) ? "" :
-                                                    <tr key={index}>
-                                                        <td>{product.name}</td>
-                                                        <td>{product.description}</td>
-                                                        <td> <Link to={`/producto/${product._id}`}>Activar producto</Link></td>
-                                                        <td>{product.cantidad}</td>
-                                                        <td>
-                                                            <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
-                                                            <Link to={`/productos/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faEdit} /></Link>
-                                                            <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faTrash} /></Link>
-                                                        </td>
-                                                    </tr>))}
-                                        </tbody>
-                                    </table>}
-                                <a role="button" href='#' disabled={currentPage === 1 ? true : false} onClick={getPrevious} className="anterior finest">Anterior</a>
-                                <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate}></Pagination>
-                                <a role="button" href='#' disabled={currentPage === totalPages ? true : false} onClick={getNext} className="finest">Siguiente</a>
-                            </figure>
-                            <Link to="/producto/crear"><button className='botonCrear'>Agregar Producto</button>
-                            </Link>
-                        </article>
-                        : <article className='mt-1 mb-1'>
-                            <div className='grid'>
-                                <hgroup>
-                                    <h2>Panel de Control</h2>
-                                    <h3>No hay productos agregados en el Panel de Control</h3>
-                                </hgroup>
-                            </div>
-                            <Link to={`/producto/crear`} role="button">Crea un Nuevo Producto</Link>
-                        </article>
-                    }
-                </section>
-                :
-                <Access></Access>
+                                <div>
+                                    <h3>Productos archivados</h3>
+                                    <div className='grid'>
+                                        <Link to="/admin">Ver panel de control</Link>
+                                        <input type="search" placeholder="Buscar Productos" onChange={onChangeQuery}></input>
+                                    </div>
+                                </div>
+                                <figure>
+                                    {loading ? <Loading /> :
+                                        <table role="grid">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Producto</th>
+                                                    <th scope="col">Descripción</th>
+                                                    <th scope="col">Visibilidad</th>
+                                                    <th scope="col">Cantidad</th>
+                                                    <th scope="col">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {currentPosts.filter(product => product.name.toLowerCase().includes(query.toLowerCase())).map((product, index) => (
+                                                    (product.estado === true) ? "" :
+                                                        <tr key={index}>
+                                                            <td>{product.name}</td>
+                                                            <td>{product.description}</td>
+                                                            <td> <Link to={`/producto/${product._id}`}>Activar producto</Link></td>
+                                                            <td>{product.cantidad}</td>
+                                                            <td>
+                                                                <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faCircleInfo} /></Link>
+                                                                <Link to={`/productos/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faEdit} /></Link>
+                                                                <Link to={`/producto/${product._id}`} className='mr-2'><FontAwesomeIcon icon={faTrash} /></Link>
+                                                            </td>
+                                                        </tr>))}
+                                            </tbody>
+                                        </table>}
+                                    <a role="button" href='#' disabled={currentPage === 1 ? true : false} onClick={getPrevious} className="anterior finest">Anterior</a>
+                                    <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate}></Pagination>
+                                    <a role="button" href='#' disabled={currentPage === totalPages ? true : false} onClick={getNext} className="finest">Siguiente</a>
+                                </figure>
+                                <Link to="/producto/crear"><button className='botonCrear'>Agregar Producto</button>
+                                </Link>
+                            </article>
+                            : <article className='mt-1 mb-1'>
+                                <div className='grid'>
+                                    <hgroup>
+                                        <h2>Panel de Control</h2>
+                                        <h3>No hay productos agregados en el Panel de Control</h3>
+                                    </hgroup>
+                                </div>
+                                <Link to={`/producto/crear`} role="button">Crea un Nuevo Producto</Link>
+                            </article>
+                        }
+                    </article>
+                    :
+                    <Access></Access>
                 }
             </div>
         </div>
