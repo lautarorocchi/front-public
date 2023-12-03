@@ -10,6 +10,7 @@ import * as UserServices from './../services/user.services.js'
 import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
 import accesoDenegado from '../assets/img/acceso-denegado.png'
+import Access from '../components/Access.jsx';
 
 function Admin() {
 
@@ -192,14 +193,7 @@ function Admin() {
           </article>
         }
       </article> :
-      <article className='centered'>
-      <hgroup>
-        <h2>No tenes permiso para entrar al panel de control</h2>
-        <p>Necesitas solicitar acceso al adminsitrador de la empresa para poder adminsitrar los productos.</p>
-      </hgroup>
-      <img className="centerImg" src={accesoDenegado} alt="Acceso denegado"></img>
-      <Link to={`/perfil/verificar`} class="column"><button className='color-especial'>Solicitar acceso</button></Link>
-      </article>
+      <Access></Access>
       }
     </div>
   )

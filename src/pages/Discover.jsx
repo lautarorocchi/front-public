@@ -264,7 +264,7 @@ function Discover() {
         </article> : 
         <article className='centered'>
           <hgroup>
-            <h2>No tenes permiso para entrar al panel de control</h2>
+            <h2>No tenés permiso para entrar al panel de control</h2>
             <p>Necesitas solicitar acceso al adminsitrador de la empresa para poder adminsitrar los productos.</p>
           </hgroup>
           <img className="centerImg" src={accesoDenegado} alt="Acceso denegado"></img>
