@@ -85,7 +85,7 @@ function Discover() {
       .catch(err => {
         navigate('/404')
       })
-  }, [empresa])
+  }, [id, empresa])
 
   function agregarEmpresas() {
     EmpresaServices.find()
