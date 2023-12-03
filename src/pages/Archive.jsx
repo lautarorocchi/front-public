@@ -117,8 +117,7 @@ function Archive() {
     }
 
     return (
-        <div>
-            <div>
+        <div className='container'>
                 {(certificarAcceso) ?
                     <article className="centered">
                         <hgroup>
@@ -193,7 +192,6 @@ function Archive() {
                     :
                     <Access></Access>
                 }
-            </div>
         </div>
     )
 }
