@@ -95,7 +95,7 @@ function App() {
           <Route path="/perfil" element={<RutaPrivada esAutenticado={esAutenticado} element={<Profile />} />}/>
           <Route path="/perfil/editar" element={<RutaPrivada esAutenticado={esAutenticado} element={<EditProfile />} />}/>
           <Route path="/perfil/verificar" element={<RutaPrivada esAutenticado={esAutenticado} element={<Verify />} />}/>
-          <Route path="/perfil/verificar/:id" element={<Validator />} />
+          <Route path="/verificar/:id" element={<Validator />} />
           <Route path="*" element={<Page404/>} />
           <Route path="/404" element={<Page404/>} />
         </Routes>
