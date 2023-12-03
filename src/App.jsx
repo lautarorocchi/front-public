@@ -60,10 +60,12 @@ function App() {
   }, [token])
 
   useEffect(() => {
-    if (esAutenticado) {
+    const shouldRedirect = window.location.pathname.includes('/verificar/');
+    const isPerfilVerificar = window.location.pathname.includes('/perfil/verificar');
+
+    if (esAutenticado && !shouldRedirect && !isPerfilVerificar) {
       navigate('/descubre');
-    }
-    else {
+    } else if (!esAutenticado && !shouldRedirect) {
       navigate('/login');
     }
   }, [esAutenticado]);
