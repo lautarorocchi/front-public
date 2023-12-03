@@ -8,7 +8,6 @@ const Validator = () => {
         const id = window.location.pathname.split('/').pop();
         const url = `https://front-public.vercel.app/verificar/${id}`;
         const response = await axios.get(url);
-        console.log(response.data);
       } catch (error) {
         console.error(error);
       }
