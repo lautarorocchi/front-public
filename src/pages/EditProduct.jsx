@@ -61,7 +61,7 @@ function EditProduct() {
 
 
     useEffect(() => {
-        validarAcceso(id);
+        validarAcceso(user);
         ProductsServices.findById(id)
             .then(data => {
                 if (data) {
@@ -77,7 +77,7 @@ function EditProduct() {
             .catch(err => {
                 navigate('/404')
             })
-    }, [id, reset])
+    }, [id,user, reset])
 
 
     /*ARREGLAR IMAGEN SETEADA*/

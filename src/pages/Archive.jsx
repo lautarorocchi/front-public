@@ -8,9 +8,13 @@ import {
 
 import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
+import Access from '../components/Access.jsx';
+import * as UserServices from './../services/user.services.js'
 
 function Archive() {
-
+    const id = localStorage.getItem('user');
+    const [certificarAcceso, setCertificarAcceso] = useState(false);
+    
     const navigate = useNavigate();
 
     const token = localStorage.getItem('token');
@@ -41,6 +45,7 @@ function Archive() {
     }, [products]);
 
     useEffect(() => {
+        validarAcceso(id)
         ProductsServices.find(empresa, token)
             .then(data => {
                 if (location.state == null) {
@@ -72,7 +77,7 @@ function Archive() {
             .catch(err => {
                 navigate('/404')
             })
-    }, [token]);
+    }, [id,token]);
 
     function onChangeQuery(event) {
         setQuery(event.target.value);
@@ -99,10 +104,21 @@ function Archive() {
         setVisibility(false);
     }
 
+    
+  function validarAcceso(id) {
+    UserServices.findById(id)
+      .then(data => {
+        if (data.verified == true) {
+          setCertificarAcceso(true)
+        } else {
+          setCertificarAcceso(false)
+        }
+    })}
 
     return (
         <div>
             <div>
+                {(certificarAcceso) ? 
                 <section className="tables">
                     <h2 className='centrado mb-1'>Administra los productos archivados de tu empresa</h2>
                     <p className='mt-1'>Acá podés visualizar los productos que se encuentran archivados en tu empresa:</p>
@@ -171,6 +187,9 @@ function Archive() {
                         </article>
                     }
                 </section>
+                :
+                <Access></Access>
+                }
             </div>
         </div>
     )
