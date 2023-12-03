@@ -7,9 +7,10 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
-import {storage} from '../services/firebase.js'
-import {ref, uploadBytes} from 'firebase/storage'
-import {v4} from 'uuid'
+import { storage } from '../services/firebase.js'
+import { ref, uploadBytes } from 'firebase/storage'
+import { v4 } from 'uuid'
+import Access from '../components/Access.jsx';
 
 const schema = yup.object({
   name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
@@ -18,78 +19,98 @@ const schema = yup.object({
 })
 
 function Create() {
+  const id = localStorage.getItem('user');
+  const [certificarAcceso, setCertificarAcceso] = useState(false);
   const navigate = useNavigate()
   const empresa = localStorage.getItem('empresa');
   const [imageUpload, setImageUpload] = useState(null)
 
   const uploadFile = (imagen) => {
-    if(imageUpload == null) return;
+    if (imageUpload == null) return;
     const imageRef = ref(storage, `imagenes/productos/${imagen}`)
     uploadBytes(imageRef, imageUpload).then(() => {
     })
   };
 
-  const { register, handleSubmit, watch, formState: { errors }} = useForm({
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
 
   const onSubmit = async (data) => {
     const imageLinker = imageUpload.name + v4();
-    ProductServices.createProduct(data.name, data.description, imageLinker , data.cantidad, empresa)
-        .then(data => {
-          if (data) {
-            uploadFile(imageLinker)
-            navigate('/admin', { state: {created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
-          }
-          else {
-            navigate('/404')
-          }
-        })
-        .catch((error) => {
-          alert('El producto no se pudo crear');
-        });
-  
-    };
+    ProductServices.createProduct(data.name, data.description, imageLinker, data.cantidad, empresa)
+      .then(data => {
+        if (data) {
+          uploadFile(imageLinker)
+          navigate('/admin', { state: { created: "¡El producto ha sido creado! Puedes observarlo en el panel de control." } })
+        }
+        else {
+          navigate('/404')
+        }
+      })
+      .catch((error) => {
+        alert('El producto no se pudo crear');
+      });
+
+  };
+
+  useEffect(() => {
+    validarAcceso(id);
+  }, [id]);
 
 
-  return (
-    <div>
-      <div className="container">
-        <article className="centered">
-          <div>
-            <hgroup>
-              <h2>Creá un nuevo producto</h2>
-              <p>Registra un nuevo producto en el panel de administración,<span className='span'> ¿No querías crear un nuevo producto? Vuelve al <Link to="/admin"><u>Panel de control</u></Link>.</span></p>
-            </hgroup>
-            <form onSubmit={handleSubmit(onSubmit)} enctype="multipart/form-data">
-              <label htmlFor='name' className='left'>Producto</label>
-              <input type="text" placeholder="Agregar Nombre del producto" name="name" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}/>
-              {
-                errors.name?.message ?  <p className='errorYup'>{errors.name?.message}</p> : ''
-              }
-              <label htmlFor='description' className='left'>Descripción</label>
-              <textarea type="text" id="description" placeholder="Agregar Descripción" name="description" className={errors.description?.message ? 'redBorder' : ''} {...register("description")}/>
-              {
-                errors.description?.message ?  <p className='errorYup'>{errors.description?.message}</p> : ''
-              }
-              <label htmlFor='cantidad' className='left'>Cantidad</label>
-              <input type="number" id="cantidad" placeholder="Agregar Cantidad" name="cantidad" className={errors.cantidad?.message ? 'redBorder' : ''} {...register("cantidad")}/>
-              {
-                errors.cantidad?.message ?  <p className='errorYup'>{errors.cantidad?.message}</p> : ''
-              }
-              <label htmlFor="file">Imagen
-              <input type="file" accept='image/jpeg' onChange={(event) => setImageUpload(event.target.files[0])} required></input>
-              </label>
-              {
-                errors.file?.message ?   <p className='errorYup'>{errors.file?.message}</p> : ''
-              }
-              <button type='submit' className='marginado color-especial'>Crear producto</button>
-            </form>
-          </div>
-        </article>
+  function validarAcceso(id) {
+    UserServices.findById(id)
+      .then(data => {
+        if (data.verified == true) {
+          setCertificarAcceso(true)
+        } else {
+          setCertificarAcceso(false)
+        }
+    })}
+
+    return (
+      <div>
+        <div className="container">
+          {certificarAcceso ? 
+          <article className="centered">
+            <div>
+              <hgroup>
+                <h2>Creá un nuevo producto</h2>
+                <p>Registra un nuevo producto en el panel de administración,<span className='span'> ¿No querías crear un nuevo producto? Vuelve al <Link to="/admin"><u>Panel de control</u></Link>.</span></p>
+              </hgroup>
+              <form onSubmit={handleSubmit(onSubmit)} enctype="multipart/form-data">
+                <label htmlFor='name' className='left'>Producto</label>
+                <input type="text" placeholder="Agregar Nombre del producto" name="name" className={errors.name?.message ? 'redBorder' : ''} {...register("name")} />
+                {
+                  errors.name?.message ? <p className='errorYup'>{errors.name?.message}</p> : ''
+                }
+                <label htmlFor='description' className='left'>Descripción</label>
+                <textarea type="text" id="description" placeholder="Agregar Descripción" name="description" className={errors.description?.message ? 'redBorder' : ''} {...register("description")} />
+                {
+                  errors.description?.message ? <p className='errorYup'>{errors.description?.message}</p> : ''
+                }
+                <label htmlFor='cantidad' className='left'>Cantidad</label>
+                <input type="number" id="cantidad" placeholder="Agregar Cantidad" name="cantidad" className={errors.cantidad?.message ? 'redBorder' : ''} {...register("cantidad")} />
+                {
+                  errors.cantidad?.message ? <p className='errorYup'>{errors.cantidad?.message}</p> : ''
+                }
+                <label htmlFor="file">Imagen
+                  <input type="file" accept='image/jpeg' onChange={(event) => setImageUpload(event.target.files[0])} required></input>
+                </label>
+                {
+                  errors.file?.message ? <p className='errorYup'>{errors.file?.message}</p> : ''
+                }
+                <button type='submit' className='marginado color-especial'>Crear producto</button>
+              </form>
+            </div>
+          </article>
+          : 
+          <Access></Access>
+          }
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
-export default Create
+  export default Create
