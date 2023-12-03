@@ -9,7 +9,6 @@ import {
 import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
 
-
 function Archive() {
 
     const navigate = useNavigate();
