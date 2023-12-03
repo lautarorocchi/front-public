@@ -1,7 +1,12 @@
-import { useEffect } from 'react';
+import React from 'react'
 import axios from 'axios';
+import { useEffect } from 'react';
+import * as UserServices from '../services/user.services.js'
+import { useParams } from 'react-router-dom';
 
-const Validator = () => {
+function Validator() {
+  const { id } = useParams();
+
   useEffect(() => {
     const verificarEnlace = async () => {
       try {
@@ -12,15 +17,29 @@ const Validator = () => {
         console.error(error);
       }
     };
-
     verificarEnlace();
   }, []);
 
-  return (
-    <div>
-      {/* Puedes agregar contenido adicional aquí */}
-    </div>
-  );
-};
+  const handleAllowAccess = async () => {
+    try {
+      await UserServices.validarUsuario(id);
+      console.log('Acceso permitido enviado con éxito');
+    } catch (error) {
+      console.error('Error al enviar acceso permitido:', error.message);
+    }
+  };
 
-export default Validator;
+  
+  return (
+    <div className='container'>
+      <article className='centered'>
+      <h2>Permitir el acceso a tu empresa</h2>
+      <button onClick={handleAllowAccess} className='color-especial'>Permitir Acceso</button>
+      </article>
+    </div>
+  )
+}
+
+export default Validator
+
+
