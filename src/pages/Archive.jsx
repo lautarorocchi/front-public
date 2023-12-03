@@ -184,7 +184,7 @@ function Archive() {
                                     <h3>No hay productos agregados en el Panel de Control</h3>
                                 </hgroup>
                             </div>
-                            <Link to={`/producto/crear`} role="button">Crea un Nuevo Producto</Link>
+                            <Link to={`/producto/crear`} role="button" className='color-especial'>Crea un Nuevo Producto</Link>
                         </article>
                     }
                 </article>
