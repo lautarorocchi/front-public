@@ -5,7 +5,7 @@ import {
 import Loading from '../components/Loading';
 import * as EmpresaServices from '../services/empresas.services.js'
 import * as UserServices from '../services/user.services.js'
-import accesoDenegado from '../assets/img/acceso-denegado.png'
+import Access from '../components/Access.jsx';
 
 function Discover() {
   const id = localStorage.getItem('user');
@@ -262,14 +262,7 @@ function Discover() {
             }
           </article>
         </article> : 
-        <article className='centered'>
-          <hgroup>
-            <h2>No tenés permiso para entrar al panel de control</h2>
-            <p>Necesitas solicitar acceso al adminsitrador de la empresa para poder adminsitrar los productos.</p>
-          </hgroup>
-          <img className="centerImg" src={accesoDenegado} alt="Acceso denegado"></img>
-          <Link to={`/perfil/verificar`} class="column"><button>Solicitar acceso</button></Link>
-        </article>}
+        <Access></Access>}
     </div>
   )
 }
