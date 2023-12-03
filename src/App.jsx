@@ -94,7 +94,7 @@ function App() {
           <Route path="/descubre" element={<RutaPrivada esAutenticado={esAutenticado} element={<Discover />} />}/>
           <Route path="/perfil" element={<RutaPrivada esAutenticado={esAutenticado} element={<Profile />} />}/>
           <Route path="/perfil/editar" element={<RutaPrivada esAutenticado={esAutenticado} element={<EditProfile />} />}/>
-          <Route path="/perfil/verificar" element={<RutaAutenticada esAutenticado={esAutenticado} element={<Verify />} />}/>
+          <Route path="/perfil/verificar" element={<RutaPrivada esAutenticado={esAutenticado} element={<Verify />} />}/>
           <Route path="*" element={<Page404/>} />
           <Route path="/404" element={<Page404/>} />
         </Routes>
