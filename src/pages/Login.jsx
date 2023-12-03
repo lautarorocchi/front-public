@@ -50,6 +50,10 @@ function Login({ onLogin }) {
     setVisibility(false);
   }
 
+  function handleClose2(){
+    setVisibility2(false)
+  }
+
   function togglePassword(){
     setPasswordShown(!passwordShown);
   };
@@ -69,7 +73,7 @@ function Login({ onLogin }) {
             }
              { visibility2 ?
                 <div className="alertBuena">
-                  <span className="closebtn" onClick={handleClose}>&times;</span>
+                  <span className="closebtn" onClick={handleClose2}>&times;</span>
                   <ul className='white listNone'>
                     <li>{alertMensaje}</li>
                   </ul>
