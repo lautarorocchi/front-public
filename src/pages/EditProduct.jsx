@@ -124,7 +124,7 @@ function EditProduct() {
                         <label for="file">Imagen
                             <input type="file" onChange={(event) => setImageUpload(event.target.files[0])} required></input>
                         </label>
-                        <button type='submit' className='marginado color-especial2'>Editar producto</button>
+                        <button type='submit' className='marginado color-especial'>Editar producto</button>
                     </form>
                 </div>
             </article>:
