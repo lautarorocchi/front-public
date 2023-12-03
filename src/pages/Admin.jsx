@@ -199,11 +199,8 @@ function Admin() {
         <h2>No tenes permiso para entrar al panel de control</h2>
         <p>Necesitas solicitar acceso al adminsitrador de la empresa para poder adminsitrar los productos.</p>
       </hgroup>
-      <div>
-      <Link to={`/perfil/verificar`} role="button" className='colorespecial'>Solicitar acceso</Link>
-      <Link to={`/perfil`} role="button" className='contrast'>Ver tus datos</Link>
-      </div>
-      <img className="imgPersonalizado" src={accesoDenegado} alt="Acceso denegado"></img>
+      <img className="centerImg" src={accesoDenegado} alt="Acceso denegado"></img>
+      <Link to={`/perfil/verificar`} class="column"><button className='colorespecial'>Solicitar acceso</button></Link>
       </article>
       }
     </div>
