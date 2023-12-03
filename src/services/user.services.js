@@ -108,11 +108,30 @@ async function crearVerificar(id, id_user, name, surname, email){
     })
 }
 
+
+async function validarUsuario(id){
+    return fetch(`https://back-public.vercel.app/api/verify/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('Error al pedir los datos')
+        }
+    })
+}
+
 export {
     login,
     createUser,
     logout,
     findById,
     editar,
-    crearVerificar
+    crearVerificar,
+    validarUsuario
 }
