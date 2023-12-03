@@ -174,8 +174,7 @@ function Archive() {
                                 <a role="button" href='#' disabled={currentPage === 1 ? true : false} onClick={getPrevious} className="anterior finest">Anterior</a>
                                 <Pagination postsPerPage={postsPerPage} totalPosts={products.length} paginate={paginate}></Pagination>
                                 <a role="button" href='#' disabled={currentPage === totalPages ? true : false} onClick={getNext} className="finest">Siguiente</a>
-                                <Link to="/producto/crear"><button className='botonCrear'>Agregar Producto</button>
-                                </Link>
+                                <Link to="/producto/crear"><button className='botonCrear color-especial'>Crear producto</button></Link>
                             </figure>
                         </article>
                         : <article className='mt-1 mb-1'>
