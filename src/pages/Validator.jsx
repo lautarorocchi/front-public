@@ -10,6 +10,9 @@ function Validator() {
   const [estadoModal, setEstadoModal] = useState(false);
   const [usuario, setUsuario] = useState(null);
   const navigate = useNavigate();
+  const [visibilidad, setVisibilidad] = useState(false);
+  const [visibilidad2, setVisibilidad2] = useState(false);
+  const [alertMensaje, setAlertMensaje] = useState(false);
 
   useEffect(() => {
     UserServices.findById(id)
@@ -36,9 +39,13 @@ function Validator() {
   const handleAllowAccess = async () => {
     try {
       await UserServices.validarUsuario(id);
-      console.log('Acceso permitido enviado con éxito');
+      setEstadoModal(false);
+      setAlertMensaje("¡Se ha confirmado el acceso del usuario con éxito!");
+      setVisibilidad(true);
     } catch (error) {
-      console.error('Error al enviar acceso permitido:', error.message);
+      setEstadoModal(false);
+      setAlertMensaje('Error al validar el acceso del usuario.', error.message);
+      setVisibilidad2(true);
     }
   };
 
@@ -48,6 +55,14 @@ function Validator() {
 
   function desactivaModal(){
     setEstadoModal(false)
+  }
+
+  function handleClose(){
+    setVisibilidad(false);
+  }
+
+  function handleClose2(){
+    setVisibilidad2(false);
   }
   
   return (
@@ -65,7 +80,25 @@ function Validator() {
           </footer>
         </article>
       </dialog> : ''}
-      <article className='centered'>
+    <article className='centered'>
+      <div>
+          {visibilidad ?
+                <div className="alertBuena">
+                  <span className="closebtn" onClick={handleClose}>&times;</span>
+                  <ul className='white listNone'>
+                    <li>{alertMensaje}</li>
+                  </ul>
+                </div> : ''
+          }
+          { visibilidad2 ?
+              <div className="alert">
+                 <span className="closebtn" onClick={handleClose2}>&times;</span>
+                 <ul className='white listNone'>
+                  <li>{alertMensaje}</li>
+                 </ul>
+              </div> : ''
+            }
+      </div>
       <hgroup>
       <h2>Permitir el acceso a tu empresa al siguiente usuario</h2>
       <p><span className='span'>¿Querés ingresar a tu cuenta? <Link to="/login"><u>Inicia sesión</u></Link>.</span> ¿Ya estás logueado? <Link to="/admin"><u>Ir al panel de control</u></Link>.</p>
