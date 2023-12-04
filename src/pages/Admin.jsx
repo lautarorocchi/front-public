@@ -55,15 +55,10 @@ function Admin() {
         if (location.state == null) {
           setProducts(data);
         } else {
-          const { login } = location.state;
           const { created } = location.state;
           const { edited } = location.state;
           const { deleted } = location.state;
           setProducts(data);
-          if (login != null) {
-            setAlert(login);
-            setVisibility(true);
-          }
           if (created != null) {
             setAlert(created);
             setVisibility(true);
