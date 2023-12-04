@@ -66,7 +66,10 @@ function Validator() {
         </article>
       </dialog> : ''}
       <article className='centered'>
+      <hgroup>
       <h2>Permitir el acceso a tu empresa al siguiente usuario</h2>
+      <p><span className='span'>¿Querés ingresar a tu cuenta? <Link to="/login"><u>Inicia sesión</u></Link>.</span> ¿Ya estás logueado? <Link to="/admin"><u>Ir al panel de control</u></Link>.</p>
+      </hgroup>
       {(usuario) ?
               <div className='grid'>
                 <div>
