@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLocation } from 'react'
 import {
   Link, useNavigate
 } from "react-router-dom";
@@ -12,6 +12,9 @@ function Discover() {
   const [certificarAcceso, setCertificarAcceso] = useState(false);
   const navigate = useNavigate()
   const [query, setQuery] = useState("");
+  const location = useLocation();
+  const [visibilidad, setVisibilidad] = useState(false);
+  const [alertMensaje, setAlertMensaje] = useState(false);
 
   const [empresas, setEmpresas] = useState([]);
   const [miEmpresa, setMiEmpresa] = useState(null)
@@ -26,6 +29,14 @@ function Discover() {
   const [estadoAmbos, setEstadosAmbos] = useState(false)
 
   const empresa = localStorage.getItem('empresa');
+
+  useEffect(()=>{
+    if(location.state != null){
+      const{login} = location.state;
+      setAlertMensaje(login);
+      setVisibilidad(true);
+    }
+  }, [])  
 
   useEffect(() => {
     validarAcceso(id);
@@ -142,10 +153,24 @@ function Discover() {
       })
   }
 
+  function handleClose(){
+    setVisibilidad(false);
+  }
+
   return (
     <div className='container'>
       {(certificarAcceso) ?
         <article className='centered pb-2'>
+        <div>
+          {visibilidad ?
+                <div className="alertBuena">
+                  <span className="closebtn" onClick={handleClose}>&times;</span>
+                  <ul className='white listNone'>
+                    <li>{alertMensaje}</li>
+                  </ul>
+                </div> : ''
+              }
+          </div>
           <hgroup>
             <h2>Descubrí más empresas</h2>
             <p>En esta sección podés observar empresas parecidas a la tuya, averiguar sobre ellas y contactarlas.<span className='span'> ¿Querés ver tus productos? <Link to='/admin'><u>Ir al panel de control.</u></Link></span></p>
