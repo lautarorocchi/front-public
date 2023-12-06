@@ -40,13 +40,6 @@ function Discover() {
   }, [])  
 
   useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-  }, []);
-
-  useEffect(() => {
     validarAcceso(id);
     EmpresaServices.findById(empresa)
       .then(data => {
