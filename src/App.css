@@ -77,6 +77,7 @@ aside p {
 }
 
 .footer{
+  margin-top: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: #004d40;
@@ -375,4 +376,8 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+}
+
+.content{
+  min-height: calc(110vh - 70px);
 }

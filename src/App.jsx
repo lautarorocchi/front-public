@@ -82,7 +82,7 @@ function App() {
   return (
     <>
     <Header></Header>
-    <main>
+    <main className='content'>
     <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<RutaAutenticada esAutenticado={esAutenticado} element={<Login onLogin={onLogin}/>}/>} />
