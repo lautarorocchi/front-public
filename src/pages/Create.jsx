@@ -26,6 +26,14 @@ function Create() {
   const empresa = localStorage.getItem('empresa');
   const [imageUpload, setImageUpload] = useState(null)
 
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+  }, []);
+
+
   const uploadFile = (imagen) => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `imagenes/productos/${imagen}`)
@@ -73,7 +81,8 @@ function Create() {
     return (
       <div>
         <div className="container">
-          {certificarAcceso ? 
+        {loading ? (<article className='centered'><Loading/></article>
+           ) : certificarAcceso ? (
           <article className="centered">
             <div>
               <hgroup>
@@ -106,9 +115,9 @@ function Create() {
               </form>
             </div>
           </article>
-          : 
+           ):( 
           <Access></Access>
-          }
+          )}
         </div>
       </div>
     )
