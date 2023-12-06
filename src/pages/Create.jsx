@@ -97,7 +97,7 @@ function Create() {
                   errors.cantidad?.message ? <p className='errorYup'>{errors.cantidad?.message}</p> : ''
                 }
                 <label htmlFor="file">Imagen
-                  <input type="file" accept='image/jpeg' onChange={(event) => setImageUpload(event.target.files[0])} required></input>
+                  <input type="file" accept='image/*' onChange={(event) => setImageUpload(event.target.files[0])} required></input>
                 </label>
                 {
                   errors.file?.message ? <p className='errorYup'>{errors.file?.message}</p> : ''
