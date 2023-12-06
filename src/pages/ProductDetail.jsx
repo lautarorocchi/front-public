@@ -4,6 +4,7 @@ import * as ProductsServices from '../services/productos.services'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../components/Loading'
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import Loading from '../components/Loading'
 
 import {
   Link
@@ -20,6 +21,14 @@ function ProductDetail() {
   const [estadoModal, setEstadoModal] = useState(false);
   const storage = getStorage();
   const [imagen, setImagen] = useState(null)
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+  }, []);
 
   const handleClick = async () => {
     ProductsServices.deleteById(id)
@@ -90,7 +99,8 @@ function ProductDetail() {
         </article>
       </dialog> : ''}
       <div className='container'>
-        {(certificarAcceso) ?
+      {loading ? (<article className='centered'><Loading/></article>
+           ) : certificarAcceso ? (
         <article className='centered pb-2'>
           <div>
             <hgroup>
@@ -117,9 +127,9 @@ function ProductDetail() {
               </div>
               : <Loading />}
           </div>
-        </article>:
+        </article>):(
         <Access></Access>        
-        }
+        )}
       </div>
     </div>
   )
