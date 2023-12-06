@@ -13,6 +13,7 @@ import {ref, uploadBytes} from 'firebase/storage'
 import {v4} from 'uuid'
 import Access from '../components/Access.jsx';
 import * as UserServices from './../services/user.services.js'
+import Loading from '../components/Loading.jsx';
 
 const schema = yup.object({
     name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
@@ -28,7 +29,16 @@ function EditProduct() {
     const { id } = useParams();
     let defaultValues = {};
     const empresa = localStorage.getItem('empresa');
-    const [imageUpload, setImageUpload] = useState(null)
+    const [imageUpload, setImageUpload] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+          setLoading(false)
+        }, 1000)
+      }, []);
+    
 
     const uploadFile = (imagen) => {
       if(imageUpload == null) return;
@@ -97,7 +107,8 @@ function EditProduct() {
 
     return (
         <div className='container'>
-            {(certificarAcceso) ?
+        {loading ? (<article className='centered'><Loading/></article>
+           ) : certificarAcceso ? (
             <article className="centered">
                 <div>
                     <hgroup>
@@ -127,9 +138,9 @@ function EditProduct() {
                         <button type='submit' className='marginado color-especial'>Editar producto</button>
                     </form>
                 </div>
-            </article>:
+            </article>):(
             <Access></Access>
-            }
+            )}
         </div>
     )
 }
