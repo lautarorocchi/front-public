@@ -12,6 +12,7 @@ import { ref, uploadBytes } from 'firebase/storage'
 import { v4 } from 'uuid'
 import Access from '../components/Access.jsx';
 import * as UserServices from './../services/user.services.js'
+import Loading from '../components/Loading.jsx';
 
 const schema = yup.object({
   name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
@@ -24,7 +25,8 @@ function Create() {
   const [certificarAcceso, setCertificarAcceso] = useState(false);
   const navigate = useNavigate()
   const empresa = localStorage.getItem('empresa');
-  const [imageUpload, setImageUpload] = useState(null)
+  const [imageUpload, setImageUpload] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true)
