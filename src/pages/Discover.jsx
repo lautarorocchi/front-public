@@ -15,6 +15,7 @@ function Discover() {
   const location = useLocation();
   const [visibilidad, setVisibilidad] = useState(false);
   const [alertMensaje, setAlertMensaje] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [empresas, setEmpresas] = useState([]);
   const [miEmpresa, setMiEmpresa] = useState(null)
@@ -37,6 +38,13 @@ function Discover() {
       setVisibilidad(true);
     }
   }, [])  
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+  }, []);
 
   useEffect(() => {
     validarAcceso(id);
@@ -159,7 +167,8 @@ function Discover() {
 
   return (
     <div className='container'>
-      {(certificarAcceso) ?
+    {loading ? (<article className='centered'><Loading/></article>
+      ) : certificarAcceso ? (
         <article className='centered pb-2'>
         <div>
           {visibilidad ?
@@ -190,7 +199,7 @@ function Discover() {
                 : <Loading />}
             </article>
           </div>
-          <article>
+          : <article>
             <div>
             </div>
             <nav>
@@ -286,8 +295,8 @@ function Discover() {
               )) : ""
             }
           </article>
-        </article> : 
-        <Access></Access>}
+        </article> ) : ( 
+        <Access></Access>)}
     </div>
   )
 }
