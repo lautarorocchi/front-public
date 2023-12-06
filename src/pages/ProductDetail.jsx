@@ -4,7 +4,6 @@ import * as ProductsServices from '../services/productos.services'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../components/Loading'
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import Loading from '../components/Loading'
 
 import {
   Link
