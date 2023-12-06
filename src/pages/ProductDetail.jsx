@@ -108,8 +108,8 @@ function ProductDetail() {
                 </ul>
                 <div>
                   {
-                    (product.estado == true) ? <Link to={`/productos/${product._id}`} role="button" className='mr-3 color-especial'>Ocultar producto</Link>
-                    :  <Link to={`/productos/${product._id}`} role="button" className='mr-3 color-especial'>Activar producto</Link>
+                    (product.estado == true) ? <Link to={`/productos/${product._id}`} role="button" className='mr-3 contrast'>Ocultar producto</Link>
+                    :  <Link to={`/productos/${product._id}`} role="button" className='mr-3 contrast'>Activar producto</Link>
                   }
                   <Link to={`/productos/${product._id}`} role="button" className='mr-3 color-especial'>Editar producto</Link>
                   <span onClick={activaModal} role="button" className='rojo'>Eliminar producto</span>
