@@ -116,7 +116,8 @@ function Admin() {
 
   return (
     <div className='container'>
-      {(certificarAcceso) ?
+      {loading ? (<article className='centered'><Loading/></article>
+      ) : certificarAcceso ? (
       <article className="centered">
         <hgroup>
           <h2>Administra los productos de tu empresa</h2>
@@ -187,9 +188,9 @@ function Admin() {
             <Link to={`/producto/crear`} role="button" className='color-especial'>Crear producto</Link>
           </article>
         }
-      </article> :
+      </article> ):(
       <Access></Access>
-      }
+      )}
     </div>
   )
 }
