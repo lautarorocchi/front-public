@@ -30,7 +30,7 @@ function Admin() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [postsPerPage] = useState(8);
+  const [postsPerPage] = useState(4);
 
   const location = useLocation();
 
