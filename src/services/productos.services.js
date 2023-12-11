@@ -93,7 +93,7 @@ async function editProduct(id, name, description, img, cantidad, empresa_id){
 }
 
 async function findArchive(id, token) {
-    return fetch(`https://back-public.vercel.app/api/productos/archive/${id}`, {
+    return fetch(`https://back-public.vercel.app/api/productos/archivados/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
