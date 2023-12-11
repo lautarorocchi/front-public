@@ -46,7 +46,7 @@ function Archive() {
 
     useEffect(() => {
         validarAcceso(id)
-        ProductsServices.find(empresa, token)
+        ProductsServices.findArchive(empresa, token)
             .then(data => {
                 if (location.state == null) {
                     setProducts(data);
