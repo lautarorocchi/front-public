@@ -18,6 +18,8 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [estadoModal, setEstadoModal] = useState(false);
+  const [estadoModalActivado, setEstadoModalActivado] = useState(false);
+  const [estadoModalDesactivado, setEstadoModalDesactivado] = useState(false);
   const storage = getStorage();
   const [imagen, setImagen] = useState(null)
   const [loading, setLoading] = useState(false);
@@ -50,6 +52,22 @@ function ProductDetail() {
 
   function desactivaModal(){
     setEstadoModal(false)
+  }
+
+  function activaModalActivado(){
+    setEstadoModalActivado(true)
+  }
+
+  function desactivaModalActivado(){
+    setEstadoModalActivado(false)
+  }
+
+  function activaModalDesactivado(){
+    setEstadoModalDesactivado(true)
+  }
+
+  function desactivaModalDesactivado(){
+    setEstadoModalDesactivado(false)
   }
 
   useEffect(() => {
@@ -87,13 +105,39 @@ function ProductDetail() {
     {estadoModal ? 
       <dialog open>
         <article>
-          <h3>¿Seguro que quieres eliminar este producto?</h3>
+          <h3>¿Seguro que querés eliminar este producto?</h3>
           <p>
             Al presionar confirmar, eliminarás permanente los datos de este producto.
           </p>
           <footer>
             <span onClick={desactivaModal} role="button" className="secondary">Cancelar</span>
             <span onClick={handleClick} role="button" className='rojo'>Confirmar</span>
+          </footer>
+        </article>
+      </dialog> : ''}
+      {estadoModalActivado ? 
+      <dialog open>
+        <article>
+          <h3>¿Seguro que querés activar este producto?</h3>
+          <p>
+            Al presionar confirmar, vas a activar los datos de este producto.
+          </p>
+          <footer>
+            <span onClick={desactivaModalActivado} role="button" className="secondary">Cancelar</span>
+            <span onClick={handleClick} role="button" className='color-especial'>Confirmar</span>
+          </footer>
+        </article>
+      </dialog> : ''}
+      {estadoModalDesactivado ? 
+      <dialog open>
+        <article>
+          <h3>¿Seguro que querés desactivar este producto?</h3>
+          <p>
+            Al presionar confirmar, vas a desactivar los datos de este producto.
+          </p>
+          <footer>
+            <span onClick={desactivaModalDesactivado} role="button" className="secondary">Cancelar</span>
+            <span onClick={handleClick} role="button" className='color-especial'>Confirmar</span>
           </footer>
         </article>
       </dialog> : ''}
@@ -117,8 +161,8 @@ function ProductDetail() {
                 </ul>
                 <div>
                   {
-                    (product.estado == true) ? <Link to={`/productos/${product._id}`} role="button" className='mr-3 contrast'>Ocultar producto</Link>
-                    :  <Link to={`/productos/${product._id}`} role="button" className='mr-3 contrast'>Activar producto</Link>
+                    (product.estado == true) ? <span onClick={activaModalDesactivado} role="button" className='mr-3 contrast'>Ocultar producto</span>
+                    :  <span onClick={activaModalActivado} role="button" className='mr-3 contrast'>Activar producto</span>
                   }
                   <Link to={`/productos/${product._id}`} role="button" className='mr-3 color-especial'>Editar producto</Link>
                   <span onClick={activaModal} role="button" className='rojo'>Eliminar producto</span>
