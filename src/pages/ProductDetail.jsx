@@ -50,7 +50,7 @@ function ProductDetail() {
     ProductsServices.activateProduct(id)
       .then(data => {
         if (data) {
-          navigate('/admin',{ state: {deleted: "¡El producto ha sido activado con éxito! Puedes observarlo en el panel de control." } })
+          navigate('/admin',{ state: {deleted: "¡El producto ha sido activado con éxito! Puedes observarlo en los productos activos panel de control." } })
         }
         else {
           navigate('/404')
@@ -66,7 +66,7 @@ function ProductDetail() {
     ProductsServices.desactivateProduct(id)
       .then(data => {
         if (data) {
-          navigate('/admin',{ state: {deleted: "¡El producto ha sido desactivado con éxito! Puedes observarlo en el panel de control." } })
+          navigate('/admin',{ state: {deleted: "¡El producto ha sido desactivado con éxito! Puedes observarlo en los productos archivados del panel de control." } })
         }
         else {
           navigate('/404')
