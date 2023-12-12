@@ -155,7 +155,7 @@ function ProductDetail() {
           </p>
           <footer>
             <span onClick={desactivaModalActivado} role="button" className="secondary">Cancelar</span>
-            <span onClick={handleClick} role="button" className='color-especial'>Confirmar</span>
+            <span onClick={handleClick2} role="button" className='color-especial'>Confirmar</span>
           </footer>
         </article>
       </dialog> : ''}
@@ -168,7 +168,7 @@ function ProductDetail() {
           </p>
           <footer>
             <span onClick={desactivaModalDesactivado} role="button" className="secondary">Cancelar</span>
-            <span onClick={handleClick} role="button" className='color-especial'>Confirmar</span>
+            <span onClick={handleClick3} role="button" className='color-especial'>Confirmar</span>
           </footer>
         </article>
       </dialog> : ''}
