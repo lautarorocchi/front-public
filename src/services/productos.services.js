@@ -110,6 +110,42 @@ async function findArchive(id, token) {
     })
 }
 
+async function activateProduct(id){
+    return fetch(`https://back-public.vercel.app/api/productos/activar/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('Error al pedir los datos')
+        }
+    })
+}
+
+async function desactivateProduct(id){
+    return fetch(`https://back-public.vercel.app/api/productos/desactivar/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('Error al pedir los datos')
+        }
+    })
+}
+
 
 export {
     find,
@@ -117,5 +153,7 @@ export {
     deleteById,
     createProduct,
     editProduct,
-    findArchive
+    findArchive,
+    activateProduct,
+    desactivateProduct
 }

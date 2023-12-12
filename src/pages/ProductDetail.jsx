@@ -46,6 +46,37 @@ function ProductDetail() {
       })
   }
 
+  const handleClick2 = async () => {
+    ProductsServices.activateProduct(id)
+      .then(data => {
+        if (data) {
+          navigate('/admin',{ state: {deleted: "¡El producto ha sido activado con éxito! Puedes observarlo en el panel de control." } })
+        }
+        else {
+          navigate('/404')
+        }
+      })
+      .catch(err => {
+        navigate('/404')
+      })
+  }
+
+  
+  const handleClick3 = async () => {
+    ProductsServices.desactivateProduct(id)
+      .then(data => {
+        if (data) {
+          navigate('/admin',{ state: {deleted: "¡El producto ha sido desactivado con éxito! Puedes observarlo en el panel de control." } })
+        }
+        else {
+          navigate('/404')
+        }
+      })
+      .catch(err => {
+        navigate('/404')
+      })
+  }
+
   function activaModal(){
     setEstadoModal(true)
   }
