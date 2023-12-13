@@ -80,6 +80,7 @@ function Login({ onLogin }) {
                 </div> : ''
               }
             <h2>Inicia sesión</h2>
+            <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left'>Email</label>
               <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
@@ -97,7 +98,6 @@ function Login({ onLogin }) {
                   <input type="checkbox" role="switch" id="remember" name="remember"></input>
                   No cerrar la sesión
                 </label>*/}
-                   <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
                 <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
               </fieldset>
               <button type="submit" className="contrast color-especial" role="button">Inicia sesión</button>
