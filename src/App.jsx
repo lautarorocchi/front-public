@@ -19,7 +19,7 @@ import Page404 from './pages/Page404'
 import Archive from './pages/Archive'
 import Verify from './pages/Verify'
 import Validator from './pages/Validator'
-
+import Recover from './pages/Recover'
 
 function RutaPrivada({ esAutenticado, element, ...props }) {
   return esAutenticado ? element : <Navigate to={'/login'} />;
@@ -97,6 +97,7 @@ function App() {
           <Route path="/perfil" element={<RutaPrivada esAutenticado={esAutenticado} element={<Profile />} />}/>
           <Route path="/perfil/editar" element={<RutaPrivada esAutenticado={esAutenticado} element={<EditProfile />} />}/>
           <Route path="/perfil/verificar" element={<RutaPrivada esAutenticado={esAutenticado} element={<Verify />} />}/>
+          <Route path="/recuperar" element={<Recover />} />
           <Route path="/verificar/:id" element={<Validator />} />
           <Route path="*" element={<Page404/>} />
           <Route path="/404" element={<Page404/>} />
