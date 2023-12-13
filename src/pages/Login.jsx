@@ -79,8 +79,10 @@ function Login({ onLogin }) {
                   </ul>
                 </div> : ''
               }
+            <hgroup>
             <h2>Inicia sesión</h2>
             <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
+            </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left'>Email</label>
               <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
