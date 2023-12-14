@@ -12,6 +12,7 @@ const schema = yup.object({
 }).required();
 
 function ValidateCode() {
+    const navigate = useNavigate();
     const location = useLocation();
     const [alertMensaje, setAlert] = useState([]);
     const [visibility, setVisibility] = useState(false);
@@ -33,9 +34,7 @@ function ValidateCode() {
     function onSubmit(data) {
         UserServices.validarCodigo(data.code)
             .then((response) => {
-                console.log(response);
-
-                /*navigate('/reset', { state: { reset-password: "Se ha enviado un código a tu email para reestablecer la contraseña." } });*/
+                navigate('/reset', { state: { reset: "El código ha sido validado para reestablecer la contraseña." } });
             })
             .catch((error) => {
                 setError(error.message);
