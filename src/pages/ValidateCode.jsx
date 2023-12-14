@@ -59,7 +59,7 @@ function ValidateCode() {
                         {
                             errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
                         }
-                        <button type="submit" className="contrast color-especial" role="button">Siguiente</button>
+                        <button type="submit" className="contrast color-especial" role="button">Validar código</button>
                     </form>
                 </article>
             </div>

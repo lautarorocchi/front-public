@@ -14,6 +14,7 @@ const schema = yup.object({
 }).required();
 
 function Recover() {
+    const navigate = useNavigate();
     const [errorMensaje, setError] = useState([]);
     const [visibility, setVisibility] = useState(false);
 
