@@ -12,7 +12,7 @@ function Recover() {
         <form>
               <label className='left'>Email</label>
               <input type="text" placeholder="Email" aria-label="email"></input>
-              <button type="submit" className="contrast color-especial" role="button">Inicia sesión</button>
+              <button type="submit" className="contrast color-especial" role="button">Siguiente</button>
         </form>
         </article>
       </div>
