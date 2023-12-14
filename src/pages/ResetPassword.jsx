@@ -20,6 +20,8 @@ const schema = yup.object({
 
 
 function ResetPassword() {
+    const [passwordShown, setPasswordShown] = useState(false);
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
@@ -34,6 +36,10 @@ function ResetPassword() {
                 setVisibility2(true);
             });
     }
+
+    function togglePassword() {
+        setPasswordShown(!passwordShown);
+    };
 
     return (
         <div>
