@@ -162,6 +162,24 @@ async function validarCodigo(codigo){
     })
 }
 
+async function cambiarClave(codigo, password){
+    return fetch(`https://back-public.vercel.app/api/usuarios/forgot-password`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({codigo, password})
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('El código que ingresaste no es valido o ha expirado, intenta nuevamente.')
+        }
+    })
+}
+
 export {
     login,
     createUser,
@@ -171,5 +189,6 @@ export {
     crearVerificar,
     validarUsuario,
     enviarCodigo,
-    validarCodigo
+    validarCodigo,
+    cambiarClave
 }
