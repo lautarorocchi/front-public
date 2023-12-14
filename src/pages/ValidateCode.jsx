@@ -6,8 +6,6 @@ import * as UserServices from '../services/user.services.js'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const schema = yup.object({
     code: yup.string().min(6, "El código debe tener 6 caracteres.").max(6, "El código debe tener 6 caracteres").required("Se necesita ingresa un código para reestablecer la contraseña."),
@@ -79,7 +77,7 @@ function ValidateCode() {
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className='left'>Código</label>
-                        <input placeholder="Ingresa el código recibido" type="text" name="code" pattern="[A-Za-z0-9()_.'-]+" className={errors.code?.message ? 'redBorder' : ''} {...register("code")}></input>
+                        <input placeholder="Ingresa el código recibido" type="text" name="code" className={errors.code?.message ? 'redBorder' : ''} {...register("code")}></input>
                         {
                             errors.code?.message ? <p className='errorYup'>{errors.code?.message}</p> : ''
                         }
