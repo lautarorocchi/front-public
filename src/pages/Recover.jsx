@@ -25,9 +25,7 @@ function Recover() {
     function onSubmit(data) {
         UserServices.enviarCodigo(data.email)
             .then((response) => {
-                console.log(response);
-
-                navigate('/validar', { state: { sendcode: "Se ha enviado un código a tu email para reestablecer la contraseña." } });
+                navigate('/validar', { state: { sendcode: "Se ha enviado el código a tu email para reestablecer la contraseña." } });
             })
             .catch((error) => {
                 setError(error.message);
