@@ -51,8 +51,8 @@ function ValidateCode() {
                         </div> : ''
                     }
                     <hgroup>
-                        <h2>Recuperar contraseña</h2>
-                        <p className="message">Ingresá el mail de tu cuenta para reestablecer la contraseña.</p>
+                        <h2>Verficar el codigo de validación</h2>
+                        <p className="message">Ingresa el código de 6 digitos que se ha enviado a tu mail para reestablecer tu contraseña.</p>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className='left'>Email</label>
