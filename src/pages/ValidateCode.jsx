@@ -17,6 +17,8 @@ function ValidateCode() {
     const location = useLocation();
     const [alertMensaje, setAlert] = useState([]);
     const [visibility, setVisibility] = useState(false);
+    const [alertError, setError] = useState([]);
+    const [visibility2, setVisibility2] = useState(false);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -31,20 +33,24 @@ function ValidateCode() {
       }, [])
 
     function onSubmit(data) {
-        UserServices.enviarCodigo(data.email)
+        UserServices.validarCodigo(data.code)
             .then((response) => {
                 console.log(response);
 
-                navigate('/validar', { state: { login: "Se ha enviado un código a tu email para reestablecer la contraseña." } });
+                /*navigate('/validar', { state: { login: "Se ha enviado un código a tu email para reestablecer la contraseña." } });*/
             })
             .catch((error) => {
                 setError(error.message);
-                setVisibility(true);
+                setVisibility2(true);
             });
     }
 
     function handleClose(){
         setVisibility(false);
+      }
+
+      function handleClose2(){
+        setVisibility2(false);
       }
 
     return (
@@ -56,6 +62,14 @@ function ValidateCode() {
                             <span className="closebtn" onClick={handleClose}>&times;</span>
                             <ul className='white listNone'>
                                 <li>{alertMensaje}</li>
+                            </ul>
+                        </div> : ''
+                    }
+                     {visibility2 ?
+                        <div className="alert">
+                            <span className="closebtn" onClick={handleClose2}>&times;</span>
+                            <ul className='white listNone'>
+                                <li>{alertError}</li>
                             </ul>
                         </div> : ''
                     }
