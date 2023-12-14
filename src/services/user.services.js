@@ -175,7 +175,9 @@ async function cambiarClave(codigo, password){
             return response.json()
         }
         else {
-            throw new Error('El código que ingresaste no es valido o ha expirado, intenta nuevamente.')
+            return response.json().then(errorData => {
+                throw new Error(errorData.message || 'Error desconocido');
+            });
         }
     })
 }
