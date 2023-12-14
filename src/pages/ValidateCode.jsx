@@ -14,12 +14,20 @@ const schema = yup.object({
 }).required();
 
 function ValidateCode() {
-    const [errorMensaje, setError] = useState([]);
+    const [alertMensaje, setAlert] = useState([]);
     const [visibility, setVisibility] = useState(false);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
+
+    useEffect(()=>{
+        if(location.state != null){
+          const{sendcode} = location.state;
+          setAlert(sendcode);
+          setVisibility(true);
+        }
+      }, [])
 
     function onSubmit(data) {
         UserServices.enviarCodigo(data.email)
@@ -43,10 +51,10 @@ function ValidateCode() {
             <div className='container'>
                 <article className='centered'>
                     {visibility ?
-                        <div className="alert">
+                        <div className="alertBuena">
                             <span className="closebtn" onClick={handleClose}>&times;</span>
                             <ul className='white listNone'>
-                                <li>{errorMensaje}</li>
+                                <li>{alertMensaje}</li>
                             </ul>
                         </div> : ''
                     }
