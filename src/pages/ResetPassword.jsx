@@ -36,11 +36,8 @@ function ResetPassword() {
     useEffect(() => {
         if (location.state != null) {
             const { reset } = location.state;
-    
-            if (reset) {
-                setAlert(reset);
-                setVisibility(true);
-            }
+            setAlert(reset);
+            setVisibility(true);
         }
     }, [location.state]);
 
