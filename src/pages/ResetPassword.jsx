@@ -37,7 +37,7 @@ function ResetPassword() {
         if (location.state != null) {
             const { change } = location.state;
     
-            if (register) {
+            if (change) {
                 setAlert(change);
                 setVisibility(true);
             }
