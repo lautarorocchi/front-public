@@ -76,7 +76,7 @@ function ValidateCode() {
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className='left'>Código</label>
-                        <input placeholder="Ingresa el código recibido" type="text" name="code" className={errors.code?.message ? 'redBorder' : ''} {...register("code")}></input>
+                        <input placeholder="Ingresa el código recibido" maxLength={6} type="text" name="code" className={errors.code?.message ? 'redBorder' : ''} {...register("code")}></input>
                         {
                             errors.code?.message ? <p className='errorYup'>{errors.code?.message}</p> : ''
                         }
