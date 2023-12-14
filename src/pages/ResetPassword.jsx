@@ -50,7 +50,7 @@ function ResetPassword() {
                 <article className='centered'>
                     <hgroup>
                         <h2>Cambiar contraseña</h2>
-                        <p className="message">Ingresa tu nueva contraseña, recuerda que no tiene que ser una clave ya utilizada en el sistema.</p>
+                        <p className="message">Ingresa tu nueva contraseña, recuerda que no tiene que ser una clave ya utilizaste en tu cuenta.</p>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className='left'>Contraseña</label>
