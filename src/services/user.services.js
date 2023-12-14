@@ -144,6 +144,24 @@ async function enviarCodigo(email){
     })
 }
 
+async function validarCodigo(codigo){
+    return fetch(`https://back-public.vercel.app/api/usuarios/validate-code`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({codigo})
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('El código que ingresaste no es valido o ha expirado, intenta nuevamente.')
+        }
+    })
+}
+
 export {
     login,
     createUser,
@@ -152,5 +170,6 @@ export {
     editar,
     crearVerificar,
     validarUsuario,
-    enviarCodigo
+    enviarCodigo,
+    validarCodigo
 }
