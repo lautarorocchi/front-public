@@ -126,6 +126,24 @@ async function validarUsuario(id){
     })
 }
 
+async function enviarCodigo(email){
+    return fetch(`https://back-public.vercel.app/api/usuarios/forgot-password`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email})
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('Error al pedir los datos')
+        }
+    })
+}
+
 export {
     login,
     createUser,
@@ -133,5 +151,6 @@ export {
     findById,
     editar,
     crearVerificar,
-    validarUsuario
+    validarUsuario,
+    enviarCodigo
 }
