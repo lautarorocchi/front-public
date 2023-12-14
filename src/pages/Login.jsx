@@ -10,8 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const schema = yup.object({
-  email: yup.string().email("El Mail no es valido, revisa los datos.").required("Se necesita ingresar un Mail para ingresar al Panel de Control."),
-  password:  yup.string().min(6, "El Password debe tener al menos 6 caracteres.").required("Se necesita ingresa su contraseña para ingresar al Panel de Control."),
+  email: yup.string().email("El email no es valido, revisa los datos.").required("Se necesita ingresar un Mail para ingresar al Panel de Control."),
+  password:  yup.string().min(6, "El password debe tener al menos 6 caracteres.").required("Se necesita ingresa su contraseña para ingresar al Panel de Control."),
 }).required();
 
 function Login({ onLogin }) {
