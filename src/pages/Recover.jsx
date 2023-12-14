@@ -26,7 +26,7 @@ function Recover() {
             .then((response) => {
                 console.log(response);
 
-                /*navigate('/descubre', { state: { login: "¡Inicio de sesión aprobado! Bienvenido a Stack Ux." } });*/
+                navigate('/validar', { state: { login: "Se ha enviado un código a tu email para reestablecer la contraseña." } });
             })
             .catch((error) => {
                 setError(error.message);
