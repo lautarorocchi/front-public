@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const schema = yup.object({
-    email: yup.string().email("El email no es valido, revisa los datos.").required("Se necesita ingresar un Mail para ingresar al Panel de Control."),
+    email: yup.string().email("El email no es valido, revisa los datos.").required("Se necesita ingresar un email para ingresar al Panel de Control."),
 }).required();
 
 function Recover() {
