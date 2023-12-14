@@ -35,7 +35,7 @@ function ValidateCode() {
             .then((response) => {
                 console.log(response);
 
-                /*navigate('/validar', { state: { login: "Se ha enviado un código a tu email para reestablecer la contraseña." } });*/
+                /*navigate('/reset', { state: { reset-password: "Se ha enviado un código a tu email para reestablecer la contraseña." } });*/
             })
             .catch((error) => {
                 setError(error.message);

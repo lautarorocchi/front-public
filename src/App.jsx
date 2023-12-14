@@ -21,6 +21,7 @@ import Verify from './pages/Verify'
 import Validator from './pages/Validator'
 import Recover from './pages/Recover'
 import ValidateCode from './pages/ValidateCode'
+import ResetPassword from './pages/ResetPassword'
 
 function RutaPrivada({ esAutenticado, element, ...props }) {
   return esAutenticado ? element : <Navigate to={'/login'} />;
@@ -99,6 +100,7 @@ function App() {
           <Route path="/perfil/verificar" element={<RutaPrivada esAutenticado={esAutenticado} element={<Verify />} />}/>
           <Route path="/recuperar" element={<Recover />} />
           <Route path="/validar" element={<ValidateCode />} />
+          <Route path="/reset" element={<ResetPassword />} />
           <Route path="/verificar/:id" element={<Validator />} />
           <Route path="*" element={<Page404/>} />
           <Route path="/404" element={<Page404/>} />
