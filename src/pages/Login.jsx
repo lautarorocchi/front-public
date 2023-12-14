@@ -96,10 +96,6 @@ function Login({ onLogin }) {
                 errors.password?.message ?  <p className='errorYup'>{errors.password?.message}</p> : ''
               }
               <fieldset>
-                {/*<label for="remember">
-                  <input type="checkbox" role="switch" id="remember" name="remember"></input>
-                  No cerrar la sesión
-                </label>*/}
                 <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
               </fieldset>
               <button type="submit" className="contrast color-especial" role="button">Inicia sesión</button>
