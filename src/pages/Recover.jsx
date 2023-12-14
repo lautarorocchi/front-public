@@ -27,7 +27,7 @@ function Recover() {
             .then((response) => {
                 console.log(response);
 
-                navigate('/validar', { state: { login: "Se ha enviado un código a tu email para reestablecer la contraseña." } });
+                navigate('/validar', { state: { sendcode: "Se ha enviado un código a tu email para reestablecer la contraseña." } });
             })
             .catch((error) => {
                 setError(error.message);
