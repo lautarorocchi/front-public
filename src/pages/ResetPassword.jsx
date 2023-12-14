@@ -24,6 +24,8 @@ function ResetPassword() {
     const navigate = useNavigate();
     const location = useLocation();
     const code = localStorage.getItem('code');
+    const [alertError, setError] = useState([]);
+    const [visibility2, setVisibility2] = useState(false);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -32,13 +34,11 @@ function ResetPassword() {
     function onSubmit(data) {
         userServices.cambiarClave(code, data.password)
             .then((response) => {
-                console.log(response);
-                /*navigate('/login', { state: { change: "Se ha reestablecido tu contraseña, ya podes iniciar sesión con tu nueva clave." } });*/
+                navigate('/login', { state: { change: "Se ha reestablecido tu contraseña, ya podes iniciar sesión con tu nueva clave." } });
             })
             .catch((error) => {
-                console.log(error)
-                /*setError(error.message);
-                setVisibility2(true);*/
+                setError(error.message);
+                setVisibility2(true)
             });
     }
 
@@ -46,10 +46,23 @@ function ResetPassword() {
         setPasswordShown(!passwordShown);
     };
 
+    function handleClose2() {
+        setVisibility2(false);
+    }
+
+
     return (
         <div>
             <div className='container'>
                 <article className='centered'>
+                    {visibility2 ?
+                        <div className="alert">
+                            <span className="closebtn" onClick={handleClose2}>&times;</span>
+                            <ul className='white listNone'>
+                                <li>{alertError}</li>
+                            </ul>
+                        </div> : ''
+                    }
                     <hgroup>
                         <h2>Cambiar contraseña</h2>
                         <p className="message">Ingresa tu nueva contraseña, recuerda que no tiene que ser una clave ya utilizaste en tu cuenta.</p>
