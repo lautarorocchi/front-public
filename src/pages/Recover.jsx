@@ -26,7 +26,7 @@ function Recover() {
             .then((response) => {
                 console.log(response);
 
-                navigate('/descubre', { state: { login: "¡Inicio de sesión aprobado! Bienvenido a Stack Ux." } });
+                /*navigate('/descubre', { state: { login: "¡Inicio de sesión aprobado! Bienvenido a Stack Ux." } });*/
             })
             .catch((error) => {
                 setError(error.message);
