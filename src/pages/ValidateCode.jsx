@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const schema = yup.object({
-    email: yup.string().email("El email no es valido, revisa los datos.").required("Se necesita ingresar un Mail para ingresar al Panel de Control."),
+    code: yup.string().min(6, "El código debe tener 6 caracteres.").max(6, "El código debe tener 6 caracteres").required("Se necesita ingresa un código para reestablecer la contraseña."),
 }).required();
 
 function ValidateCode() {
@@ -56,9 +56,9 @@ function ValidateCode() {
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className='left'>Código</label>
-                        <input placeholder="Ingresa el código recibido" type="text" name="companyName" pattern="[A-Za-z0-9()_.'-]+" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
+                        <input placeholder="Ingresa el código recibido" type="text" name="companyName" pattern="[A-Za-z0-9()_.'-]+" className={errors.code?.message ? 'redBorder' : ''} {...register("code")}></input>
                         {
-                            errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
+                            errors.code?.message ? <p className='errorYup'>{errors.code?.message}</p> : ''
                         }
                         <button type="submit" className="contrast color-especial" role="button">Validar código</button>
                     </form>
