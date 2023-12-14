@@ -5,6 +5,7 @@ import {
 import * as userServices from '../services/user.services.js'
 import * as EmpresaServices from '../services/empresas.services.js'
 import { useNavigate } from 'react-router-dom'
+import * as UserServices from '../services/user.services.js'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
@@ -22,7 +23,18 @@ function ResetPassword() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
-    
+
+    function onSubmit(data) {
+        UserServices.validarCodigo(data.code)
+            .then((response) => {
+                navigate('/reset', { state: { reset: "El código que ingresaste es valido." } });
+            })
+            .catch((error) => {
+                setError(error.message);
+                setVisibility2(true);
+            });
+    }
+
     return (
         <div>
             <div className='container'>
