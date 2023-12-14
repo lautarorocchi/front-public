@@ -34,7 +34,7 @@ function ValidateCode() {
     function onSubmit(data) {
         UserServices.validarCodigo(data.code)
             .then((response) => {
-                navigate('/reset', { state: { reset: "El código ha sido validado para reestablecer la contraseña." } });
+                navigate('/reset', { state: { reset: "El código que ingresaste es valido." } });
             })
             .catch((error) => {
                 setError(error.message);
