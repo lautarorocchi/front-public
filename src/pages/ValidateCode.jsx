@@ -55,8 +55,8 @@ function ValidateCode() {
                         <p className="message">Ingresa el código de 6 digitos que se ha enviado a tu mail para reestablecer tu contraseña.</p>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <label className='left'>Email</label>
-                        <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
+                        <label className='left'>Código</label>
+                        <input placeholder="Ingresa el código recibido" type="text" name="companyName" pattern="[A-Za-z0-9()_.'-]+" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
                         {
                             errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
                         }
