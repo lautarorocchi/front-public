@@ -3,7 +3,7 @@ import {
   Link, useNavigate, useLocation
 } from "react-router-dom";
 import * as UserServices from '../services/user.services.js'
-import {useForm} from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,7 +11,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const schema = yup.object({
   email: yup.string().email("El email no es valido, revisa los datos.").required("Se necesita ingresar un Mail para ingresar al Panel de Control."),
-  password:  yup.string().min(6, "El password debe tener al menos 6 caracteres.").required("Se necesita ingresa su contraseña para ingresar al Panel de Control."),
+  password: yup.string().min(6, "El password debe tener al menos 6 caracteres.").required("Se necesita ingresa su contraseña para ingresar al Panel de Control."),
 }).required();
 
 function Login({ onLogin }) {
@@ -26,19 +26,25 @@ function Login({ onLogin }) {
     resolver: yupResolver(schema)
   });
 
-  useEffect(()=>{
-    if(location.state != null){
-      const{register} = location.state;
-      setAlert(register);
-      setVisibility2(true);
+  useEffect(() => {
+    if (location.state != null) {
+      const { register, change } = location.state;
+
+      if (register) {
+        setAlert(register);
+        setVisibility2(true);
+      } else if (change) {
+        setAlert(change);
+        setVisibility2(true);
+      }
     }
-  }, [])
+  }, [location.state]);
 
   function onSubmit(data) {
     UserServices.login(data.email, data.password)
       .then(({ user, token }) => {
         onLogin(user, token);
-        navigate('/descubre', { state: {login: "¡Inicio de sesión aprobado! Bienvenido a Stack Ux." } });
+        navigate('/descubre', { state: { login: "¡Inicio de sesión aprobado! Bienvenido a Stack Ux." } });
       })
       .catch((error) => {
         setError(error.message);
@@ -46,15 +52,15 @@ function Login({ onLogin }) {
       });
   }
 
-  function handleClose(){
+  function handleClose() {
     setVisibility(false);
   }
 
-  function handleClose2(){
+  function handleClose2() {
     setVisibility2(false)
   }
 
-  function togglePassword(){
+  function togglePassword() {
     setPasswordShown(!passwordShown);
   };
 
@@ -63,40 +69,40 @@ function Login({ onLogin }) {
       <div className="container">
         <article className="centered">
           <div>
-            { visibility ?
+            {visibility ?
               <div className="alert">
-                 <span className="closebtn" onClick={handleClose}>&times;</span>
-                 <ul className='white listNone'>
+                <span className="closebtn" onClick={handleClose}>&times;</span>
+                <ul className='white listNone'>
                   <li>{errorMensaje}</li>
-                 </ul>
+                </ul>
               </div> : ''
             }
-             { visibility2 ?
-                <div className="alertBuena">
-                  <span className="closebtn" onClick={handleClose2}>&times;</span>
-                  <ul className='white listNone'>
-                    <li>{alertMensaje}</li>
-                  </ul>
-                </div> : ''
-              }
+            {visibility2 ?
+              <div className="alertBuena">
+                <span className="closebtn" onClick={handleClose2}>&times;</span>
+                <ul className='white listNone'>
+                  <li>{alertMensaje}</li>
+                </ul>
+              </div> : ''
+            }
             <hgroup>
-            <h2>Inicia sesión</h2>
-            <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
+              <h2>Inicia sesión</h2>
+              <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left'>Email</label>
               <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
               {
-                errors.email?.message ?  <p className='errorYup'>{errors.email?.message}</p> : ''
+                errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
               }
               <label className='left'>Contraseña</label>
               <input type={passwordShown ? "text" : "password"} placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
-              <FontAwesomeIcon icon={passwordShown ? faEyeSlash : faEye} onClick={togglePassword} className="ojoPassword"/>
+              <FontAwesomeIcon icon={passwordShown ? faEyeSlash : faEye} onClick={togglePassword} className="ojoPassword" />
               {
-                errors.password?.message ?  <p className='errorYup'>{errors.password?.message}</p> : ''
+                errors.password?.message ? <p className='errorYup'>{errors.password?.message}</p> : ''
               }
               <fieldset>
-              <p className="message">¿Olvidaste tu contraseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
+                <p className="message">¿Olvidaste tu contraseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
               </fieldset>
               <button type="submit" className="contrast color-especial" role="button">Inicia sesión</button>
             </form>
