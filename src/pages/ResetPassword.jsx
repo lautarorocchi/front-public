@@ -23,13 +23,14 @@ function ResetPassword() {
     const [passwordShown, setPasswordShown] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
+    const code = localStorage.getItem('code');
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
     function onSubmit(data) {
-        UserServices.validarCodigo(data.code)
+        UserServices.cambiarClave(code, data.password)
             .then((response) => {
                 navigate('/login', { state: { change: "Se ha reestablecido tu contraseña, ya podes iniciar sesión con tu nueva clave." } });
             })
