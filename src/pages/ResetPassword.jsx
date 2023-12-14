@@ -30,7 +30,7 @@ function ResetPassword() {
     });
 
     function onSubmit(data) {
-        UserServices.cambiarClave(code, data.password)
+        userServices.cambiarClave(code, data.password)
             .then((response) => {
                 console.log(response);
                 /*navigate('/login', { state: { change: "Se ha reestablecido tu contraseña, ya podes iniciar sesión con tu nueva clave." } });*/
