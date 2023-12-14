@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
-    Link
+    Link, useLocation
 } from "react-router-dom";
 import * as userServices from '../services/user.services.js'
 import * as EmpresaServices from '../services/empresas.services.js'
@@ -21,6 +21,8 @@ const schema = yup.object({
 
 function ResetPassword() {
     const [passwordShown, setPasswordShown] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -29,7 +31,7 @@ function ResetPassword() {
     function onSubmit(data) {
         UserServices.validarCodigo(data.code)
             .then((response) => {
-                navigate('/reset', { state: { reset: "El código que ingresaste es valido." } });
+                navigate('/login', { state: { change: "Se ha reestablecido tu contraseña, ya podes iniciar sesión con tu nueva clave." } });
             })
             .catch((error) => {
                 setError(error.message);

@@ -34,6 +34,7 @@ function ValidateCode() {
     function onSubmit(data) {
         UserServices.validarCodigo(data.code)
             .then((response) => {
+                localStorage.setItem('code', data.code);
                 navigate('/reset', { state: { reset: "El código que ingresaste es valido." } });
             })
             .catch((error) => {
