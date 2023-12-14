@@ -81,7 +81,7 @@ function Login({ onLogin }) {
               }
             <hgroup>
             <h2>Inicia sesión</h2>
-            <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
+            <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left'>Email</label>
@@ -100,7 +100,7 @@ function Login({ onLogin }) {
                   <input type="checkbox" role="switch" id="remember" name="remember"></input>
                   No cerrar la sesión
                 </label>*/}
-                <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
+                <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
               </fieldset>
               <button type="submit" className="contrast color-especial" role="button">Inicia sesión</button>
             </form>
