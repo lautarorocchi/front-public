@@ -24,12 +24,25 @@ function ResetPassword() {
     const navigate = useNavigate();
     const location = useLocation();
     const code = localStorage.getItem('code');
+    const [alertMensaje, setAlert] = useState([]);
+    const [visibility, setVisibility] = useState(false);
     const [alertError, setError] = useState([]);
     const [visibility2, setVisibility2] = useState(false);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
+
+    useEffect(() => {
+        if (location.state != null) {
+            const { change } = location.state;
+    
+            if (register) {
+                setAlert(change);
+                setVisibility(true);
+            }
+        }
+    }, [location.state]);
 
     function onSubmit(data) {
         userServices.cambiarClave(code, data.password)
@@ -46,6 +59,10 @@ function ResetPassword() {
         setPasswordShown(!passwordShown);
     };
 
+    function handleClose() {
+        setVisibility(false);
+    }
+
     function handleClose2() {
         setVisibility2(false);
     }
@@ -55,6 +72,14 @@ function ResetPassword() {
         <div>
             <div className='container'>
                 <article className='centered'>
+                    {visibility ?
+                        <div className="alertBuena">
+                            <span className="closebtn" onClick={handleClose}>&times;</span>
+                            <ul className='white listNone'>
+                                <li>{alertMensaje}</li>
+                            </ul>
+                        </div> : ''
+                    }
                     {visibility2 ?
                         <div className="alert">
                             <span className="closebtn" onClick={handleClose2}>&times;</span>
