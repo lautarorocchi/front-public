@@ -139,7 +139,7 @@ async function enviarCodigo(email){
             return response.json()
         }
         else {
-            throw new Error('Error al pedir los datos')
+            throw new Error('El email que ingresaste no es valido o no se encuentra registrado en la aplicación, intenta nuevamente.')
         }
     })
 }
