@@ -14,6 +14,7 @@ const schema = yup.object({
 }).required();
 
 function ValidateCode() {
+    const location = useLocation();
     const [alertMensaje, setAlert] = useState([]);
     const [visibility, setVisibility] = useState(false);
 
