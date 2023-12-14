@@ -96,7 +96,7 @@ function Login({ onLogin }) {
                 errors.password?.message ?  <p className='errorYup'>{errors.password?.message}</p> : ''
               }
               <fieldset>
-                <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
+              <p className="message">¿Olvidaste tu contreseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
               </fieldset>
               <button type="submit" className="contrast color-especial" role="button">Inicia sesión</button>
             </form>
