@@ -32,11 +32,13 @@ function ResetPassword() {
     function onSubmit(data) {
         UserServices.cambiarClave(code, data.password)
             .then((response) => {
-                navigate('/login', { state: { change: "Se ha reestablecido tu contraseña, ya podes iniciar sesión con tu nueva clave." } });
+                console.log(response);
+                /*navigate('/login', { state: { change: "Se ha reestablecido tu contraseña, ya podes iniciar sesión con tu nueva clave." } });*/
             })
             .catch((error) => {
-                setError(error.message);
-                setVisibility2(true);
+                console.log(error)
+                /*setError(error.message);
+                setVisibility2(true);*/
             });
     }
 
