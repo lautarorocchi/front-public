@@ -144,13 +144,13 @@ async function enviarCodigo(email){
     })
 }
 
-async function validarCodigo(codigo){
+async function validarCodigo(code){
     return fetch(`https://back-public.vercel.app/api/usuarios/validate-code`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({codigo})
+        body: JSON.stringify({code})
     })
     .then(response => {
         if (response.ok) {
@@ -162,13 +162,13 @@ async function validarCodigo(codigo){
     })
 }
 
-async function cambiarClave(codigo, password){
+async function cambiarClave(code, password){
     return fetch(`https://back-public.vercel.app/api/usuarios/forgot-password`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({codigo, password})
+        body: JSON.stringify({code, password})
     })
     .then(response => {
         if (response.ok) {
