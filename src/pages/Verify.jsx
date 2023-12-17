@@ -47,7 +47,7 @@ function Verify() {
     userServices.crearVerificar(empresa, id, data.name, data.surname, data.email)
       .then(data => {
         if (data) {
-          navigate('/perfil')
+          navigate('/perfil', { state: { change: "Se ha enviado la verificación al administrador de la empresa." } })
         }
         else {
           navigate('/404')

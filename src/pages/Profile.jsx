@@ -23,6 +23,14 @@ function Profile() {
   const [visibility, setVisibility] = useState(false);
 
   useEffect(() => {
+    if (location.state != null) {
+        const { change } = location.state;
+        setAlert(change);
+        setVisibility(true);
+    }
+  }, [location.state]);
+
+  useEffect(() => {
     UserServices.findById(id)
       .then(data => {
         if (data) {
