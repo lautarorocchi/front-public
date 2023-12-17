@@ -90,7 +90,7 @@ function ResetPassword() {
                         <p className="message">Ingresa tu nueva contraseña, recuerda que no tiene que ser una clave ya utilizaste en tu cuenta.</p>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <label className='left'>Contraseña</label>
+                        <label className='left' htmlFor="password">Contraseña</label>
                         <input type={passwordShown ? "text" : "password"} placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
                         <FontAwesomeIcon icon={passwordShown ? faEyeSlash : faEye} onClick={togglePassword} className="ojoPassword" />
                         {

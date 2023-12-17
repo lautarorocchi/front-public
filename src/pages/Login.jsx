@@ -90,12 +90,12 @@ function Login({ onLogin }) {
               <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <label className='left'>Email</label>
+              <label className='left' htmlFor="email">Email</label>
               <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
               {
                 errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
               }
-              <label className='left'>Contraseña</label>
+              <label className='left' htmlFor="password">Contraseña</label>
               <input type={passwordShown ? "text" : "password"} placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
               <FontAwesomeIcon icon={passwordShown ? faEyeSlash : faEye} onClick={togglePassword} className="ojoPassword" />
               {

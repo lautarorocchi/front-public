@@ -54,7 +54,7 @@ function Recover() {
                         <p className="message">Ingresá el email de tu cuenta para reestablecer la contraseña.</p>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <label className='left'>Email</label>
+                        <label className='left' htmlFor='email'>Email</label>
                         <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
                         {
                             errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
