@@ -97,18 +97,18 @@ function Register() {
             </hgroup>
             <form onSubmit={handleSubmit(submitUsuario)}>
               <label htmlFor='nombre' className='left'>Nombre</label>
-              <input type="text" name="nombre" placeholder="Nombre" aria-label="nombre" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}></input>
+              <input id='nombre' type="text" name="nombre" placeholder="Nombre" aria-label="nombre" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}></input>
               {
                 errors.name?.message ? <p className='errorYup'>{errors.name?.message}</p> : ''
               }
               <label htmlFor='surname' className='left'>Apellido</label>
-              <input type="text" name="apellido" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''} {...register("surname")}></input>
+              <input id='surname' type="text" name="apellido" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''} {...register("surname")}></input>
               {
                 errors.surname?.message ? <p className='errorYup'>{errors.surname?.message}</p> : ''
               }
               <label htmlFor='empresa' className='left'>Empresa Asociada</label>
               <select {...register("empresa")}>
-                <option value="" disabled selected>Elegí una empresa</option>
+                <option id='empresa' value="" disabled selected>Elegí una empresa</option>
                 {
                   empresas.map(empresa =>
                     <option key={empresa._id} value={empresa._id}>{empresa.name}</option>
@@ -119,12 +119,12 @@ function Register() {
                 errors.empresa?.message ? <p className='errorYup'>{errors.empresa?.message}</p> : ''
               }
               <label htmlFor='email' className='left'>Email</label>
-              <input type="text" name="email" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''}  {...register("email")}></input>
+              <input id='email' type="text" name="email" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''}  {...register("email")}></input>
               {
                 errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
               }
               <label htmlFor='password' className='left'>Contraseña</label>
-              <input type={passwordShown ? "text" : "password"} name="password" placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
+              <input id='password' type={passwordShown ? "text" : "password"} name="password" placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
               <FontAwesomeIcon icon={passwordShown ? faEyeSlash : faEye} onClick={togglePassword} className="ojoPassword" />
               {
                 errors.password?.message ? <p className='errorYup'>{errors.password?.message}</p> : ''
