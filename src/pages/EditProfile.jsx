@@ -89,12 +89,12 @@ function EditProfile() {
           </hgroup>
           <form onSubmit={handleSubmit(submitUsuario)}>
               <label htmlFor='nombre' className='left'>Nombre</label>
-              <input type="text" name="name" placeholder="Nombre" aria-label="nombre" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}></input>
+              <input id='nombre' type="text" name="name" placeholder="Nombre" aria-label="nombre" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}></input>
               {
                 errors.name?.message ? <p className='errorYup'>{errors.name?.message}</p> : ''
               }
               <label htmlFor='surname' className='left'>Apellido</label>
-              <input type="text" name="surname" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''} {...register("surname")}></input>
+              <input id='surname' type="text" name="surname" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''} {...register("surname")}></input>
               {
                 errors.surname?.message ? <p className='errorYup'>{errors.surname?.message}</p> : ''
               }
@@ -102,7 +102,7 @@ function EditProfile() {
                 errors.empresa?.message ? <p className='errorYup'>{errors.empresa?.message}</p> : ''
               }
               <label htmlFor='email' className='left'>Email</label>
-              <input type="text" name="email" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''}  {...register("email")}></input>
+              <input id='email' type="text" name="email" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''}  {...register("email")}></input>
               {
                 errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
               }
