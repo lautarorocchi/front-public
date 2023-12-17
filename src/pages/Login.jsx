@@ -91,12 +91,12 @@ function Login({ onLogin }) {
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left' htmlFor="email">Email</label>
-              <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
+              <input id='email' type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
               {
                 errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
               }
               <label className='left' htmlFor="password">Contraseña</label>
-              <input type={passwordShown ? "text" : "password"} placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
+              <input id='password' type={passwordShown ? "text" : "password"} placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
               <FontAwesomeIcon icon={passwordShown ? faEyeSlash : faEye} onClick={togglePassword} className="ojoPassword" />
               {
                 errors.password?.message ? <p className='errorYup'>{errors.password?.message}</p> : ''
