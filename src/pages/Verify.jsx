@@ -124,12 +124,12 @@ function Verify() {
             {usuario ? 
             <form onSubmit={handleSubmit(submitVerify)}>
             <label htmlFor='name' className='left'>Nombre</label>
-            <input type="text" placeholder="Nombre" aria-label="nombre" className={errors.name?.message ? 'redBorder' : ''} value={usuario.name ? usuario.name : ""} {...register("name")}  disabled></input>
+            <input id='name' type="text" placeholder="Nombre" aria-label="nombre" className={errors.name?.message ? 'redBorder' : ''} value={usuario.name ? usuario.name : ""} {...register("name")}  disabled></input>
             {
               errors.name?.message ? <p className='errorYup'>{errors.name?.message}</p> : ''
             }
             <label htmlFor='surname' className='left'>Apellido</label>
-            <input type="text" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''}  value={usuario.surname ? usuario.surname : ""} {...register("surname")}  disabled></input>
+            <input id='surname' type="text" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''}  value={usuario.surname ? usuario.surname : ""} {...register("surname")}  disabled></input>
             {
               errors.surname?.message ? <p className='errorYup'>{errors.surname?.message}</p> : ''
             }
@@ -137,7 +137,7 @@ function Verify() {
               errors.empresa?.message ? <p className='errorYup'>{errors.empresa?.message}</p> : ''
             }
             <label htmlFor='email' className='left'>Email</label>
-            <input type="text" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''}  value={usuario.email ? usuario.email : ""}  {...register("email")} disabled></input>
+            <input id='email' type="text" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''}  value={usuario.email ? usuario.email : ""}  {...register("email")} disabled></input>
             {
               errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
             }
