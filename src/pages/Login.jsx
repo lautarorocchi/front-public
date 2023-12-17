@@ -90,7 +90,7 @@ function Login({ onLogin }) {
               <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <label className='left' htmlFor="email">Email</label>
+              <label className='left' htmlFor="email" label-id='email'>Email</label>
               <input type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
               {
                 errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
