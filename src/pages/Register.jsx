@@ -108,10 +108,10 @@ function Register() {
               }
               <label htmlFor='empresa' className='left'>Empresa Asociada</label>
               <select {...register("empresa")}>
-                <option id='empresa' value="" disabled selected>Elegí una empresa</option>
+                <option value="" disabled selected>Elegí una empresa</option>
                 {
                   empresas.map(empresa =>
-                    <option key={empresa._id} value={empresa._id}>{empresa.name}</option>
+                    <option id='empresa' key={empresa._id} value={empresa._id}>{empresa.name}</option>
                   )
                 }
               </select>
