@@ -123,7 +123,7 @@ function Verify() {
             </hgroup>
             {usuario ? 
             <form onSubmit={handleSubmit(submitVerify)}>
-            <label htmlFor='nombre' className='left'>Nombre</label>
+            <label htmlFor='name' className='left'>Nombre</label>
             <input type="text" placeholder="Nombre" aria-label="nombre" className={errors.name?.message ? 'redBorder' : ''} value={usuario.name ? usuario.name : ""} {...register("name")}  disabled></input>
             {
               errors.name?.message ? <p className='errorYup'>{errors.name?.message}</p> : ''
