@@ -118,7 +118,7 @@ function EditProduct() {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label htmlFor='name' className='left'>Producto</label>
                         <input type="text" name='id' value={id} readonly disabled></input>
-                        <input type="text" id="first_name" placeholder="Agregar Nombre del producto" name="producto" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}/>
+                        <input type="text" id="name" placeholder="Agregar Nombre del producto" name="producto" className={errors.name?.message ? 'redBorder' : ''} {...register("name")}/>
                         {
                             errors.name?.message ? <p className='errorYup'>{errors.name?.message}</p> : ''
                         }

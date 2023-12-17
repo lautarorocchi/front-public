@@ -76,8 +76,8 @@ function ValidateCode() {
                         <p className="message">Ingresa el código de 6 digitos que se ha enviado a tu mail para reestablecer tu contraseña.</p>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <label className='left'>Código</label>
-                        <input placeholder="Ingresa el código recibido" maxLength={6} type="text" name="code" className={errors.code?.message ? 'redBorder' : ''} {...register("code")} required></input>
+                        <label className='left' htmlFor='code'>Código</label>
+                        <input id='code' placeholder="Ingresa el código recibido" maxLength={6} type="text" name="code" className={errors.code?.message ? 'redBorder' : ''} {...register("code")} required></input>
                         {
                             errors.code?.message ? <p className='errorYup'>{errors.code?.message}</p> : ''
                         }

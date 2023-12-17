@@ -93,7 +93,7 @@ function Create() {
               </hgroup>
               <form onSubmit={handleSubmit(onSubmit)} enctype="multipart/form-data">
                 <label htmlFor='name' className='left'>Producto</label>
-                <input type="text" placeholder="Agregar Nombre del producto" name="name" className={errors.name?.message ? 'redBorder' : ''} {...register("name")} />
+                <input type="text" id='name' placeholder="Agregar Nombre del producto" name="name" className={errors.name?.message ? 'redBorder' : ''} {...register("name")} />
                 {
                   errors.name?.message ? <p className='errorYup'>{errors.name?.message}</p> : ''
                 }
@@ -108,7 +108,7 @@ function Create() {
                   errors.cantidad?.message ? <p className='errorYup'>{errors.cantidad?.message}</p> : ''
                 }
                 <label htmlFor="file">Imagen
-                  <input type="file" accept='image/*' onChange={(event) => setImageUpload(event.target.files[0])} required></input>
+                  <input id='file' type="file" accept='image/*' onChange={(event) => setImageUpload(event.target.files[0])} required></input>
                 </label>
                 {
                   errors.file?.message ? <p className='errorYup'>{errors.file?.message}</p> : ''
