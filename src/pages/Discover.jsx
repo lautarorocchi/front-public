@@ -27,7 +27,6 @@ function Discover() {
   const [estadoEmpresa, setEstadoEmpresa] = useState(true)
   const [estadoRubros, setEstadosRubros] = useState(false)
   const [estadoSubrubros, setEstadosSubrubros] = useState(false)
-  const [estadoAmbos, setEstadosAmbos] = useState(false)
 
   const empresa = localStorage.getItem('empresa');
 
@@ -122,28 +121,18 @@ function Discover() {
     setEstadoEmpresa(true);
     setEstadosRubros(false);
     setEstadosSubrubros(false);
-    setEstadosAmbos(false);
   }
 
   function filterRubro() {
     setEstadoEmpresa(false);
     setEstadosRubros(true);
     setEstadosSubrubros(false);
-    setEstadosAmbos(false);
   }
 
   function filterSubrubro() {
     setEstadoEmpresa(false);
     setEstadosRubros(false);
     setEstadosSubrubros(true);
-    setEstadosAmbos(false);
-  }
-
-  function filterAmbos() {
-    setEstadoEmpresa(false);
-    setEstadosRubros(false);
-    setEstadosSubrubros(false)
-    setEstadosAmbos(true);
   }
 
   function onChangeQuery(event) {
@@ -215,7 +204,6 @@ function Discover() {
                       <li><span onClick={filterTodas}><a>Todas</a></span></li>
                       <li><span onClick={filterRubro}><a>Mismo tipo</a></span></li>
                       <li><span onClick={filterSubrubro}><a>Mismo rubro</a></span></li>
-                      <li><span onClick={filterAmbos}><a>Mismo tipo y rubro</a></span></li>
                     </ul>
                   </details>
                 </li>
@@ -277,23 +265,6 @@ function Discover() {
               )) : ""
             }
 
-            {(estadoAmbos) ?
-              (empresas.filter(empresasAmbas => empresasAmbas.name.toLowerCase().includes(query.toLowerCase())).map((empresasAmbas, index) =>
-                (empresasAmbas._id === empresa || empresasAmbas.rubro === miRubro || empresasAmbas.subrubro === miSubrubro) ? "" :
-                  <article key={empresasAmbas.id}>
-                    <hgroup>
-                      <h4>{empresasAmbas.name}</h4>
-                      <h5>Esta empresa comparte tu tipo de institución y rubro.</h5>
-                    </hgroup>
-                    <ul>
-                      <li>Descripción: {empresasAmbas.descripcion}</li>
-                      <li>Email: {empresasAmbas.email}</li>
-                      <li>Localidad: {empresasAmbas.localidad}</li>
-                    </ul>
-                    <button className='color-especial'><a href={"mailto:" + empresasAmbas.email} className='mailto'>Enviar mail</a></button>
-                  </article>
-              )) : ""
-            }
           </article>
         </article> ) : ( 
         <Access></Access>)}
