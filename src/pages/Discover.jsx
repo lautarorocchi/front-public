@@ -279,7 +279,7 @@ function Discover() {
 
             {(estadoAmbos) ?
               (subrubrosAsociados.filter(empresasAsociadasRubro => empresasAsociadasRubro.name.toLowerCase().includes(query.toLowerCase())).map((empresasAsociadasRubro, index) =>
-                (empresasAsociadasRubro._id === empresa && empresasAsociadasRubro.rubro === empresa && empresasAsociadasRubro.subrubro === miSubrubro) ? "" :
+                (empresasAsociadasRubro._id === empresa || empresasAsociadasRubro.rubro === miRubro || empresasAsociadasRubro.subrubro === miSubrubro) ? "" :
                   <article key={empresasAsociadasRubro.id}>
                     <hgroup>
                       <h4>{empresasAsociadasRubro.name}</h4>
