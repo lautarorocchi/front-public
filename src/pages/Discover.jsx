@@ -278,19 +278,19 @@ function Discover() {
             }
 
             {(estadoAmbos) ?
-              (subrubrosAsociados.filter(empresasAsociadasRubro => empresasAsociadasRubro.name.toLowerCase().includes(query.toLowerCase())).map((empresasAsociadasRubro, index) =>
-                (empresasAsociadasRubro._id === empresa || empresasAsociadasRubro.rubro === miRubro || empresasAsociadasRubro.subrubro === miSubrubro) ? "" :
+              (empresas.filter(empresasAmbas => empresasAmbas.name.toLowerCase().includes(query.toLowerCase())).map((empresasAmbas, index) =>
+                (empresasAmbas._id === empresa || empresasAmbas.rubro === miRubro || empresasAmbas.subrubro === miSubrubro) ? "" :
                   <article key={empresasAsociadasRubro.id}>
                     <hgroup>
-                      <h4>{empresasAsociadasRubro.name}</h4>
+                      <h4>{empresasAmbas.name}</h4>
                       <h5>Esta empresa comparte tu tipo de institución y rubro.</h5>
                     </hgroup>
                     <ul>
-                      <li>Descripción: {empresasAsociadasRubro.descripcion}</li>
-                      <li>Email: {empresasAsociadasRubro.email}</li>
-                      <li>Localidad: {empresasAsociadasRubro.localidad}</li>
+                      <li>Descripción: {empresasAmbas.descripcion}</li>
+                      <li>Email: {empresasAmbas.email}</li>
+                      <li>Localidad: {empresasAmbas.localidad}</li>
                     </ul>
-                    <button className='color-especial'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
+                    <button className='color-especial'><a href={"mailto:" + empresasAmbas.email} className='mailto'>Enviar mail</a></button>
                   </article>
               )) : ""
             }
