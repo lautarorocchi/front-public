@@ -76,8 +76,8 @@ function CreateEmpresa() {
         <article className="centered">
           <div>
             <hgroup>
-              <h2>Regístra una empresa</h2>
-              <h3><div>Registra una nueva empresa para anexarla a tu usuario, </div>¿Tu empresa ya esta registrada? <Link to="/registro"><u>Registrate</u></Link>.<br></br> ¿Ya tenes usuario? <Link to="/login"><u>Inicia Sesión</u></Link>.</h3>
+              <h2>Registrá una empresa</h2>
+              <h3><div>Registrá una nueva empresa para anexarla a tu usuario, </div>¿Tu empresa ya está registrada? <Link to="/registro"><u>Registrate</u></Link>.<br></br> ¿Ya tenés usuario? <Link to="/login"><u>Inicia Sesión</u></Link>.</h3>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label htmlFor='nombre' className='left'>Nombre de la empresa</label>
