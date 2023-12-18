@@ -188,7 +188,7 @@ function Discover() {
                 : <Loading />}
             </article>
           </div>
-          : <article>
+          <article>
             <div>
             </div>
             <nav>
