@@ -88,6 +88,7 @@ function Login({ onLogin }) {
             <hgroup>
               <h2>Inicia sesión</h2>
               <p className="message">¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
+              <p className="message">¿Querés crear una empresa? <Link to="/empresa/crear"><u>Creá una empresa</u></Link></p>
             </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left' htmlFor="email">Email</label>
