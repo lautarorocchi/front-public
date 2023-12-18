@@ -243,7 +243,7 @@ function Discover() {
 
             {(estadoRubros) ?
               (rubrosAsociados.filter(empresasAsociadasRubro => empresasAsociadasRubro.name.toLowerCase().includes(query.toLowerCase())).map((empresasAsociadasRubro, index) =>
-                (empresasAsociadasRubro._id === empresa) ? "" :
+                (empresasAsociadasRubro.rubro === empresa) ? "" :
                   <article key={empresasAsociadasRubro.id}>
                     <hgroup>
                       <h4>{empresasAsociadasRubro.name}</h4>
@@ -261,7 +261,7 @@ function Discover() {
 
             {(estadoSubrubros) ?
               (subrubrosAsociados.filter(subrubrinAsociado => subrubrinAsociado.name.toLowerCase().includes(query.toLowerCase())).map((subrubrinAsociado, index) =>
-                (subrubrinAsociado._id === empresa) ? "" :
+                (subrubrinAsociado.subrubro === empresa) ? "" :
                   <article key={subrubrinAsociado.id}>
                     <hgroup>
                       <h4>{subrubrinAsociado.name}</h4>
