@@ -238,7 +238,7 @@ function Discover() {
               ) : (
                 <article className='mt-1 mb-1'>
                 <h3>No hay otras empresas registradas en la aplicación.</h3>
-                <p>La aplicación no presenta ninguna empresa registada.</p>
+                <p>La aplicación no presenta ningun otra empresa registada.</p>
               </article>
               )
             )}
