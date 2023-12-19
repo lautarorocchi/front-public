@@ -16,7 +16,6 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const schema = yup.object({
     name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
     surname: yup.string().required("Se necesita ingresar un apellido para crear una cuenta."),
-    email: yup.string().email("El mail no es valido, revisa los datos.").required("Se necesita ingresar un email para registrate."),
     password: yup.string().min(6, "El Password debe tener al menos 6 caracteres.").required("Se necesita ingresa su contraseña para ingresar al Panel de Control."),
 }).required();
 
