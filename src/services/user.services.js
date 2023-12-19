@@ -183,7 +183,7 @@ async function cambiarClave(code, password){
 }
 
 async function createUserAdmin(name, surname, empresa, email, password) {
-    return fetch(`https://back-public.vercel.app/api/usuarios/admin`, {
+    return fetch(`https://back-public.vercel.app/api/usuario-admin`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
