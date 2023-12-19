@@ -16,6 +16,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const schema = yup.object({
     name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
     surname: yup.string().required("Se necesita ingresar un apellido para crear una cuenta."),
+    email: yup.string().email("El mail no es valido, revisa los datos.").required("Se necesita ingresar un email para registrate."),
     password: yup.string().min(6, "El Password debe tener al menos 6 caracteres.").required("Se necesita ingresa su contraseña para ingresar al Panel de Control."),
 }).required();
 
@@ -113,6 +114,11 @@ function createAdmin() {
                             <input id='surname' type="text" name="apellido" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''} {...register("surname")}></input>
                             {
                                 errors.surname?.message ? <p className='errorYup'>{errors.surname?.message}</p> : ''
+                            }
+                            <label htmlFor='email' className='left'>Email</label>
+                            <input id='email' type="text" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''} value={email ? email : ""}  {...register("email")} disabled></input>
+                            {
+                                errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
                             }
                             <label htmlFor='password' className='left'>Contraseña</label>
                             <input id='password' type={passwordShown ? "text" : "password"} name="password" placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
