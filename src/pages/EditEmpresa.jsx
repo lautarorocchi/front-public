@@ -11,7 +11,7 @@ function EditEmpresa() {
                 <div>
                     <hgroup>
                         <h2>Edíta tu empresa</h2>
-                        <h3><div>Edíta un empresa, </div>¿No querias editar tu empresa? Volve al <Link to="/admin"><u>Panel de control</u></Link>.</h3>
+                        <h3>Edíta un empresa, ¿No querés editar tu empresa? Volve al <Link to="/admin"><u>Panel de control</u></Link>.</h3>
                     </hgroup>
                 </div>
             </article>

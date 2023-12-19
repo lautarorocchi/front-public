@@ -51,7 +51,7 @@ function Recover() {
                     }
                     <hgroup>
                         <h2>Recuperar contraseña</h2>
-                        <p className="message">Ingresá el email de tu cuenta para reestablecer la contraseña.</p>
+                        <p className="message">Ingresá el email de tu cuenta para reestablecer la contraseña. ¿No querés reestablecer tu contraseña? Volve al <Link to="/login"><u>Inicio de sesión</u></Link></p>
                     </hgroup>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className='left' htmlFor='email'>Email</label>
