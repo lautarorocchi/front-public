@@ -87,9 +87,8 @@ function Login({ onLogin }) {
             }
             <hgroup>
               <h2>Inicia sesión</h2>
-              <p>¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
+              <p><span className='span'>¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></span>¿Querés crear una empresa? <Link to="/empresa/crear"><u>Creá una empresa</u></Link></p>
             </hgroup>
-            <p className='linkeado'>¿Querés crear una empresa? <Link to="/empresa/crear"><u>Creá una empresa</u></Link></p>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left' htmlFor="email">Email</label>
               <input id='email' type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
