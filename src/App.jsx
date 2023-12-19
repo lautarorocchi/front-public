@@ -92,7 +92,7 @@ function App() {
           <Route path="/registro" element={<RutaAutenticada esAutenticado={esAutenticado} element={<Register />} />} />
           <Route path="/registro-admin" element={<RutaAutenticada esAutenticado={esAutenticado} element={<CreateAdmin />} />} />
           <Route path="/empresa/crear" element={<RutaAutenticada esAutenticado={esAutenticado} element={<CreateEmpresa />} />} />
-          <Route path="/empresa/editar" element={<RutaAutenticada esAutenticado={esAutenticado} element={<EditEmpresa />} />} />
+          <Route path="/empresa/editar" element={<RutaPrivada esAutenticado={esAutenticado} element={<EditEmpresa />} />} />
           <Route path="/admin" element={<RutaPrivada esAutenticado={esAutenticado} element={<Admin />} />} />
           <Route path="/producto/crear" element={<RutaPrivada esAutenticado={esAutenticado} element={<Create />} />} />
           <Route path="/producto/:id" element={<RutaPrivada esAutenticado={esAutenticado} element={<ProductDetail />} />} />
