@@ -215,7 +215,7 @@ function Discover() {
                 (empresita._id === empresa) ? "" :
                   <article key={index}>
                     <hgroup>
-                      <h4>{empresita.name}</h4>
+                      <h4>{empresita.name === true ? empresita.name : "No hay empresas registradas"}</h4>
                       <h5>Esta empresa se encuentra registrada en la categoría "Todas". Para más información, utilizá el filtro de búsqueda.</h5>
                     </hgroup>
                     <ul>
@@ -225,14 +225,7 @@ function Discover() {
                     </ul>
                     <button className='color-especial'><a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a></button>
                   </article>
-              )) : <article className='mt-1 mb-1'>
-              <div className='grid'>
-                <hgroup>
-                  <h2>No hay empresas agregadas a la aplicación</h2>
-                </hgroup>
-              </div>
-              <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear una empresa</Link>
-            </article>
+              )) : ""
             }
 
             {(estadoRubros) ?
@@ -250,14 +243,7 @@ function Discover() {
                     </ul>
                     <button className='color-especial'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
                   </article>
-              )) : <article className='mt-1 mb-1'>
-              <div className='grid'>
-                <hgroup>
-                  <h2>No hay empresas que sean de tu mismo tipo de categoría juridica agregadas a la aplicación</h2>
-                </hgroup>
-              </div>
-              <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear una empresa</Link>
-            </article>
+              )) : ""
             }
 
             {(estadoSubrubros) ?
@@ -275,14 +261,7 @@ function Discover() {
                     </ul>
                     <button className='color-especial'><a href={"mailto:" + subrubrinAsociado.email} className='mailto'>Enviar mail</a></button>
                   </article>
-              )) : <article className='mt-1 mb-1'>
-              <div className='grid'>
-                <hgroup>
-                  <h2>No hay empresas que sean de tu mismo rubro agregadas a la aplicación</h2>
-                </hgroup>
-              </div>
-              <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear una empresa</Link>
-            </article>
+              )) : ""
             }
 
           </article>
