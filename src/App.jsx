@@ -22,6 +22,7 @@ import Validator from './pages/Validator'
 import Recover from './pages/Recover'
 import ValidateCode from './pages/ValidateCode'
 import ResetPassword from './pages/ResetPassword'
+import CreateAdmin from './pages/CreateAdmin'
 
 function RutaPrivada({ esAutenticado, element, ...props }) {
   return esAutenticado ? element : <Navigate to={'/login'} />;
@@ -88,6 +89,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<RutaAutenticada esAutenticado={esAutenticado} element={<Login onLogin={onLogin}/>}/>} />
           <Route path="/registro" element={<RutaAutenticada esAutenticado={esAutenticado} element={<Register />} />} />
+          <Route path="/registro-admin" element={<RutaAutenticada esAutenticado={esAutenticado} element={<CreateAdmin />} />} />
           <Route path="/empresa/crear" element={<RutaAutenticada esAutenticado={esAutenticado} element={<CreateEmpresa />} />} />
           <Route path="/admin" element={<RutaPrivada esAutenticado={esAutenticado} element={<Admin />} />} />
           <Route path="/producto/crear" element={<RutaPrivada esAutenticado={esAutenticado} element={<Create />} />} />
