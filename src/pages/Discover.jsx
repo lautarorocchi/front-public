@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import {
-  Link, useNavigate, useLocation
+  Link, useNavigate, useLocation 
 } from "react-router-dom";
 import Loading from '../components/Loading';
 import * as EmpresaServices from '../services/empresas.services.js'
@@ -30,13 +30,13 @@ function Discover() {
 
   const empresa = localStorage.getItem('empresa');
 
-  useEffect(() => {
-    if (location.state != null) {
-      const { login } = location.state;
+  useEffect(()=>{
+    if(location.state != null){
+      const{login} = location.state;
       setAlertMensaje(login);
       setVisibilidad(true);
     }
-  }, [])
+  }, [])  
 
   useEffect(() => {
     setLoading(true)
@@ -150,24 +150,24 @@ function Discover() {
       })
   }
 
-  function handleClose() {
+  function handleClose(){
     setVisibilidad(false);
   }
 
   return (
     <div className='container'>
-      {loading ? (<article className='centered'><Loading /></article>
+    {loading ? (<article className='centered'><Loading/></article>
       ) : certificarAcceso ? (
         <article className='centered pb-2'>
-          <div>
-            {visibilidad ?
-              <div className="alertBuena">
-                <span className="closebtn" onClick={handleClose}>&times;</span>
-                <ul className='white listNone'>
-                  <li>{alertMensaje}</li>
-                </ul>
-              </div> : ''
-            }
+        <div>
+          {visibilidad ?
+                <div className="alertBuena">
+                  <span className="closebtn" onClick={handleClose}>&times;</span>
+                  <ul className='white listNone'>
+                    <li>{alertMensaje}</li>
+                  </ul>
+                </div> : ''
+              }
           </div>
           <hgroup>
             <h2>Descubrí más empresas</h2>
@@ -210,38 +210,23 @@ function Discover() {
               </ul>
             </nav>
 
-            {(empresas.length === 0) ? (
-              <article>
-                <h2>No hay empresas registradas en la aplicación.</h2>
-              </article>
-            ) : (
-              (estadoEmpresa && empresas.filter(empresita => empresita._id !== empresa).length > 0) ? (
-                empresas
-                  .filter(empresita => empresita.name.toLowerCase().includes(query.toLowerCase()))
-                  .filter(empresita => empresita._id !== empresa) // Filtra la empresa actual
-                  .map((empresita, index) => (
-                    <article key={index}>
-                      <hgroup>
-                        <h4>{empresita.name}</h4>
-                        <h5>Esta empresa se encuentra registrada en la categoría "Todas". Para más información, utiliza el filtro de búsqueda.</h5>
-                      </hgroup>
-                      <ul>
-                        <li>Descripción: {empresita.descripcion}</li>
-                        <li>Email: {empresita.email}</li>
-                        <li>Localidad: {empresita.localidad}</li>
-                      </ul>
-                      <button className='color-especial'>
-                        <a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a>
-                      </button>
-                    </article>
-                  ))
-              ) : (
-                <article className='mt-1 mb-1'>
-                <h3>No hay otras empresas registradas en la aplicación.</h3>
-                <p>La aplicación no encuentra otra empresa registrada en el sistema.</p>
-              </article>
-              )
-            )}
+            {(estadoEmpresa) ?
+              (empresas.filter(empresita => empresita.name.toLowerCase().includes(query.toLowerCase())).map((empresita, index) =>
+                (empresita._id === empresa) ? "" :
+                  <article key={index}>
+                    <hgroup>
+                      <h4>{empresita.name}</h4>
+                      <h5>Esta empresa se encuentra registrada en la categoría "Todas". Para más información, utilizá el filtro de búsqueda.</h5>
+                    </hgroup>
+                    <ul>
+                      <li>Descripción: {empresita.descripcion}</li>
+                      <li>Email: {empresita.email}</li>
+                      <li>Localidad: {empresita.localidad}</li>
+                    </ul>
+                    <button className='color-especial'><a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a></button>
+                  </article>
+              )) : ""
+            }
 
             {(estadoRubros) ?
               (rubrosAsociados.filter(empresasAsociadasRubro => empresasAsociadasRubro.name.toLowerCase().includes(query.toLowerCase())).map((empresasAsociadasRubro, index) =>
@@ -280,7 +265,7 @@ function Discover() {
             }
 
           </article>
-        </article>) : (
+        </article> ) : ( 
         <Access></Access>)}
     </div>
   )
