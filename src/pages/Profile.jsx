@@ -94,6 +94,7 @@ function Profile() {
                 <div>
                 <h5>Mis datos de Perfil:</h5>
                 <ul className='listanone'>
+                  <li><strong>Rol:</strong> {usuario.role === "admin" ? "Administrador": "Usuario estándar"} </li>
                   <li><strong>Nombre:</strong> {usuario.name} </li>
                   <li><strong>Apellido:</strong> {usuario.surname} </li>
                   <li><strong>Empresa Asociada:</strong> {empresaNombre}</li>
