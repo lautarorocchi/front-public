@@ -116,10 +116,7 @@ function createAdmin() {
                                 errors.surname?.message ? <p className='errorYup'>{errors.surname?.message}</p> : ''
                             }
                             <label htmlFor='email' className='left'>Email</label>
-                            <input id='email' type="text" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''} value={email ? email : ""}  {...register("email")} disabled></input>
-                            {
-                                errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
-                            }
+                            <input id='email' type="text" placeholder="Email" aria-label="Login" value={email ? email : ""}  disabled></input>
                             <label htmlFor='password' className='left'>Contraseña</label>
                             <input id='password' type={passwordShown ? "text" : "password"} name="password" placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>
                             <FontAwesomeIcon icon={passwordShown ? faEyeSlash : faEye} onClick={togglePassword} className="ojoPassword" />
