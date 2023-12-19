@@ -50,7 +50,7 @@ function createAdmin() {
     /*Funcion creacion del usuario*/
 
     function submitUsuario(data) {
-        userServices.createUser(data.name, data.surname, empresa, data.email, data.password)
+        userServices.createUserAdmin(data.name, data.surname, empresa, data.email, data.password)
             .then(data => {
                 if (data) {
                     navigate('/login', { state: { admin: "¡Se ha registrado tu usuario administador con éxito! Ya podés iniciar sesión." } });

@@ -182,6 +182,24 @@ async function cambiarClave(code, password){
     })
 }
 
+async function createUserAdmin(name, surname, empresa, email, password) {
+    return fetch(`https://back-public.vercel.app/api/usuarios/admin`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name , surname, empresa, email, password })
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+            else {
+                throw new Error('Error al crear un nuevo usuario')
+            }
+        })
+}
+
 export {
     login,
     createUser,
@@ -192,5 +210,6 @@ export {
     validarUsuario,
     enviarCodigo,
     validarCodigo,
-    cambiarClave
+    cambiarClave,
+    createUserAdmin
 }
