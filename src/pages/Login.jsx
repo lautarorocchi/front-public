@@ -28,13 +28,16 @@ function Login({ onLogin }) {
 
   useEffect(() => {
     if (location.state != null) {
-      const { register, change } = location.state;
+      const { register, change, admin } = location.state;
 
       if (register) {
         setAlert(register);
         setVisibility2(true);
       } else if (change) {
         setAlert(change);
+        setVisibility2(true);
+      } else if(admin){
+        setAlert(admin);
         setVisibility2(true);
       }
     }
