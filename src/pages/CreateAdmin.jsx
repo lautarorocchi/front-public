@@ -41,7 +41,7 @@ function createAdmin() {
     useEffect(() => {
         if (location.state != null) {
             const { admin } = location.state;
-            setAlert(admin);
+            setAlertMensaje(admin);
             setVisibility(true);
         }
     }, [location.state]);
