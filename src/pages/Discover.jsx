@@ -215,7 +215,7 @@ function Discover() {
                 (empresita._id === empresa) ? "" :
                   <article key={index}>
                     <hgroup>
-                      <h4>{empresita.name === true ? empresita.name : "No hay empresas registradas"}</h4>
+                      <h4>{empresita.name}</h4>
                       <h5>Esta empresa se encuentra registrada en la categoría "Todas". Para más información, utilizá el filtro de búsqueda.</h5>
                     </hgroup>
                     <ul>
