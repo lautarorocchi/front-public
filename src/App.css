@@ -381,3 +381,8 @@ textarea {
 .content{
   min-height: calc(110vh - 70px);
 }
+
+.linkeado{
+  font-weight: 200;
+  margin-top: 0;
+}
