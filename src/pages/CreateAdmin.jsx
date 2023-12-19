@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
-    Link
+    Link, useLocation
 } from "react-router-dom";
 import * as userServices from '../services/user.services.js'
 import * as EmpresaServices from '../services/empresas.services.js'
@@ -24,7 +24,8 @@ const schema = yup.object({
 /*PONER EMPRESAS , Y SI NO ENVIAR A UN LINK PARA AGREGAR EMPRESA*/
 
 function createAdmin() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
     const empresa = localStorage.getItem('empresa');
     const [passwordShown, setPasswordShown] = useState(false);
     const [alertMensaje, setAlertMensaje] = useState([]);
