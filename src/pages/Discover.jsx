@@ -16,6 +16,7 @@ function Discover() {
   const [visibilidad, setVisibilidad] = useState(false);
   const [alertMensaje, setAlertMensaje] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [usuario, setUsuario] = useState(null);
 
   const [empresas, setEmpresas] = useState([]);
   const [miEmpresa, setMiEmpresa] = useState(null)
@@ -44,6 +45,21 @@ function Discover() {
       setLoading(false)
     }, 1000)
   }, []);
+
+  useEffect(() => {
+    UserServices.findById(id)
+      .then(data => {
+        if (data) {
+          setUsuario(data);
+        }
+        else {
+          navigate('/404')
+        }
+      })
+      .catch(err => {
+        navigate('/404')
+      })
+  }, [id])
 
   useEffect(() => {
     validarAcceso(id);
@@ -184,6 +200,7 @@ function Discover() {
                   <li><strong>Localidad:</strong> {miEmpresa.localidad}.</li>
                   <li><strong>Tipo de empresa:</strong> {miRubro}.</li>
                   <li><strong>Rubro:</strong> {miSubrubro}.</li>
+                  {(usuario.role === "admin") ? <Link to={`/empresa/editar`} role="button" className='mr-3 color-especial'>Editar empresa</Link> :""}
                 </ul>
                 : <Loading />}
             </article>
