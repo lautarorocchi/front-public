@@ -211,36 +211,39 @@ function Discover() {
             </nav>
 
             {(empresas.length === 0) ? (
-  <article>
-    <h2>No hay empresas registradas en la aplicación.</h2>
-  </article>
-) : (
-  (estadoEmpresa && empresas.filter(empresita => empresita._id !== empresa).length > 0) ? (
-    empresas
-      .filter(empresita => empresita.name.toLowerCase().includes(query.toLowerCase()))
-      .filter(empresita => empresita._id !== empresa) // Filtra la empresa actual
-      .map((empresita, index) => (
-        <article key={index}>
-          <hgroup>
-            <h4>{empresita.name}</h4>
-            <h5>Esta empresa se encuentra registrada en la categoría "Todas". Para más información, utiliza el filtro de búsqueda.</h5>
-          </hgroup>
-          <ul>
-            <li>Descripción: {empresita.descripcion}</li>
-            <li>Email: {empresita.email}</li>
-            <li>Localidad: {empresita.localidad}</li>
-          </ul>
-          <button className='color-especial'>
-            <a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a>
-          </button>
-        </article>
-      ))
-  ) : (
-    <article>
-      <h2>No hay otras empresas registradas en la aplicación.</h2>
-    </article>
-  )
-)}
+              <article>
+                <h2>No hay empresas registradas en la aplicación.</h2>
+              </article>
+            ) : (
+              (estadoEmpresa && empresas.filter(empresita => empresita._id !== empresa).length > 0) ? (
+                empresas
+                  .filter(empresita => empresita.name.toLowerCase().includes(query.toLowerCase()))
+                  .filter(empresita => empresita._id !== empresa) // Filtra la empresa actual
+                  .map((empresita, index) => (
+                    <article key={index}>
+                      <hgroup>
+                        <h4>{empresita.name}</h4>
+                        <h5>Esta empresa se encuentra registrada en la categoría "Todas". Para más información, utiliza el filtro de búsqueda.</h5>
+                      </hgroup>
+                      <ul>
+                        <li>Descripción: {empresita.descripcion}</li>
+                        <li>Email: {empresita.email}</li>
+                        <li>Localidad: {empresita.localidad}</li>
+                      </ul>
+                      <button className='color-especial'>
+                        <a href={"mailto:" + empresita.email} className='mailto'>Enviar mail</a>
+                      </button>
+                    </article>
+                  ))
+              ) : (
+                <article className='mt-1 mb-1'>
+                <div className='grid'>
+                <h2>No hay otras empresas registradas en la aplicación.</h2>
+                </div>
+                <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear empresa</Link>
+              </article>
+              )
+            )}
 
             {(estadoRubros) ?
               (rubrosAsociados.filter(empresasAsociadasRubro => empresasAsociadasRubro.name.toLowerCase().includes(query.toLowerCase())).map((empresasAsociadasRubro, index) =>
