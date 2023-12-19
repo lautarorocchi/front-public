@@ -85,7 +85,13 @@ function Login({ onLogin }) {
                 </ul>
               </div> : ''
             }
-            <h2>Inicia sesión</h2>
+            <hgroup>
+              <h2>Inicia sesión</h2>
+              <p>¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
+            </hgroup>
+            <hgroup>
+            <p>¿Querés crear una empresa? <Link to="/empresa/crear"><u>Creá una empresa</u></Link></p>
+            </hgroup>
             <form onSubmit={handleSubmit(onSubmit)}>
               <label className='left' htmlFor="email">Email</label>
               <input id='email' type="text" placeholder="Email" aria-label="email" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
@@ -99,8 +105,6 @@ function Login({ onLogin }) {
                 errors.password?.message ? <p className='errorYup'>{errors.password?.message}</p> : ''
               }
               <fieldset>
-                <p>¿No estás registrado? <Link to="/registro"><u>Creá una cuenta</u></Link></p>
-                <p>¿Querés crear una empresa? <Link to="/empresa/crear"><u>Creá una empresa</u></Link></p>
                 <p className="message">¿Olvidaste tu contraseña? <Link to="/recuperar"><u>Recuperar contraseña</u></Link></p>
               </fieldset>
               <button type="submit" className="contrast color-especial" role="button">Inicia sesión</button>
