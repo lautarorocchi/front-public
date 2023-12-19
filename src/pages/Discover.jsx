@@ -228,7 +228,7 @@ function Discover() {
               )) : <article className='mt-1 mb-1'>
               <div className='grid'>
                 <hgroup>
-                  <h3>No hay empresas agregadas a la aplicación</h3>
+                  <h2>No hay empresas agregadas a la aplicación</h2>
                 </hgroup>
               </div>
               <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear una empresa</Link>
@@ -250,7 +250,14 @@ function Discover() {
                     </ul>
                     <button className='color-especial'><a href={"mailto:" + empresasAsociadasRubro.email} className='mailto'>Enviar mail</a></button>
                   </article>
-              )) : ""
+              )) : <article className='mt-1 mb-1'>
+              <div className='grid'>
+                <hgroup>
+                  <h2>No hay empresas que sean de tu mismo tipo de categoría juridica agregadas a la aplicación</h2>
+                </hgroup>
+              </div>
+              <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear una empresa</Link>
+            </article>
             }
 
             {(estadoSubrubros) ?
@@ -268,7 +275,14 @@ function Discover() {
                     </ul>
                     <button className='color-especial'><a href={"mailto:" + subrubrinAsociado.email} className='mailto'>Enviar mail</a></button>
                   </article>
-              )) : ""
+              )) : <article className='mt-1 mb-1'>
+              <div className='grid'>
+                <hgroup>
+                  <h2>No hay empresas que sean de tu mismo rubro agregadas a la aplicación</h2>
+                </hgroup>
+              </div>
+              <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear una empresa</Link>
+            </article>
             }
 
           </article>
