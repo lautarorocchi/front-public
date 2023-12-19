@@ -238,7 +238,6 @@ function Discover() {
               ) : (
                 <article className='mt-1 mb-1'>
                 <h3>No hay otras empresas registradas en la aplicación.</h3>
-                <Link to={`/empresa/crear`} role="button" className='color-especial'>Crear empresa</Link>
               </article>
               )
             )}
