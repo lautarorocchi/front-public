@@ -16,7 +16,6 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const schema = yup.object({
     name: yup.string().required("Se necesita ingresar un nombre para crear una cuenta."),
     surname: yup.string().required("Se necesita ingresar un apellido para crear una cuenta."),
-    email: yup.string().email("El mail no es valido, revisa los datos.").required("Se necesita ingresar un Mail para ingresar al Panel de Control."),
     password: yup.string().min(6, "El Password debe tener al menos 6 caracteres.").required("Se necesita ingresa su contraseña para ingresar al Panel de Control."),
 }).required();
 
@@ -27,6 +26,7 @@ function createAdmin() {
     const navigate = useNavigate();
     const location = useLocation();
     const empresa = localStorage.getItem('empresa');
+    const email = localStorage.getItem('email');
     const [passwordShown, setPasswordShown] = useState(false);
     const [alertMensaje, setAlertMensaje] = useState([]);
     const [visibility, setVisibility] = useState(false);
@@ -51,7 +51,7 @@ function createAdmin() {
     /*Funcion creacion del usuario*/
 
     function submitUsuario(data) {
-        userServices.createUserAdmin(data.name, data.surname, empresa, data.email, data.password)
+        userServices.createUserAdmin(data.name, data.surname, empresa, email, data.password)
             .then(data => {
                 if (data) {
                     navigate('/login', { state: { admin: "¡Se ha registrado tu usuario administador con éxito! Ya podés iniciar sesión." } });
@@ -113,11 +113,6 @@ function createAdmin() {
                             <input id='surname' type="text" name="apellido" placeholder="Apellido" aria-label="apellido" className={errors.surname?.message ? 'redBorder' : ''} {...register("surname")}></input>
                             {
                                 errors.surname?.message ? <p className='errorYup'>{errors.surname?.message}</p> : ''
-                            }
-                            <label htmlFor='email' className='left'>Email</label>
-                            <input id='email' type="text" name="email" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''}  {...register("email")}></input>
-                            {
-                                errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
                             }
                             <label htmlFor='password' className='left'>Contraseña</label>
                             <input id='password' type={passwordShown ? "text" : "password"} name="password" placeholder="Contraseña" aria-label="Password" className={errors.password?.message ? 'redBorder' : ''} {...register("password")}></input>

@@ -31,8 +31,9 @@ function CreateEmpresa() {
     EmpresaServices.crearEmpresa(data.name, data.descripcion, data.email, data.file[0].name, data.localidad, data.rubro, data.subrubro)
       .then(data => {
         if (data) {
-          localStorage.setItem('empresa', data._id)
-          navigate('/registro-admin', { state: { admin: "Se ha registrado tu empresa con éxito, para poder iniciar sesión creá un usuario administrador." } })
+          localStorage.setItem('empresa', data._id);
+          localStorage.setItem('email', data.email);
+          navigate('/registro-admin', { state: { admin: "Se ha registrado tu empresa con éxito, creá un usuario administrador para poder iniciar sesión ." } })
         }
         else {
           navigate('/404')
