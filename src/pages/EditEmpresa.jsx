@@ -212,7 +212,7 @@ function EditEmpresa() {
                             <input type="file" id='file' accept='image/jpeg' required></input>
                         </label>
 
-                        <button type="submit" className="contrast">Registrarte</button>
+                        <button type="submit" className="contrast">Editar empresa</button>
                     </form>
                 </div>
             </article>

@@ -120,7 +120,7 @@ function CreateEmpresa() {
                 <input type="file" id='file' accept='image/jpeg' {...register("file")} required></input>
               </label>
 
-              <button type="submit" className="contrast">Registrarte</button>
+              <button type="submit" className="contrast">Registrar empresa</button>
             </form>
           </div>
         </article>
