@@ -37,7 +37,7 @@ function Discover() {
       if (login) {
         setAlertMensaje(login);
         setVisibilidad(true);
-      } else if (change) {
+      } else if (editada) {
         setAlertMensaje(editada);
         setVisibilidad(true);
       }
