@@ -16,10 +16,10 @@ async function find() {
     })
 }
 
-async function crearEmpresa(name, descripcion, email, img, localidad, rubro, subrubro){
+async function crearEmpresa(name, descripcion, email, localidad, rubro, subrubro){
     return fetch(`https://back-public.vercel.app/api/empresas`, {
         method: 'POST',
-        body: JSON.stringify({name, descripcion, email, img, localidad, rubro, subrubro}),
+        body: JSON.stringify({name, descripcion, email, localidad, rubro, subrubro}),
         headers: {
             'Content-Type': 'application/json',
         },
@@ -143,10 +143,10 @@ async function asociadasSubrubros(id) {
     })
 }
 
-async function editarEmpresa(name, descripcion, email, img, localidad, rubro, subrubro){
+async function editarEmpresa(name, descripcion, email, localidad, rubro, subrubro){
     return fetch(`https://back-public.vercel.app/api/empresas/${id}`, {
         method: 'PUT',
-        body: JSON.stringify({name, descripcion, email, img, localidad, rubro, subrubro}),
+        body: JSON.stringify({name, descripcion, email, localidad, rubro, subrubro}),
         headers: {
             'Content-Type': 'application/json',
         },

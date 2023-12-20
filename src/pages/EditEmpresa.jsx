@@ -45,7 +45,7 @@ function EditEmpresa() {
     const empresa = localStorage.getItem('empresa');
 
     const onSubmit = async (data) => {
-        EmpresaServices.editarEmpresaEmpresa(data.name, data.descripcion, data.email, data.file[0].name, data.localidad, data.rubro, data.subrubro)
+        EmpresaServices.editarEmpresaEmpresa(data.name, data.descripcion, data.email, data.localidad, data.rubro, data.subrubro)
           .then(data => {
             if (data) {
               navigate('/descubre', { state: { admin: "Se ha editado tu empresa con éxito." } })
@@ -208,9 +208,6 @@ function EditEmpresa() {
                         {
                             errors.subrubro?.message ? <p className='errorYup'>{errors.subrubro?.message}</p> : ''
                         }
-                        <label htmlFor="file">Imagen
-                            <input type="file" id='file' accept='image/jpeg' required></input>
-                        </label>
 
                         <button type="submit" className="contrast">Editar empresa</button>
                     </form>

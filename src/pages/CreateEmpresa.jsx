@@ -28,7 +28,7 @@ function CreateEmpresa() {
   });
 
   const onSubmit = async (data) => {
-    EmpresaServices.crearEmpresa(data.name, data.descripcion, data.email, data.file[0].name, data.localidad, data.rubro, data.subrubro)
+    EmpresaServices.crearEmpresa(data.name, data.descripcion, data.email, data.localidad, data.rubro, data.subrubro)
       .then(data => {
         if (data) {
           localStorage.setItem('empresa', data._id);
@@ -116,9 +116,6 @@ function CreateEmpresa() {
               {
                 errors.subrubro?.message ? <p className='errorYup'>{errors.subrubro?.message}</p> : ''
               }
-              <label htmlFor="file">Imagen
-                <input type="file" id='file' accept='image/jpeg' {...register("file")} required></input>
-              </label>
 
               <button type="submit" className="contrast">Registrar empresa</button>
             </form>
