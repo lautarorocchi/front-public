@@ -143,6 +143,24 @@ async function asociadasSubrubros(id) {
     })
 }
 
+async function editarEmpresa(name, descripcion, email, img, localidad, rubro, subrubro){
+    return fetch(`https://back-public.vercel.app/api/empresas/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({name, descripcion, email, img, localidad, rubro, subrubro}),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        }
+        else {
+            throw new Error('Error al crear la Empresa')
+        }
+    })
+}
+
 export{
     find,
     crearEmpresa,
@@ -151,5 +169,6 @@ export{
     findByRubro,
     findBySubrubro,
     asociadasRubros,
-    asociadasSubrubros
+    asociadasSubrubros,
+    editarEmpresa
 }
