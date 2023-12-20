@@ -209,7 +209,7 @@ function EditEmpresa() {
                             errors.subrubro?.message ? <p className='errorYup'>{errors.subrubro?.message}</p> : ''
                         }
                         <label htmlFor="file">Imagen
-                            <input type="file" id='file' accept='image/jpeg' {...register("file")} required></input>
+                            <input type="file" id='file' accept='image/jpeg' required></input>
                         </label>
 
                         <button type="submit" className="contrast">Registrarte</button>
