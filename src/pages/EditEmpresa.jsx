@@ -39,7 +39,6 @@ function EditEmpresa() {
             .then(data => {
                 if (data) {
                     setMiEmpresa(data);
-                    agregarEmpresas();
                     if (data.rubro) {
                         EmpresaServices.findByRubro(data.rubro)
                             .then(data => {
