@@ -48,7 +48,7 @@ function EditEmpresa() {
         EmpresaServices.editarEmpresa(empresa, data.name, data.descripcion, data.email, data.localidad, data.rubro, data.subrubro)
           .then(data => {
             if (data) {
-              navigate('/descubre', { state: { admin: "Se ha editado tu empresa con éxito." } })
+              navigate('/descubre', { state: { editada: "Se ha editado tu empresa con éxito." } })
             }
             else {
               navigate('/404')

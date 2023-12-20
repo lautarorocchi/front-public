@@ -33,9 +33,14 @@ function Discover() {
 
   useEffect(()=>{
     if(location.state != null){
-      const{login} = location.state;
-      setAlertMensaje(login);
-      setVisibilidad(true);
+      const{login, editada} = location.state;
+      if (login) {
+        setAlertMensaje(login);
+        setVisibilidad(true);
+      } else if (change) {
+        setAlertMensaje(editada);
+        setVisibilidad(true);
+      }
     }
   }, [])  
 
