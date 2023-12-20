@@ -149,6 +149,7 @@ async function editarEmpresa(id, name, descripcion, email, localidad, rubro, sub
         body: JSON.stringify({name, descripcion, email, localidad, rubro, subrubro}),
         headers: {
             'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
         },
     })
     .then(response => {
