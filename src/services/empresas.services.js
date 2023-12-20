@@ -143,7 +143,7 @@ async function asociadasSubrubros(id) {
     })
 }
 
-async function editarEmpresa(name, descripcion, email, localidad, rubro, subrubro){
+async function editarEmpresa(id, name, descripcion, email, localidad, rubro, subrubro){
     return fetch(`https://back-public.vercel.app/api/empresas/${id}`, {
         method: 'PUT',
         body: JSON.stringify({name, descripcion, email, localidad, rubro, subrubro}),
