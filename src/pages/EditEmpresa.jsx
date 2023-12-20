@@ -6,9 +6,27 @@ import Loading from '../components/Loading';
 import * as EmpresaServices from '../services/empresas.services.js'
 import * as UserServices from '../services/user.services.js'
 import Access from '../components/Access.jsx';
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup'
+
+const schema = yup.object({
+  name: yup.string().required("Se necesita ingresar un nombre para crear una empresa."),
+  descripcion: yup.string().required("Se necesita ingresar una descripción para crear una empresa."),
+  email: yup.string().email("El mail no es valido, revisa los datos.").required("Se necesita ingresar un Mail para ingresar al Panel de Control."),
+  localidad: yup.string().required("Se necesita ingresar una localidad para crear una empresa."),
+  rubro: yup.string().required("Se necesita ingresar el rubro de la empresa para crearla."),
+  subrubro: yup.string().required("Se necesita ingresar el subrubro de la empresa para crearla."),
+}).required();
 
 
 function EditEmpresa() {
+    const [rubros, setRubros] = useState([]);
+    const [subrubros, setSubrubros] = useState([]);
+    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+      });
+
     const id = localStorage.getItem('user');
     const [certificarAcceso, setCertificarAcceso] = useState(false);
     const navigate = useNavigate()
@@ -32,6 +50,21 @@ function EditEmpresa() {
         }, 1000)
     }, []);
 
+    useEffect(() => {
+        EmpresaServices.findTipos()
+          .then(data => {
+            if (data) {
+              setRubros(data[0].rubro)
+              setSubrubros(data[0].subrubros)
+            }
+            else {
+              navigate('/404')
+            }
+          })
+          .catch(err => {
+            navigate('/404')
+          })
+      }, [])
 
     useEffect(() => {
         validarAcceso(id);
