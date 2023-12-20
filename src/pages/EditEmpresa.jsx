@@ -23,7 +23,7 @@ const schema = yup.object({
 function EditEmpresa() {
     const [rubros, setRubros] = useState([]);
     const [subrubros, setSubrubros] = useState([]);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
 
