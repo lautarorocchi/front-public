@@ -93,6 +93,8 @@ function EditEmpresa() {
                     defaultValues.descripcion = data.descripcion;
                     defaultValues.email = data.email;
                     defaultValues.localidad = data.localidad;
+                    defaultValues.rubro = data.rubro;
+                    defaultValues.subrubro = data.subrubro;
                     reset({ ...defaultValues });
                     if (data.rubro) {
                         EmpresaServices.findByRubro(data.rubro)
