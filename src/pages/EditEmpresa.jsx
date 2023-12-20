@@ -45,7 +45,7 @@ function EditEmpresa() {
     const empresa = localStorage.getItem('empresa');
 
     const onSubmit = async (data) => {
-        EmpresaServices.editarEmpresaEmpresa(data.name, data.descripcion, data.email, data.localidad, data.rubro, data.subrubro)
+        EmpresaServices.editarEmpresa(data.name, data.descripcion, data.email, data.localidad, data.rubro, data.subrubro)
           .then(data => {
             if (data) {
               navigate('/descubre', { state: { admin: "Se ha editado tu empresa con éxito." } })
