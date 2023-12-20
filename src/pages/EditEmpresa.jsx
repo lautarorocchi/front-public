@@ -90,7 +90,7 @@ function EditEmpresa() {
                 if (data) {
                     setMiEmpresa(data);
                     defaultValues.name = data.name;
-                    defaultValues.descripcion = data.description;
+                    defaultValues.descripcion = data.descripcion;
                     defaultValues.email = data.email;
                     defaultValues.localidad = data.localidad;
                     reset({ ...defaultValues });
@@ -180,7 +180,7 @@ function EditEmpresa() {
                             errors.descripcion?.message ? <p className='errorYup'>{errors.descripcion?.message}</p> : ''
                         }
                         <label htmlFor='email' className='left'>Email</label>
-                        <input type="text" id='email' name="email" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''} {...register("email")}></input>
+                        <input type="text" id='email' name="email" placeholder="Email" aria-label="Login" className={errors.email?.message ? 'redBorder' : ''} {...register("email")} disabled></input>
                         {
                             errors.email?.message ? <p className='errorYup'>{errors.email?.message}</p> : ''
                         }
