@@ -1,6 +1,6 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import {
-  Link, useNavigate, useLocation 
+    Link, useNavigate, useLocation
 } from "react-router-dom";
 import Loading from '../components/Loading';
 import * as EmpresaServices from '../services/empresas.services.js'
@@ -28,71 +28,82 @@ function EditEmpresa() {
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
-          setLoading(false)
+            setLoading(false)
         }, 1000)
-      }, []);
-    
+    }, []);
+
 
     useEffect(() => {
         validarAcceso(id);
         EmpresaServices.findById(empresa)
-          .then(data => {
-            if (data) {
-              setMiEmpresa(data);
-              agregarEmpresas();
-              if (data.rubro) {
-                EmpresaServices.findByRubro(data.rubro)
-                  .then(data => {
-                    if (data) {
-                      setMiRubro(data[0].rubro[0].empresa);
+            .then(data => {
+                if (data) {
+                    setMiEmpresa(data);
+                    agregarEmpresas();
+                    if (data.rubro) {
+                        EmpresaServices.findByRubro(data.rubro)
+                            .then(data => {
+                                if (data) {
+                                    setMiRubro(data[0].rubro[0].empresa);
+                                }
+                                else {
+                                    navigate('/404')
+                                }
+                            })
                     }
-                    else {
-                      navigate('/404')
+                    if (data.subrubro) {
+                        EmpresaServices.findBySubrubro(data.subrubro)
+                            .then(data => {
+                                if (data) {
+                                    setMiSubrubro(data[0].subrubros[0].empresa);
+                                }
+                                else {
+                                    navigate('/404')
+                                }
+                            })
                     }
-                  })
-              }
-              if (data.subrubro) {
-                EmpresaServices.findBySubrubro(data.subrubro)
-                  .then(data => {
-                    if (data) {
-                      setMiSubrubro(data[0].subrubros[0].empresa);
-                    }
-                    else {
-                      navigate('/404')
-                    }
-                  })
-              }
-            }
-            else {
-              navigate('/404')
-            }
-            if (data.rubro) {
-              EmpresaServices.asociadasRubros(data.rubro)
-                .then(data => {
-                  if (data) {
-                    setRubrosAsociados(data);
-                  }
-                  else {
+                }
+                else {
                     navigate('/404')
-                  }
-                })
-            }
-            if (data.subrubro) {
-              EmpresaServices.asociadasSubrubros(data.subrubro)
-                .then(data => {
-                  if (data) {
-                    setSubrubrosAsociados(data);
-                  }
-                  else {
-                    navigate('/404')
-                  }
-                })
-            }
-          })
-          .catch(err => {
-            navigate('/404')
-          })
-      }, [id, empresa])
+                }
+                if (data.rubro) {
+                    EmpresaServices.asociadasRubros(data.rubro)
+                        .then(data => {
+                            if (data) {
+                                setRubrosAsociados(data);
+                            }
+                            else {
+                                navigate('/404')
+                            }
+                        })
+                }
+                if (data.subrubro) {
+                    EmpresaServices.asociadasSubrubros(data.subrubro)
+                        .then(data => {
+                            if (data) {
+                                setSubrubrosAsociados(data);
+                            }
+                            else {
+                                navigate('/404')
+                            }
+                        })
+                }
+            })
+            .catch(err => {
+                navigate('/404')
+            })
+    }, [id, empresa])
+
+    function validarAcceso(id) {
+        UserServices.findById(id)
+            .then(data => {
+                if (data.verified == true) {
+                    setCertificarAcceso(true)
+                } else {
+                    setCertificarAcceso(false)
+                }
+            })
+    }
 
 
     return (
