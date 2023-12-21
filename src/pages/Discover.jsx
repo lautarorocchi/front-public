@@ -205,7 +205,7 @@ function Discover() {
                 <ul key={miEmpresa.id} className='listNone'>
                   <li><strong>Nombre de la empresa:</strong> {miEmpresa.name}.</li>
                   <li><strong>Descripción:</strong> {miEmpresa.descripcion}.</li>
-                  <li><strong>Email:</strong> {miEmpresa.email}.</li>
+                  <li><strong>Email:</strong> {miEmpresa.email}</li>
                   <li><strong>Localidad:</strong> {miEmpresa.localidad}.</li>
                   <li><strong>Tipo de empresa:</strong> {miRubro}.</li>
                   <li><strong>Rubro:</strong> {miSubrubro}.</li>
