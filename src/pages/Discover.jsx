@@ -9,6 +9,7 @@ import Access from '../components/Access.jsx';
 
 function Discover() {
   const id = localStorage.getItem('user');
+  const token = localStorage.getItem('token');
   const [certificarAcceso, setCertificarAcceso] = useState(false);
   const navigate = useNavigate()
   const [query, setQuery] = useState("");
@@ -52,7 +53,6 @@ function Discover() {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
     if (token) {
       UserServices.findById(id)
         .then(data => {
