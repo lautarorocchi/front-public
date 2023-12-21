@@ -52,19 +52,25 @@ function Discover() {
   }, []);
 
   useEffect(() => {
-    UserServices.findById(id)
-      .then(data => {
-        if (data) {
-          setUsuario(data);
-        }
-        else {
-          navigate('/404')
-        }
-      })
-      .catch(err => {
-        navigate('/404')
-      })
-  }, [id])
+    const token = localStorage.getItem('user');
+    if (token) {
+      UserServices.findById(token)
+        .then(data => {
+          if (data) {
+            setUsuario(data);
+          } else {
+            navigate('/404');
+          }
+        })
+        .catch(err => {
+          navigate('/404');
+        });
+    } else {
+      navigate('/login');
+    }
+  }, [id]);
+  
+
 
   useEffect(() => {
     validarAcceso(id);
