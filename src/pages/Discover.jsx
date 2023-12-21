@@ -52,14 +52,14 @@ function Discover() {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
     if (token) {
-      UserServices.findById(token)
+      UserServices.findById(id)
         .then(data => {
-          if (data) {
+          if (data && data._id) {
             setUsuario(data);
           } else {
-            navigate('/404');
+            navigate('/login');
           }
         })
         .catch(err => {
@@ -68,10 +68,8 @@ function Discover() {
     } else {
       navigate('/login');
     }
-  }, [id]);
+  }, [id, token]);
   
-
-
   useEffect(() => {
     validarAcceso(id);
     EmpresaServices.findById(empresa)
