@@ -209,7 +209,7 @@ function Discover() {
                   <li><strong>Localidad:</strong> {miEmpresa.localidad}.</li>
                   <li><strong>Tipo de empresa:</strong> {miRubro}.</li>
                   <li><strong>Rubro:</strong> {miSubrubro}.</li>
-                  {(usuario.role === "admin") ? <Link to={`/empresa/editar`} role="button" className='mr-3 color-especial'>Editar empresa</Link> :""}
+                  <Link to={`/empresa/editar`} role="button" className='mr-3 color-especial'>Editar empresa</Link> 
                 </ul>
                 : <Loading />}
             </article>
